@@ -1,6 +1,10 @@
 {
   "generatedAt": "2026-08-10T20:01:48.453Z",
   "taskCount": 163,
+  "thresholds": {
+    "low": -15,
+    "high": 20
+  },
   "models": [
     {
       "id": "opus-5",

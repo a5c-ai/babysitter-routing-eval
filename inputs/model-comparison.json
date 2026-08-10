@@ -1,5 +1,6 @@
 {
   "outDir": "out/models/comparison",
+  "thresholds": { "low": -15, "high": 20 },
   "models": [
     {
       "id": "opus-5",

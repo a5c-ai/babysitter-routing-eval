@@ -235,7 +235,6 @@ async function runAgent(action, attempt = 0) {
 
       const codexArgs = [
         'exec',
-        '--model', model,
         '--ephemeral',
         '--ignore-user-config',
         '--ignore-rules',
@@ -243,6 +242,7 @@ async function runAgent(action, attempt = 0) {
         '--json',
         '--output-last-message', outputPath,
       ];
+      if (model) codexArgs.push('--model', model);
       if (schema) codexArgs.push('--output-schema', schemaPath);
       if (effort) codexArgs.push('-c', `model_reasoning_effort="${effort}"`);
       codexArgs.push(prompt);
@@ -270,7 +270,7 @@ async function runAgent(action, attempt = 0) {
           harness: 'codex',
           requestedModel: model,
           requestedEffort: effort,
-          actualModels: [model],
+          actualModels: model ? [model] : [],
           usage,
         },
       };
@@ -379,6 +379,7 @@ async function mapLimit(items, limit, fn) {
 
 let iterations = 0;
 let done = false;
+let exitStatus = 0;
 
 while (!done && iterations < MAX_ITER) {
   iterations++;
@@ -388,6 +389,7 @@ while (!done && iterations < MAX_ITER) {
     log(`run ${state.status}`);
     if (state.output) console.error(JSON.stringify(state.output, null, 2));
     if (state.error) console.error(JSON.stringify(state.error, null, 2));
+    if (state.status === 'failed') exitStatus = 1;
     done = true;
     break;
   }
@@ -451,6 +453,7 @@ while (!done && iterations < MAX_ITER) {
     });
     if (agentFailure) {
       log('stopping with failed agent effects still pending; rerun the driver to retry them');
+      exitStatus = 1;
       done = true;
       break;
     }
@@ -462,5 +465,9 @@ while (!done && iterations < MAX_ITER) {
   }
 }
 
-if (iterations >= MAX_ITER) log(`stopped: hit max-iterations ${MAX_ITER}`);
+if (!done && iterations >= MAX_ITER) {
+  log(`stopped: hit max-iterations ${MAX_ITER}`);
+  exitStatus = 1;
+}
 log(`driver finished after ${iterations} iteration(s)`);
+process.exitCode = exitStatus;

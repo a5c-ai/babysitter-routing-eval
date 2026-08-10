@@ -17,9 +17,27 @@ if (!Array.isArray(config.models) || config.models.length < 2) {
   throw new Error('comparison config must contain at least two models');
 }
 
+const modelIds = config.models.map((model) => model.id);
+if (modelIds.some((id) => typeof id !== 'string' || !id)) {
+  throw new Error('every comparison model must have a non-empty id');
+}
+if (new Set(modelIds).size !== modelIds.length) {
+  throw new Error('comparison model ids must be unique');
+}
+
 const models = config.models.map((model) => {
   const payloadPath = path.resolve(model.payload);
   const payload = JSON.parse(readFileSync(payloadPath, 'utf8'));
+  if (!Array.isArray(payload.rows) || payload.rows.length === 0) {
+    throw new Error(`${model.id} payload must contain a non-empty rows array`);
+  }
+  const rowIds = payload.rows.map((row) => row.id);
+  if (rowIds.some((id) => typeof id !== 'string' || !id)) {
+    throw new Error(`${model.id} contains a row without a valid task id`);
+  }
+  if (new Set(rowIds).size !== rowIds.length) {
+    throw new Error(`${model.id} contains duplicate task ids`);
+  }
   return {
     ...model,
     payloadPath,
@@ -27,6 +45,15 @@ const models = config.models.map((model) => {
     byId: new Map(payload.rows.map((row) => [row.id, row])),
   };
 });
+
+const thresholds = config.thresholds ?? models[0].payload.thresholds;
+if (
+  !Number.isFinite(thresholds?.low) ||
+  !Number.isFinite(thresholds?.high) ||
+  thresholds.low >= thresholds.high
+) {
+  throw new Error('comparison thresholds must be finite numbers with low < high');
+}
 
 const taskIds = [...models[0].byId.keys()].sort();
 for (const model of models.slice(1)) {
@@ -37,12 +64,20 @@ for (const model of models.slice(1)) {
 }
 
 function recommendation(model, row) {
-  if ((model.verdictMode ?? 'stored') === 'stored') return row.verdict;
+  if ((model.verdictMode ?? 'stored') === 'stored') {
+    if (!verdicts.includes(row.verdict)) {
+      throw new Error(`${model.id} has invalid stored verdict for ${row.id}: ${row.verdict}`);
+    }
+    return row.verdict;
+  }
   if (model.verdictMode === 'primary-score') {
-    const { low, high } = model.payload.thresholds;
-    return row.scores.netLive >= high
+    const netLive = row.scores?.netLive;
+    if (!Number.isFinite(netLive)) {
+      throw new Error(`${model.id} has invalid net_live for ${row.id}`);
+    }
+    return netLive >= thresholds.high
       ? 'babysitter'
-      : row.scores.netLive <= low ? 'vanilla' : 'borderline';
+      : netLive <= thresholds.low ? 'vanilla' : 'borderline';
   }
   throw new Error(`unsupported verdictMode for ${model.id}: ${model.verdictMode}`);
 }
@@ -103,6 +138,7 @@ const report = {
       .sort()
       .at(-1) ?? null,
   taskCount: rows.length,
+  thresholds,
   models: models.map((model) => ({
     id: model.id,
     label: model.label,
