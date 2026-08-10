@@ -6,7 +6,7 @@ plain ("vanilla") agent session.
 
 First corpus: every task in **Terminal-Bench 2.1 (89)** and **Terminal-Bench 3 (74)**.
 
-**59 babysitter · 61 borderline · 43 vanilla** — with tb3 routing to babysitter at 54%
+**59 babysitter · 69 borderline · 35 vanilla** — with tb3 routing to babysitter at 54%
 against tb2.1's 21%, which is what you'd expect from a benchmark whose median task is 4×
 longer. Open [`out/report.html`](out/report.html) for the interactive version: summary
 charts plus all 163 tasks with the verbatim instruction each was judged from, the evidence
@@ -28,20 +28,34 @@ Three ideas do most of the work:
 offset drags every verdict one direction. [`prompts/tb-profile.md`](prompts/tb-profile.md)
 pins them once, with evidence, as a *delta* on the base rubric rather than a fork.
 
-**Renormalize, don't re-threshold.** `net_live` re-scales over the 7 live dimensions so the
-0–100-per-side scale — and therefore the rubric's pre-registered thresholds — stay valid.
-Corpus-relative quantiles were rejected: they make the verdict an artifact of corpus
-composition.
+**Renormalize over what varies.** `net_live` re-scales over the 7 live dimensions so both
+sides stay 0–100. Corpus-relative quantiles were rejected for the thresholds: they make the
+verdict an artifact of corpus composition. When a rubric revision shifts the scale, the
+thresholds are translated by the *measured* shift and nothing else — see
+`prompts/tb-profile.md`.
 
-**Panel the middle.** One judge scores everything; anything landing in the borderline band
-is re-judged by two more and resolved by majority. Inter-judge disagreement on that band is
-the most honest reliability signal available without hand labels.
+**Three judges on everything.** Every task is scored by three independent judges and
+resolved by majority, so inter-judge disagreement is measurable across the whole corpus
+rather than only in the band where it is worst. That baseline is what makes claims about
+rubric reliability checkable.
 
 ## What we learned about the rubric
 
-- **Panel unanimity is 58%**, with a mean `net_live` spread of 15.7 points across judges.
-  The aggregate skew between benchmarks is solid; an individual verdict near a threshold is
-  not, and the report says so up front.
+- **Panel unanimity is 68%**, with a mean `net_live` spread of 13.3 points across judges,
+  measured over all 163 tasks rather than the borderline band alone. The aggregate skew
+  between benchmarks is solid; an individual verdict near a threshold is not, and the
+  report says so up front.
+- **Scoring anchors beat prose, but only when they point at something checkable.** Replacing
+  a dimension's prose guidance with an explicit 0/1/2/3 ladder cut inter-judge disagreement
+  28% overall — but only for ladders anchored to observable text or metadata. C2, whose
+  ladder is a lookup on `expert_time_estimate`, fell to 0.007. Ladders written around
+  abstract judgements ("could two people work in parallel?") made agreement *worse* than
+  the prose they replaced, so B6 and B8 were reverted. C4 is the clean test: prose 0.309,
+  abstract ladder 0.400, observable-feature ladder 0.246.
+- **Anchoring the rubric moved the scale, not just the noise.** Cost scores rose ~16 points
+  once the undefined middles of C2 and C4 were filled in, so thresholds were re-registered
+  by that measured offset. Reliability and calibration are separate problems; fixing one
+  does not fix the other.
 - **A dimension measuring the tool rather than the task is worse than useless.** The rubric
   originally scored *"does a library process already fit?"* at weight 25. It was removed —
   it tracked domain popularity (software-engineering 1.65, Hardware 2.20, model-training
@@ -62,6 +76,7 @@ prompts/tb-profile.md           Terminal-Bench delta: pins, calibration, renorma
 .a5c/processes/
   tb-routing-eval.js            the process: fetch → smoke → judge → calibrate → panel → report
   tb-panel-topup.js             adds panel judges after a rubric change
+  tb-anchor-experiment.js       re-judges a fixed set N times to A/B a rubric revision
 scripts/
   fetch-tb-manifest.mjs         instructions + metadata from both TB repos (excludes solutions)
   drive-run.mjs                 minimal executor: run:iterate → execute → task:post
@@ -114,7 +129,12 @@ exactly.
 - **26 of 163 tasks reference an asset the judge never saw** (a PNG schematic, a video, a
   binary). They skew vanilla, which is what you'd expect from a judge working with less
   evidence. `cad-model` is the clearest case: 318 characters pointing at an image.
-- **Some rationale prose still argues from process-authoring cost**, written while that
-  dimension was scored. The scores are clean; only the narrative is stale.
-- Thresholds (`+20` / `−15`) are pre-registered, not fitted. They have not been validated
-  against hand labels — the rubric's own Mode B exists for that and hasn't been run.
+- Thresholds (`+4` / `−31`) are the base rubric's `+20 / −15` translated by the measured
+  −16 scale shift the anchor ladders introduced. That is a mechanical re-registration, not
+  a fit — but neither set has been validated against hand labels. The rubric's own Mode B
+  exists for that and has not been run.
+- **B6 and B8 remain prose.** Anchor ladders were written for both and made agreement
+  worse, so they were reverted. They are the two dimensions most in need of a better
+  observable anchor.
+- Judging is three samples of one model, which measures self-consistency. Correlated model
+  bias is invisible to it; genuinely independent judges would need different models.

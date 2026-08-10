@@ -67,9 +67,31 @@ workday: the median task in this corpus is 120 expert-minutes.
   the next phase consumes
 
 **B1 (ordering)** — score on whether the instruction imposes a sequence whose violation
-silently corrupts the result (build → configure → verify; derive intermediate artifact →
-use it downstream), *not* on whether the instruction is long or has many bullet points. A
-list of independent requirements is not an ordering constraint.
+silently corrupts the result, *not* on whether the instruction is long or has many bullet
+points. A list of independent requirements is not an ordering constraint. Judge from
+artifact flow: does any step consume something an earlier step produces?
+
+- 0 → the stated requirements can be satisfied in any order; no step consumes another
+  step's output
+- 1 → a natural reading order (inspect the inputs, then write the output) but nothing
+  downstream breaks if you deviate
+- 2 → the instruction names one intermediate artifact that a later step consumes, so
+  producing them out of order gives a wrong result
+- 3 → two or more chained artifact dependencies, or an explicit first-X-then-Y-then-Z
+  whose violation silently yields a plausible-but-wrong answer
+
+**B5 (convergence)** — is there something the agent can *measure* and improve against
+before it is done? Not "is there a test" (B2 is pinned for that) — the question is whether
+the instruction exposes a target with headroom, so repeated measure-and-improve cycles
+have somewhere to go.
+
+- 0 → binary done/not-done; nothing to measure against except the hidden verifier
+- 1 → the instruction names a self-runnable check (an example script, a sanity command)
+  but states no numeric target
+- 2 → a numeric threshold or tolerance is stated that the agent can measure itself
+  against and correct toward
+- 3 → a stated numeric target with headroom plus an implied optimisation loop (speed up
+  by at least N×, minimise an error, beat a baseline)
 
 **B6 (decomposability)** — real independent units that could be worked in parallel. Many
 tasks here are one indivisible artifact with several requirements; that is B6=0 or 1, not
@@ -81,13 +103,27 @@ with an exact output schema and one output file constrains the agent tightly —
 drift risk even if the work is hard. Difficulty is not drift risk.
 
 **C2 (overhead ratio)** — orchestration cost relative to the work. Anchor on
-`expert_time_estimate`: under ~30 minutes, per-step stops dominate the task (C2=3); over
-several hours, orchestration is noise (C2=0).
+`expert_time_estimate`; this is the mirror of B3 and should be scored consistently with it.
 
-**C4 (shape uncertainty)** — is the *shape* of the work knowable up front from the
-instruction? Terminal-Bench instructions are unusually explicit about deliverables, so C4
-is low for most of this corpus. Reserve high scores for tasks whose first real step is
-diagnosis, where what to do next is genuinely discovered by investigating.
+- 0 → over ~8 hours; mandatory stops are a rounding error against the work
+- 1 → ~2–8 hours; orchestration is material but does not dominate
+- 2 → ~30–120 minutes; the ceremony is a noticeable fraction of the task
+- 3 → under ~30 minutes; per-step stops cost more than the work itself
+
+**C4 (shape uncertainty)** — score what the instruction *shows*, not how hard the work
+feels. Terminal-Bench instructions are unusually explicit about deliverables, so most of
+this corpus is low. Unreadable inputs (a schematic, a binary, a video) make the content
+unknown but usually leave the shape knowable — score the shape.
+
+- 0 → the instruction enumerates the steps, or names every output artifact and the
+  transformation between them
+- 1 → the outputs are named but the method is not; the approach is standard for the stated
+  domain and only the tooling choice is open
+- 2 → the approach cannot be chosen until a supplied input has been inspected (a file,
+  dataset, image or log named in the instruction)
+- 3 → the instruction states a symptom or a goal rather than a deliverable, so the first
+  real step is diagnosis
+
 
 ## Scoring math
 
@@ -109,6 +145,25 @@ Benefit_live = [ Σ (w · s / 3) over {B1:15, B3:15, B5:10, B6:8, B8:10} ] × 10
 Cost_live    = [ Σ (w · s / 3) over {C2:27, C4:34} ]                    × 100 / 61
 net_live     = Benefit_live − Cost_live        # −100 .. +100
 ```
+
+### Thresholds
+
+The base prompt's `+20 / −15` were pre-registered against an earlier, prose-only revision of
+this profile. Giving B1, B5, C2 and C4 anchor ladders cut inter-judge disagreement by 28%
+but also moved the scale: the middles of the C2 and C4 ranges had been undefined and judges
+defaulted low, so cost is now scored about 16 points higher.
+
+Thresholds are therefore **translated by that measured shift, and by nothing else** —
+a paired per-task comparison over all 163 tasks gives a median shift of −15.8
+(95% CI [−18.6, −14.0]), rounded to −16:
+
+```
+babysitter ≥ +4      vanilla ≤ −31
+```
+
+This is a re-registration against a changed rubric, not a fit to a desired split. The
+translation is mechanical; the resulting babysitter count (59) happens to match the previous
+revision's exactly, which is a consequence rather than a target.
 
 Report both, rounded to one decimal. **Do not assign a verdict.** Thresholds for this
 corpus are calibrated from the distribution of all 163 `net_live` values after judging, so
