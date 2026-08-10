@@ -1,0 +1,19 @@
+{
+  "outDir": "out/models/comparison",
+  "models": [
+    {
+      "id": "opus-5",
+      "label": "Opus 5",
+      "payload": "out/models/opus-5/payload.json",
+      "verdictMode": "primary-score",
+      "notes": "Primary judge from the existing Opus 5 run; the published report additionally panels borderline tasks."
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "label": "GPT-5.6-sol",
+      "payload": "out/models/gpt-5.6-sol/payload.json",
+      "verdictMode": "primary-score",
+      "notes": "One primary judgment per task, effort high, using the identical rubric and Terminal-Bench profile."
+    }
+  ]
+}

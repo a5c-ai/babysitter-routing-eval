@@ -1,0 +1,2986 @@
+{
+  "generatedAt": "2026-08-10T20:01:48.453Z",
+  "taskCount": 163,
+  "models": [
+    {
+      "id": "opus-5",
+      "label": "Opus 5",
+      "payload": "out/models/opus-5/payload.json",
+      "runId": "01KZNWNZGBF2DJXHKG8XCC790C + 01KZP295QJFKTZ7MPZ4J656B19",
+      "verdictMode": "primary-score",
+      "notes": "Primary judge from the existing Opus 5 run; the published report additionally panels borderline tasks."
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "label": "GPT-5.6-sol",
+      "payload": "out/models/gpt-5.6-sol/payload.json",
+      "runId": "01KZPJA5TSSS71GRFR1WSFRVHT",
+      "verdictMode": "primary-score",
+      "notes": "One primary judgment per task, effort high, using the identical rubric and Terminal-Bench profile."
+    }
+  ],
+  "summary": {
+    "unanimous": 127,
+    "needsThirdJudge": 36,
+    "modelSummaries": {
+      "opus-5": {
+        "babysitter": 58,
+        "borderline": 65,
+        "vanilla": 40,
+        "meanNetLive": 9.4
+      },
+      "gpt-5.6-sol": {
+        "babysitter": 62,
+        "borderline": 61,
+        "vanilla": 40,
+        "meanNetLive": 11.3
+      }
+    },
+    "pairwise": {
+      "opus-5": {
+        "opus-5": 163,
+        "gpt-5.6-sol": 127
+      },
+      "gpt-5.6-sol": {
+        "opus-5": 127,
+        "gpt-5.6-sol": 163
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "tb2.1__adaptive-rejection-sampler",
+      "bench": "tb2.1",
+      "name": "adaptive-rejection-sampler",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 41.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 41.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__bn-fit-modify",
+      "bench": "tb2.1",
+      "name": "bn-fit-modify",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 63.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 31.8
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__break-filter-js-from-html",
+      "bench": "tb2.1",
+      "name": "break-filter-js-from-html",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -67.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -67.1
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__build-cython-ext",
+      "bench": "tb2.1",
+      "name": "build-cython-ext",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -24.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -8.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__build-pmars",
+      "bench": "tb2.1",
+      "name": "build-pmars",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 16.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 7.8
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__build-pov-ray",
+      "bench": "tb2.1",
+      "name": "build-pov-ray",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 10.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -2.1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__caffe-cifar-10",
+      "bench": "tb2.1",
+      "name": "caffe-cifar-10",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 22.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 28.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__cancel-async-tasks",
+      "bench": "tb2.1",
+      "name": "cancel-async-tasks",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 11.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__chess-best-move",
+      "bench": "tb2.1",
+      "name": "chess-best-move",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -12.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -6.5
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__circuit-fibsqrt",
+      "bench": "tb2.1",
+      "name": "circuit-fibsqrt",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 40.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 49.2
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__cobol-modernization",
+      "bench": "tb2.1",
+      "name": "cobol-modernization",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -29.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -38.1
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__code-from-image",
+      "bench": "tb2.1",
+      "name": "code-from-image",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -18.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -29.3
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__compile-compcert",
+      "bench": "tb2.1",
+      "name": "compile-compcert",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.5
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__configure-git-webserver",
+      "bench": "tb2.1",
+      "name": "configure-git-webserver",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -39.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.7
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__constraints-scheduling",
+      "bench": "tb2.1",
+      "name": "constraints-scheduling",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -22.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.7
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__count-dataset-tokens",
+      "bench": "tb2.1",
+      "name": "count-dataset-tokens",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.5
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__crack-7z-hash",
+      "bench": "tb2.1",
+      "name": "crack-7z-hash",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -54.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -54.2
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__custom-memory-heap-crash",
+      "bench": "tb2.1",
+      "name": "custom-memory-heap-crash",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -65.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -47.9
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__db-wal-recovery",
+      "bench": "tb2.1",
+      "name": "db-wal-recovery",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -53.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -20.7
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__distribution-search",
+      "bench": "tb2.1",
+      "name": "distribution-search",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 11.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 6.9
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__dna-assembly",
+      "bench": "tb2.1",
+      "name": "dna-assembly",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 21.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 32.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__dna-insert",
+      "bench": "tb2.1",
+      "name": "dna-insert",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 13.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -5
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__extract-elf",
+      "bench": "tb2.1",
+      "name": "extract-elf",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -32.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.5
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__extract-moves-from-video",
+      "bench": "tb2.1",
+      "name": "extract-moves-from-video",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 11.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 31.2
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__feal-differential-cryptanalysis",
+      "bench": "tb2.1",
+      "name": "feal-differential-cryptanalysis",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 15.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 14.6
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__feal-linear-cryptanalysis",
+      "bench": "tb2.1",
+      "name": "feal-linear-cryptanalysis",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 16.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 23.2
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__filter-js-from-html",
+      "bench": "tb2.1",
+      "name": "filter-js-from-html",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -0.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -9.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__financial-document-processor",
+      "bench": "tb2.1",
+      "name": "financial-document-processor",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 6.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 12.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__fix-code-vulnerability",
+      "bench": "tb2.1",
+      "name": "fix-code-vulnerability",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -20.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -18.8
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__fix-git",
+      "bench": "tb2.1",
+      "name": "fix-git",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -58.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -58.4
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__fix-ocaml-gc",
+      "bench": "tb2.1",
+      "name": "fix-ocaml-gc",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 4.6
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__gcode-to-text",
+      "bench": "tb2.1",
+      "name": "gcode-to-text",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -22.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -33.7
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__git-leak-recovery",
+      "bench": "tb2.1",
+      "name": "git-leak-recovery",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 10.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -2.1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__git-multibranch",
+      "bench": "tb2.1",
+      "name": "git-multibranch",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 42
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 46.2
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__gpt2-codegolf",
+      "bench": "tb2.1",
+      "name": "gpt2-codegolf",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 40.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 60.7
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__headless-terminal",
+      "bench": "tb2.1",
+      "name": "headless-terminal",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -10.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 22.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__hf-model-inference",
+      "bench": "tb2.1",
+      "name": "hf-model-inference",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -29.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.7
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__install-windows-3.11",
+      "bench": "tb2.1",
+      "name": "install-windows-3.11",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 56.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 43.5
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__kv-store-grpc",
+      "bench": "tb2.1",
+      "name": "kv-store-grpc",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -21.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -15.5
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__large-scale-text-editing",
+      "bench": "tb2.1",
+      "name": "large-scale-text-editing",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -3.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -21.8
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__largest-eigenval",
+      "bench": "tb2.1",
+      "name": "largest-eigenval",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -7.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.5
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__llm-inference-batching-scheduler",
+      "bench": "tb2.1",
+      "name": "llm-inference-batching-scheduler",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 15.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -3.3
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__log-summary-date-ranges",
+      "bench": "tb2.1",
+      "name": "log-summary-date-ranges",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -7.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -7.7
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__mailman",
+      "bench": "tb2.1",
+      "name": "mailman",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 14.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 5.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__make-doom-for-mips",
+      "bench": "tb2.1",
+      "name": "make-doom-for-mips",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 8.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 3.1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__make-mips-interpreter",
+      "bench": "tb2.1",
+      "name": "make-mips-interpreter",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 24.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 24.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__mcmc-sampling-stan",
+      "bench": "tb2.1",
+      "name": "mcmc-sampling-stan",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 46
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 31.2
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__merge-diff-arc-agi-task",
+      "bench": "tb2.1",
+      "name": "merge-diff-arc-agi-task",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -39.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -28
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__model-extraction-relu-logits",
+      "bench": "tb2.1",
+      "name": "model-extraction-relu-logits",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -18.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 14.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__modernize-scientific-stack",
+      "bench": "tb2.1",
+      "name": "modernize-scientific-stack",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -15.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 4.2
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__mteb-leaderboard",
+      "bench": "tb2.1",
+      "name": "mteb-leaderboard",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -39.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -27
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__mteb-retrieve",
+      "bench": "tb2.1",
+      "name": "mteb-retrieve",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -35.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -35.6
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__multi-source-data-merger",
+      "bench": "tb2.1",
+      "name": "multi-source-data-merger",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 6.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 12.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__nginx-request-logging",
+      "bench": "tb2.1",
+      "name": "nginx-request-logging",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -16.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -16.7
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__openssl-selfsigned-cert",
+      "bench": "tb2.1",
+      "name": "openssl-selfsigned-cert",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -21.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -21.3
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__overfull-hbox",
+      "bench": "tb2.1",
+      "name": "overfull-hbox",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -9.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -13.6
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__password-recovery",
+      "bench": "tb2.1",
+      "name": "password-recovery",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -20.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -17.4
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__path-tracing",
+      "bench": "tb2.1",
+      "name": "path-tracing",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 3.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -6.9
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__path-tracing-reverse",
+      "bench": "tb2.1",
+      "name": "path-tracing-reverse",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -14.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -21.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__polyglot-c-py",
+      "bench": "tb2.1",
+      "name": "polyglot-c-py",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -44.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -33.9
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__polyglot-rust-c",
+      "bench": "tb2.1",
+      "name": "polyglot-rust-c",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 2.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 14
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__portfolio-optimization",
+      "bench": "tb2.1",
+      "name": "portfolio-optimization",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 25.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 38.7
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__protein-assembly",
+      "bench": "tb2.1",
+      "name": "protein-assembly",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 8.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 18.6
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__prove-plus-comm",
+      "bench": "tb2.1",
+      "name": "prove-plus-comm",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -35.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -29.9
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__pypi-server",
+      "bench": "tb2.1",
+      "name": "pypi-server",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 6.7
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__pytorch-model-cli",
+      "bench": "tb2.1",
+      "name": "pytorch-model-cli",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -16.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -6.5
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__pytorch-model-recovery",
+      "bench": "tb2.1",
+      "name": "pytorch-model-recovery",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -28.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -32.6
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__qemu-alpine-ssh",
+      "bench": "tb2.1",
+      "name": "qemu-alpine-ssh",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 7.8
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__qemu-startup",
+      "bench": "tb2.1",
+      "name": "qemu-startup",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -3.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__query-optimize",
+      "bench": "tb2.1",
+      "name": "query-optimize",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -32.2
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__raman-fitting",
+      "bench": "tb2.1",
+      "name": "raman-fitting",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -25.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -43.9
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__regex-chess",
+      "bench": "tb2.1",
+      "name": "regex-chess",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 53.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 71.1
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__regex-log",
+      "bench": "tb2.1",
+      "name": "regex-log",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -0.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -9.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__reshard-c4-data",
+      "bench": "tb2.1",
+      "name": "reshard-c4-data",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 12.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__rstan-to-pystan",
+      "bench": "tb2.1",
+      "name": "rstan-to-pystan",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -11.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 36
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__sam-cell-seg",
+      "bench": "tb2.1",
+      "name": "sam-cell-seg",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 64.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 40.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__sanitize-git-repo",
+      "bench": "tb2.1",
+      "name": "sanitize-git-repo",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -11.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 5.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__schemelike-metacircular-eval",
+      "bench": "tb2.1",
+      "name": "schemelike-metacircular-eval",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 51.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 43.5
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__sparql-university",
+      "bench": "tb2.1",
+      "name": "sparql-university",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 21.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 18.8
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb2.1__sqlite-db-truncate",
+      "bench": "tb2.1",
+      "name": "sqlite-db-truncate",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -37.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -32.2
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__sqlite-with-gcov",
+      "bench": "tb2.1",
+      "name": "sqlite-with-gcov",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -6.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__torch-pipeline-parallelism",
+      "bench": "tb2.1",
+      "name": "torch-pipeline-parallelism",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 54.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 64.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__torch-tensor-parallelism",
+      "bench": "tb2.1",
+      "name": "torch-tensor-parallelism",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 42
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 56.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__train-fasttext",
+      "bench": "tb2.1",
+      "name": "train-fasttext",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 10.7
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__tune-mjcf",
+      "bench": "tb2.1",
+      "name": "tune-mjcf",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -7.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -7.9
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__video-processing",
+      "bench": "tb2.1",
+      "name": "video-processing",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -5.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -8.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__vulnerable-secret",
+      "bench": "tb2.1",
+      "name": "vulnerable-secret",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -91.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -85.6
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__winning-avg-corewars",
+      "bench": "tb2.1",
+      "name": "winning-avg-corewars",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -11.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -11.9
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb2.1__write-compressor",
+      "bench": "tb2.1",
+      "name": "write-compressor",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -1.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 28.9
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__atrx-vep-crispr",
+      "bench": "tb3",
+      "name": "atrx-vep-crispr",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 53.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 67.8
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__batched-eval-parity",
+      "bench": "tb3",
+      "name": "batched-eval-parity",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 27.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 39.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__biped-contact-dynamics",
+      "bench": "tb3",
+      "name": "biped-contact-dynamics",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 49.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 48.1
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__bun-sourcemap-leak",
+      "bench": "tb3",
+      "name": "bun-sourcemap-leak",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 20.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 5.4
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__cad-model",
+      "bench": "tb3",
+      "name": "cad-model",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -26.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 16.9
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__cargo-flight-dispatch",
+      "bench": "tb3",
+      "name": "cargo-flight-dispatch",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 17.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 4.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__cli-2ph-simplex",
+      "bench": "tb3",
+      "name": "cli-2ph-simplex",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 41.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 41.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__coq-block-bound",
+      "bench": "tb3",
+      "name": "coq-block-bound",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -5.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -18.4
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__ctr-optimization",
+      "bench": "tb3",
+      "name": "ctr-optimization",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 28.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 16.1
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__cumulative-layout-shift",
+      "bench": "tb3",
+      "name": "cumulative-layout-shift",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 13.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 26.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__data-anonymization",
+      "bench": "tb3",
+      "name": "data-anonymization",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 43.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 73.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__distributed-dedup",
+      "bench": "tb3",
+      "name": "distributed-dedup",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 69
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 60.7
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__embedding-drift-monitor",
+      "bench": "tb3",
+      "name": "embedding-drift-monitor",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 10.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 15.1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__erp-procurement-planning",
+      "bench": "tb3",
+      "name": "erp-procurement-planning",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 52.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 57.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__exam-pdf-eval",
+      "bench": "tb3",
+      "name": "exam-pdf-eval",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 65.3
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 65.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__fin-saccr-rwa",
+      "bench": "tb3",
+      "name": "fin-saccr-rwa",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 59.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 45.2
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__fix-uautomizer-soundness",
+      "bench": "tb3",
+      "name": "fix-uautomizer-soundness",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 14.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 6.3
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__foodstuff-beta-activity",
+      "bench": "tb3",
+      "name": "foodstuff-beta-activity",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -16.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 2.5
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__formal-crypto",
+      "bench": "tb3",
+      "name": "formal-crypto",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -18.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -18.8
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__fp8-rmsnorm-gemm",
+      "bench": "tb3",
+      "name": "fp8-rmsnorm-gemm",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 74.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 56.1
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__freecad-impeller",
+      "bench": "tb3",
+      "name": "freecad-impeller",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 25.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 41.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__freecad-platform-drawing",
+      "bench": "tb3",
+      "name": "freecad-platform-drawing",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -5.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 18.4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__freecad-spring-clip",
+      "bench": "tb3",
+      "name": "freecad-spring-clip",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 22.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 41.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__freight-dispatch-shift",
+      "bench": "tb3",
+      "name": "freight-dispatch-shift",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 64.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 70.7
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__glycan-ms2-elucidation",
+      "bench": "tb3",
+      "name": "glycan-ms2-elucidation",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 15.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 8.8
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__gpt2-codegolf",
+      "bench": "tb3",
+      "name": "gpt2-codegolf",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 14.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 52.1
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__gsea-proteomics",
+      "bench": "tb3",
+      "name": "gsea-proteomics",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 58
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 66.7
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__heat-pump-warranty",
+      "bench": "tb3",
+      "name": "heat-pump-warranty",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 11.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 36.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__hof-topology-interpenetration",
+      "bench": "tb3",
+      "name": "hof-topology-interpenetration",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 53.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 39.5
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__html-js-filter",
+      "bench": "tb3",
+      "name": "html-js-filter",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -15.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -3.6
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__ico-path-patch",
+      "bench": "tb3",
+      "name": "ico-path-patch",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 3.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 15
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__interleaved-vigenere",
+      "bench": "tb3",
+      "name": "interleaved-vigenere",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -21.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -13
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__intrastat-meldung",
+      "bench": "tb3",
+      "name": "intrastat-meldung",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 46.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 50.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__jax-speedrun-gpu",
+      "bench": "tb3",
+      "name": "jax-speedrun-gpu",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 57.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 52.1
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__ks-solver-cpp",
+      "bench": "tb3",
+      "name": "ks-solver-cpp",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 14.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 27.8
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__kv-live-surgery",
+      "bench": "tb3",
+      "name": "kv-live-surgery",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 28.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 16.1
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__lake-temp-glm",
+      "bench": "tb3",
+      "name": "lake-temp-glm",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 24.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 24.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__layout-config-recreation",
+      "bench": "tb3",
+      "name": "layout-config-recreation",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 20.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 1.5
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__layout-config-recreation2",
+      "bench": "tb3",
+      "name": "layout-config-recreation2",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 37.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 33.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__lean-midpoint-proof",
+      "bench": "tb3",
+      "name": "lean-midpoint-proof",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 8.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -18.4
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__legacy-utility-triage",
+      "bench": "tb3",
+      "name": "legacy-utility-triage",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 27.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 55.2
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__live-database-cutover",
+      "bench": "tb3",
+      "name": "live-database-cutover",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 57.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 45
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__math-eval-grader",
+      "bench": "tb3",
+      "name": "math-eval-grader",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 53.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 61.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__medical-claims-processing",
+      "bench": "tb3",
+      "name": "medical-claims-processing",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 17.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 33.7
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__memcached-backdoor",
+      "bench": "tb3",
+      "name": "memcached-backdoor",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -38.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -38.9
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__mp-checkpoint-consolidation",
+      "bench": "tb3",
+      "name": "mp-checkpoint-consolidation",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -10.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 9.2
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__music-harmony",
+      "bench": "tb3",
+      "name": "music-harmony",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 2.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 7.8
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__mvcc-lsm-compaction",
+      "bench": "tb3",
+      "name": "mvcc-lsm-compaction",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 14.6
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__nextjs-performance",
+      "bench": "tb3",
+      "name": "nextjs-performance",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -7.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -1
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__ontology-kg-querying",
+      "bench": "tb3",
+      "name": "ontology-kg-querying",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 60.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 22
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__payments-pipeline-fix",
+      "bench": "tb3",
+      "name": "payments-pipeline-fix",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -8.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -30.3
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__photonic-waveguide-routing",
+      "bench": "tb3",
+      "name": "photonic-waveguide-routing",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 18.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 19.9
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__pretrain-shard-corruption",
+      "bench": "tb3",
+      "name": "pretrain-shard-corruption",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -18.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -4.4
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__production-planning",
+      "bench": "tb3",
+      "name": "production-planning",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 64.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 57.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__protein-autointerp-disulfide",
+      "bench": "tb3",
+      "name": "protein-autointerp-disulfide",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -8.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -14.2
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__react-lead-form",
+      "bench": "tb3",
+      "name": "react-lead-form",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 59.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 64.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__retro-console-soc",
+      "bench": "tb3",
+      "name": "retro-console-soc",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 48.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 59.6
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__risk-scorer-replay",
+      "bench": "tb3",
+      "name": "risk-scorer-replay",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 33.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 33.5
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__roy-polymorph-cn",
+      "bench": "tb3",
+      "name": "roy-polymorph-cn",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 40.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 45.2
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__rs-archive-clone",
+      "bench": "tb3",
+      "name": "rs-archive-clone",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 56.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 43.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__satb-audio-transcription",
+      "bench": "tb3",
+      "name": "satb-audio-transcription",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 26.2
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 37.7
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__session-window-debug",
+      "bench": "tb3",
+      "name": "session-window-debug",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 7.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -4
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__sglang-qwen-burst",
+      "bench": "tb3",
+      "name": "sglang-qwen-burst",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -21.6
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -22.8
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__shadow-relay",
+      "bench": "tb3",
+      "name": "shadow-relay",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": 7.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 16.3
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__sound-change-cascade",
+      "bench": "tb3",
+      "name": "sound-change-cascade",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 28.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": 15
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__takens-embedding-lean",
+      "bench": "tb3",
+      "name": "takens-embedding-lean",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 46
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 30.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__telecom-entity-resolution",
+      "bench": "tb3",
+      "name": "telecom-entity-resolution",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 38.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 35.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__uefi-bootkit",
+      "bench": "tb3",
+      "name": "uefi-bootkit",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "borderline",
+          "netLive": -11.7
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -15.9
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__vba-userform-port",
+      "bench": "tb3",
+      "name": "vba-userform-port",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 46.4
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 48.1
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__vf2-speedup-networkx",
+      "bench": "tb3",
+      "name": "vf2-speedup-networkx",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 67.8
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 35.3
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__vllm-deepseek-streaming",
+      "bench": "tb3",
+      "name": "vllm-deepseek-streaming",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -33.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -8.4
+        }
+      },
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__vpp-loss-divergence",
+      "bench": "tb3",
+      "name": "vpp-loss-divergence",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "vanilla",
+          "netLive": -24.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "vanilla",
+          "netLive": -18.8
+        }
+      },
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__wal-recovery-ordering",
+      "bench": "tb3",
+      "name": "wal-recovery-ordering",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 64.9
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 46.4
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__wdm-design",
+      "bench": "tb3",
+      "name": "wdm-design",
+      "recommendations": {
+        "opus-5": {
+          "verdict": "babysitter",
+          "netLive": 62.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 34.9
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
+    }
+  ]
+}
