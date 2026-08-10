@@ -53,6 +53,14 @@ const dims = (v) => ({
 });
 const verdictFor = (n) => (n >= THRESH.high ? 'babysitter' : n <= THRESH.low ? 'vanilla' : 'borderline');
 
+/** Dimension contributing the most weighted points; null when the whole side scored zero. */
+function topDriver(d, keys, weights) {
+  const ranked = keys
+    .map((k) => ({ k, c: (weights[k] * Math.max(0, Math.min(3, d[k] ?? 0))) / 3 }))
+    .sort((a, b2) => b2.c - a.c);
+  return ranked[0] && ranked[0].c > 0 ? ranked[0].k : null;
+}
+
 let noPanelInBand = 0;
 const rows = [];
 
@@ -104,8 +112,12 @@ for (const [id, all] of Object.entries(judgments)) {
       ...Object.fromEntries(LIVE_BENEFIT.map((k) => [k, v.benefit?.[k]?.evidence ?? null])),
       ...Object.fromEntries(LIVE_COST.map((k) => [k, v.cost?.[k]?.evidence ?? null])),
     },
-    topBenefitDriver: v.top_benefit_driver ?? null,
-    topCostDriver: v.top_cost_driver ?? null,
+    // Derived from weighted contribution, not the judge's self-report: after a rubric
+    // change the judge's field can still name a dimension that no longer exists.
+    topBenefitDriver: topDriver(dims(v), LIVE_BENEFIT, BENEFIT_W),
+    topCostDriver: topDriver(dims(v), LIVE_COST, COST_W),
+    judgeTopBenefitDriver: v.top_benefit_driver ?? null,
+    judgeTopCostDriver: v.top_cost_driver ?? null,
     processRecommendation: v.process_recommendation ?? null,
     vanillaFailureMode: v.vanilla_failure_mode ?? null,
     counterfactualEmpty: v.counterfactual_empty ?? null,
