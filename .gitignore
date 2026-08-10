@@ -1,0 +1,7 @@
+node_modules/
+
+# Driver logs — operational noise, regenerated on every run.
+out/*.log
+
+.DS_Store
+*.tmp

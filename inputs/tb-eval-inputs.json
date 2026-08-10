@@ -1,0 +1,7 @@
+{
+  "workspaceDir": "/home/azureuser/babysitter-eval",
+  "manifestPath": "/home/azureuser/babysitter-eval/out/manifest.json",
+  "outDir": "/home/azureuser/babysitter-eval/out",
+  "chunkSize": 8,
+  "provisionalBand": { "low": -15, "high": 20 }
+}
