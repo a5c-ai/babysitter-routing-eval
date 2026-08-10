@@ -1,14 +1,14 @@
 # Summary
 
-Corpus 163 tasks · thresholds low=-15 high=20 (doc defaults)
+Corpus 163 tasks · thresholds low=-31 high=4 (CLI override)
 
 ## Verdicts
 
 | | babysitter | borderline | vanilla | n | net_live mean | sd | min | max |
 |---|---|---|---|---|---|---|---|---|
-| **all** | 62 | 61 | 40 | 163 | 11.3 | 31.7 | -85.6 | 73.6 |
-| tb2.1 | 21 | 36 | 32 | 89 | -0.6 | 30 | -85.6 | 71.1 |
-| tb3 | 41 | 25 | 8 | 74 | 25.5 | 27.6 | -38.9 | 73.6 |
+| **all** | 66 | 75 | 22 | 163 | -0.3 | 30.7 | -77 | 75.7 |
+| tb2.1 | 25 | 44 | 20 | 89 | -10.2 | 28.5 | -77 | 60.7 |
+| tb3 | 41 | 31 | 2 | 74 | 11.6 | 28.9 | -53.6 | 75.7 |
 
 ## Does the rubric discriminate?
 
@@ -16,13 +16,13 @@ Per-dimension score distribution across the corpus. **A dimension with near-zero
 
 | dim | mean | sd | min | max | #0 | #1 | #2 | #3 |
 |---|---|---|---|---|---|---|---|---|
-| B1 | 1.9 | 0.9 | 0 | 3 | 16 | 30 | 77 | 40 |
-| B3 | 1.7 | 0.9 | 0 | 3 | 18 | 48 | 70 | 27 |
-| B5 | 1.6 | 1.1 | 0 | 3 | 34 | 41 | 44 | 44 |
-| B6 | 0.7 | 0.8 | 0 | 3 | 75 | 63 | 23 | 2 |
-| B8 | 1.3 | 0.5 | 0 | 3 | 6 | 113 | 41 | 3 |
-| C2 | 1.1 | 1.1 | 0 | 3 | 68 | 35 | 42 | 18 |
-| C4 | 1.2 | 1 | 0 | 3 | 49 | 52 | 36 | 26 |
+| B1 | 2 | 0.9 | 0 | 3 | 6 | 46 | 55 | 56 |
+| B3 | 1.6 | 0.9 | 0 | 3 | 18 | 49 | 69 | 27 |
+| B5 | 1.2 | 1.2 | 0 | 3 | 64 | 41 | 25 | 33 |
+| B6 | 0.7 | 0.8 | 0 | 3 | 76 | 62 | 20 | 5 |
+| B8 | 1.2 | 0.6 | 0 | 3 | 11 | 114 | 35 | 3 |
+| C2 | 1.4 | 0.9 | 0 | 3 | 23 | 64 | 58 | 18 |
+| C4 | 1.5 | 0.9 | 0 | 3 | 31 | 40 | 77 | 15 |
 
 All live dimensions show real spread (sd ≥ 0.35).
 
@@ -30,7 +30,7 @@ Spearman correlation between `net_live` and expert time estimate: **0.6** (n=162
 
 ## Panel reliability
 
-No tasks landed in the borderline band; no panel ran.
+75 tasks are borderline in this one-judge payload; no panel results are present.
 
 ## Counterfactual quality
 
@@ -40,39 +40,39 @@ No tasks landed in the borderline band; no panel ran.
 
 | category | n | babysitter | share | median net_live |
 |---|---|---|---|---|
-| optimization | 1 | 1 | 100% | 38.7 |
-| Operations | 10 | 8 | 80% | 50.6 |
-| Software | 20 | 12 | 60% | 35.3 |
-| Science | 15 | 9 | 60% | 27.8 |
-| Hardware | 5 | 3 | 60% | 41.6 |
-| ML | 13 | 7 | 53.8% | 33.5 |
-| Media | 4 | 2 | 50% | 33.3 |
-| scientific-computing | 8 | 3 | 37.5% | 18.6 |
-| data-science | 8 | 3 | 37.5% | 12.4 |
-| software-engineering | 26 | 9 | 34.6% | 4.6 |
-| machine-learning | 3 | 1 | 33.3% | 6.9 |
-| mathematics | 4 | 1 | 25% | 14.6 |
-| system-administration | 9 | 2 | 22.2% | 2.1 |
-| file-operations | 5 | 1 | 20% | -20.7 |
-| security | 8 | 0 | 0% | -18.8 |
-| Security | 7 | 0 | 0% | -13 |
-| debugging | 5 | 0 | 0% | -28 |
-| data-processing | 4 | 0 | 0% | 12.4 |
-| model-training | 4 | 0 | 0% | -6.5 |
-| data-querying | 1 | 0 | 0% | 18.8 |
-| games | 1 | 0 | 0% | -6.5 |
-| video-processing | 1 | 0 | 0% | -8.4 |
-| personal-assistant | 1 | 0 | 0% | -16.7 |
+| optimization | 1 | 1 | 100% | 23.9 |
+| Science | 15 | 12 | 80% | 17.4 |
+| Operations | 10 | 6 | 60% | 21.8 |
+| Hardware | 5 | 3 | 60% | 38.7 |
+| Software | 20 | 11 | 55% | 24.5 |
+| ML | 13 | 7 | 53.8% | 4.4 |
+| software-engineering | 26 | 13 | 50% | 4.6 |
+| data-processing | 4 | 2 | 50% | 15.3 |
+| machine-learning | 3 | 1 | 33.3% | -10.7 |
+| data-science | 8 | 2 | 25% | -3.1 |
+| scientific-computing | 8 | 2 | 25% | -1.9 |
+| mathematics | 4 | 1 | 25% | -0.2 |
+| Media | 4 | 1 | 25% | 2.9 |
+| system-administration | 9 | 2 | 22.2% | -10.7 |
+| debugging | 5 | 1 | 20% | -35.1 |
+| Security | 7 | 1 | 14.3% | -14.9 |
+| security | 8 | 0 | 0% | -33.7 |
+| file-operations | 5 | 0 | 0% | -25.1 |
+| model-training | 4 | 0 | 0% | -16.5 |
+| data-querying | 1 | 0 | 0% | 3.1 |
+| video-processing | 1 | 0 | 0% | -20.3 |
+| games | 1 | 0 | 0% | -43.7 |
+| personal-assistant | 1 | 0 | 0% | -43.9 |
 
 ## Strongest babysitter candidates
 
-1. **data-anonymization** (tb3, 24h, net_live 73.6) — B3 dominates because the 1440-minute expert estimate places this well beyond a single sitting. Strict dependency ordering and numerous deterministic invariants make enforced test-and-fix cycles useful, especially for preventing superficially valid but inconsistent anonymization. The exact CLI and output contract keep drift and shape uncertainty low despite the task's technical difficulty. Orchestration overhead is negligible relative to the estimated workload.
-2. **regex-chess** (tb2.1, 24h, net_live 71.1) — B3 dominates because the 1440-minute expert estimate places this far beyond a single sitting. Strictly ordered substitutions and a supplied checker make staged, test-backed iteration particularly valuable. The exact artifact contract keeps shape uncertainty low, while the breadth of chess legality creates a concrete premature-success risk despite the tightly constrained output format.
-3. **freight-dispatch-shift** (tb3, 4h, net_live 70.7) — B1 dominates because correctness depends on enforcing a chronological state-machine lifecycle across repeated verifier invocations. The four-hour estimate and two-hour agent timeout also make interruption and premature completion plausible, supporting B3 and B8. The normative schema keeps the work shape well-defined, so C4 is zero, while the task's duration makes orchestration overhead negligible. The strongest process value is repeated gating of state transitions and cutoff-specific outputs rather than parallel fan-out.
-4. **atrx-vep-crispr** (tb3, 7h, net_live 67.8) — B1 dominates because this is a long, strictly dependent bioinformatics pipeline where an early transcript or coordinate error contaminates every later field. B3 is also high: the 420-minute estimate and multiple artifact-consuming phases create meaningful interruption and premature-completion risk. The exact schema limits open-ended scope, but the many coupled biological and coordinate transformations still produce substantial drift risk. Orchestration costs are comparatively low because the task is lengthy and its execution shape is explicitly specified.
-5. **gsea-proteomics** (tb3, 4h, net_live 66.7) — The strongest benefit is enforced ordering because the TAR differential-expression result becomes the gene set consumed by every later GSEA comparison and summary. The 240-minute estimate and multiple dependent artifacts also create a substantial execution horizon, while eight EXP comparisons provide moderate fan-out. The task is tightly specified, so uncertainty and drift are limited, and its size makes orchestration overhead comparatively negligible. The concrete vanilla risk is premature completion or silent corruption of the shared upstream gene set and therefore all downstream files.
-6. **exam-pdf-eval** (tb3, 14h, net_live 65.3) — B3 dominates because the 840-minute estimate and multi-artifact pipeline clearly exceed one sitting. Strict stage dependencies and the requirement to run the completed harness twice make enforced ordering valuable. The task also offers several quantitative convergence signals, while exact schemas constrain—but do not eliminate—drift across PDF extraction, inference, and hidden-layout robustness. Cost is low overall; only limited implementation-shape uncertainty remains around OCR and the container's available parsing capabilities.
-7. **torch-pipeline-parallelism** (tb2.1, 4h, net_live 64.9) — B1 dominates because all-forward-then-all-backward ordering is the defining correctness requirement, not merely a suggested implementation detail. The four-hour expert estimate also gives the task a meaningful horizon, while reference activation and gradient comparisons support iterative correction. Drift remains low because the deliverable and interfaces are unusually precise, and the work is tightly coupled rather than highly parallelizable. Both live cost dimensions are minimal because the task is substantial and its implementation shape is known up front.
-8. **react-lead-form** (tb3, 5h, net_live 64.9) — B1 dominates because ledger derivation, timestamp preservation, shared-pipeline use, and atomic commits impose real sequencing dependencies whose violation can produce plausible but inconsistent artifacts. B3 is also material given the five-hour expert estimate and 7200-second timeout. The detailed local contracts keep shape uncertainty low, while the breadth and coupling justify moderate drift risk rather than treating difficulty alone as drift. Convergence value is limited because verification is deterministic but binary rather than score-driven.
-9. **math-eval-grader** (tb3, 6h, net_live 61.3) — The strongest benefit is enforcing the dependency order from answer extraction and grader validation through deterministic model evaluation and final aggregation. The six-hour expert estimate creates a substantial horizon, while the 168-case development suite supports meaningful convergence loops. Forty-eight problem-level units also provide genuine fan-out opportunities. The exact schemas, pinned revision, and canonical protocol keep drift and work-shape uncertainty relatively low.
-10. **gpt2-codegolf** (tb2.1, 40h, net_live 60.7) — B3 dominates because the 2400-minute expert estimate makes this far longer than a normal single sitting. Strictly ordered decoding and inference stages, plus exact correctness and byte-size targets, also make enforced iterative convergence valuable. Decomposability and drift risk remain low because the result is one tightly constrained C file. The only material process cost is modest uncertainty around the undocumented checkpoint and BPE layouts.
+1. **exam-pdf-eval** (tb3, 14h, net_live 75.7) — B3 is decisive because the 840-minute estimate and multiple artifact-producing phases put the task well beyond a single sitting. Strict artifact dependencies, measurable runtime and determinism targets, and 100 independent model/problem evaluations also create strong value for ordering, convergence loops, and fan-out. Drift risk is moderated by exact schemas but remains material because success on visible PDFs can mask failure on the held-out scanned layout. Costs are low: orchestration is negligible against fourteen hours of expert work, and the instruction specifies the workflow shape closely.
+2. **jax-speedrun-gpu** (tb3, 10h, net_live 66.5) — B3 dominates because the 600-minute expert estimate places this beyond an ordinary single sitting. B5 is also strong: success requires iterative optimization against explicit loss and runtime thresholds, not merely passing an API check. The chained warmup, training, saving, loading, and prediction artifacts create strict ordering, while the exact interfaces constrain—but do not eliminate—drift. Cost is limited because the work is large and its overall shape is known, though the winning optimization method must be discovered experimentally.
+3. **intrastat-meldung** (tb3, 3h, net_live 63.4) — B1 dominates because corrections, independent approval, submission, acceptance, and archival form a strict dependency chain where reordering can produce plausible but incorrect compliance records. B3 is also high because the three-hour estimate and multi-service artifact flow create a substantial, resumable execution horizon. The task offers modest decomposition across two filings and their lines, while schema validation and portal acceptance provide checks without an optimization target. Its shape is explicit, and orchestration overhead is proportionate to the work.
+4. **retro-console-soc** (tb3, 10h, net_live 62.5) — B3 dominates because the 600-minute estimate places this well beyond a single sitting. The task also has substantial drift risk: an agent can produce compiling RTL while leaving CPU instructions, PPU timing, UNROM banking, or timing closure incomplete. Concrete performance and image targets enable iterative correction, and the CPU and PPU provide meaningful decomposition. The main cost is only modest shape uncertainty because the required artifacts and acceptance criteria are explicit.
+5. **gpt2-codegolf** (tb2.1, 40h, net_live 60.7) — B3 is decisive because the 2400-minute expert estimate places this far beyond one sitting. B1 and B5 are also strong: autoregressive token generation has chained dependencies, while the sub-5000-byte limit creates a concrete optimize-and-retest loop. The task remains tightly scoped to one file and exact behavior, keeping drift and decomposition modest. Shape uncertainty is limited because the deliverable and interface are explicit even though the compact implementation strategy is open.
+6. **regex-chess** (tb2.1, 24h, net_live 60.7) — B3 dominates because the 24-hour expert estimate puts this far beyond a normal single sitting. Strictly ordered substitutions also create a strong artifact dependency, while measurable file limits and `check.py` support iterative correction. The specification tightly constrains the artifact, but the large hidden behavioral surface still creates meaningful premature-completion risk. Orchestration overhead is negligible at this duration; the main cost is modest uncertainty about the regex-based implementation method.
+7. **distributed-dedup** (tb3, 10h, net_live 60.7) — B3 is the strongest driver because the 600-minute expert estimate places the task beyond one long sitting. B1 and B5 are also strong: the artifacts form a strict dependency chain, and four numeric performance ceilings support repeated measurement and optimization. Costs are low because the task is long and its deliverable is explicit, although the efficient Spark algorithm remains somewhat open.
+8. **fp8-rmsnorm-gemm** (tb3, 12h, net_live 60.7) — The dominant benefit is the 12-hour expert horizon, reinforced by a strong numeric convergence target requiring repeated correctness and performance cycles. The computation also contains a strict chain from RMSNorm through row scaling and fp8 quantization into GEMM. Parallel fan-out and drift risk remain limited because the submission is one tightly specified CUDA file. Orchestration overhead is negligible, while implementation-shape uncertainty is modest because the deliverable and equations are explicit.
+9. **cli-2ph-simplex** (tb3, 2h, net_live 55.9) — B1 dominates because multiple ordered tableau transformations feed the final reports, and changing or skipping that sequence can yield plausible but incorrect artifacts. B5 is also unusually strong: minimum pivot count is a genuine optimization target rather than merely hidden test compliance. The two-hour expert estimate makes the task substantial enough that orchestration overhead is not dominant, while the exhaustive specification keeps shape uncertainty and drift comparatively low. The main vanilla risk is premature completion with a correct-looking solver that does not find a globally shortest valid pivot path.
+10. **gsea-proteomics** (tb3, 4h, net_live 53.6) — The dominant benefit is enforcing the chained analysis order from differential-expression gene-set construction through GSEA and then significance-dependent aggregation. The eight EXP comparisons also provide genuine fan-out, while the four-hour estimate makes orchestration overhead proportionally modest. Convergence value is limited because the numerical thresholds classify biological results rather than define a quality target to optimize. Drift risk remains low because the methods, parameters, file paths, and output schemas are unusually explicit.

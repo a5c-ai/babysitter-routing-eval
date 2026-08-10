@@ -1,18 +1,17 @@
 # Model judge results
 
-Each directory contains the same 163-task routing table produced from one model's primary
-judgments. All model comparisons use the rubric's shared `net_live` thresholds:
+Each directory contains the same 163-task routing table produced by one model. All model
+comparisons use the rubric's shared `net_live` thresholds:
 
-- `net_live >= 20` → `babysitter`
-- `net_live <= -15` → `vanilla`
+- `net_live >= 4` → `babysitter`
+- `net_live <= -31` → `vanilla`
 - otherwise → `borderline` (undecided)
 
-`opus-5/` preserves the existing Opus payload and report. Its stored published verdicts
-include a three-judge panel for initially borderline tasks; the cross-model comparison uses
-the primary Opus score so its protocol matches the one-pass GPT-5.6-sol judge.
+`opus-5/` preserves the current Opus payload and report. Its recommendation is the stored
+majority from three Opus judgments per task under the anchored profile.
 
-`gpt-5.6-sol/` comes from completed Babysitter run
-`01KZPJA5TSSS71GRFR1WSFRVHT`: 163 unique tasks, one judgment each, effort `high`.
+`gpt-5.6-sol/` is one judgment per task under that same profile and comes from completed run
+`01KZPPBKFHC25P3TQCSRP282XG`: 163 unique tasks, one judgment each, effort `high`.
 
 `comparison/` is generated from `inputs/model-comparison.json`. Add a third model by
 generating its payload, adding its metadata to that configuration, and running

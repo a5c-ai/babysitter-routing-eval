@@ -62,6 +62,16 @@ for (const model of models.slice(1)) {
     throw new Error(`${model.id} does not contain the same task set as ${models[0].id}`);
   }
 }
+if (config.manifest) {
+  const manifest = JSON.parse(readFileSync(path.resolve(config.manifest), 'utf8'));
+  const manifestIds = (manifest.tasks ?? []).map((task) => task.id).sort();
+  if (
+    manifestIds.length !== taskIds.length ||
+    manifestIds.some((id, index) => id !== taskIds[index])
+  ) {
+    throw new Error('model payloads do not contain the exact manifest task set');
+  }
+}
 
 function recommendation(model, row) {
   if ((model.verdictMode ?? 'stored') === 'stored') {
@@ -163,7 +173,7 @@ const markdown = [
   '|---|---|---|---|',
   ...models.map((model) => `| ${model.label} | \`${path.relative(process.cwd(), model.payloadPath)}\` | ${model.verdictMode ?? 'stored'} | ${model.notes ?? ''} |`),
   '',
-  'The comparison uses each model\'s primary `net_live` score and the shared thresholds. The original published Opus report remains unchanged and may use its panel verdict for borderline tasks.',
+  'Recommendations use each model\'s configured verdict mode and the shared thresholds where `primary-score` is selected. The score in parentheses is the payload\'s primary `net_live`; a stored verdict may reflect a panel.',
   '',
   '## Recommendation counts',
   '',

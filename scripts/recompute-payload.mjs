@@ -24,7 +24,12 @@ const runDirs = argv[0].split(',').map((d) => path.resolve(d.trim()));
 const outPath = path.resolve(argv[1] ?? 'out/payload.json');
 const manifestPath = path.resolve(argv[2] ?? 'out/manifest.json');
 const flag = (n, d) => { const i = argv.indexOf(`--${n}`); return i >= 0 ? Number(argv[i + 1]) : d; };
-const THRESH = { low: flag('low', -15), high: flag('high', 20), source: 'doc defaults' };
+const thresholdOverride = argv.includes('--low') || argv.includes('--high');
+const THRESH = {
+  low: flag('low', -15),
+  high: flag('high', 20),
+  source: thresholdOverride ? 'CLI override' : 'doc defaults',
+};
 
 const r1 = (n) => Math.round(n * 10) / 10;
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));

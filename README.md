@@ -14,26 +14,25 @@ cited for every dimension, and the panel votes.
 
 ## Multi-model comparison
 
-The original table was judged with **Opus 5**. The same primary-judge prompt and scoring
-code have now been run once per task with **GPT-5.6-sol**. `borderline` is the rubric's
-undecided band.
+The current table uses three **Opus 5** judgments per task. The same judge prompt and
+scoring code have now been run once per task with **GPT-5.6-sol** under the same anchored
+profile. `borderline` is the rubric's undecided band.
 
-| primary judge | babysitter | borderline | vanilla | mean `net_live` |
+| model recommendation | babysitter | borderline | vanilla | mean primary `net_live` |
 |---|---:|---:|---:|---:|
-| Opus 5 | 58 | 65 | 40 | 9.4 |
-| GPT-5.6-sol | 62 | 61 | 40 | 11.3 |
+| Opus 5 majority (3 judgments/task) | 59 | 69 | 35 | -6.5 |
+| GPT-5.6-sol (1 judgment/task) | 66 | 75 | 22 | -0.3 |
 
-The two primary judges agree on **127/163 tasks (77.9%)**. The remaining **36** are marked
-`needs-third-judge`, ready for a third model to break the tie. See the complete
+The two model recommendations agree on **129/163 tasks (79.1%)**. The remaining **34**
+are marked `needs-third-judge`, ready for a third model to break the tie. See the complete
 [multi-model table](out/models/comparison/comparison.md), its
 [CSV](out/models/comparison/comparison.csv), the [Opus 5 report](out/models/opus-5/report.html),
 and the [GPT-5.6-sol report](out/models/gpt-5.6-sol/report.html).
 
-For an apples-to-apples model comparison, the table above derives both recommendations
-from each model's primary `net_live` score using the shared thresholds. The original
-published Opus report at [`out/report.html`](out/report.html) remains unchanged: it adds
-two more Opus judges for tasks that initially landed in the borderline band and reports
-their panel majority.
+The Opus column uses its stored three-judge majority; the GPT column uses its primary
+`net_live` score and the shared thresholds. The score shown beside each recommendation in
+the detailed table is the primary score, so it can differ from an Opus panel majority. The
+published Opus report at [`out/report.html`](out/report.html) remains unchanged.
 
 ## How it works
 
@@ -165,7 +164,7 @@ node scripts/drive-run.mjs ~/.a5c/runs/<runId> \
   --concurrency 4 --harness codex --model gpt-5.6-sol --effort high
 
 node scripts/recompute-payload.mjs ~/.a5c/runs/<runId> \
-  out/models/gpt-5.6-sol/payload.json out/manifest.json
+  out/models/gpt-5.6-sol/payload.json out/manifest.json --low -31 --high 4
 node scripts/build-report.mjs \
   out/models/gpt-5.6-sol/payload.json out/models/gpt-5.6-sol
 node scripts/build-html-report.mjs \
@@ -196,5 +195,5 @@ majority, otherwise `undecided`.
 - **B6 and B8 remain prose.** Anchor ladders were written for both and made agreement
   worse, so they were reverted. They are the two dimensions most in need of a better
   observable anchor.
-- Judging is three samples of one model, which measures self-consistency. Correlated model
-  bias is invisible to it; genuinely independent judges would need different models.
+- The published Opus baseline measures one model's self-consistency. This comparison adds
+  a second model, but still lacks hand labels and the planned third independent model.

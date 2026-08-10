@@ -1,52 +1,52 @@
 {
-  "generatedAt": "2026-08-10T20:01:48.453Z",
+  "generatedAt": "2026-08-10T21:12:30.605Z",
   "taskCount": 163,
   "thresholds": {
-    "low": -15,
-    "high": 20
+    "low": -31,
+    "high": 4
   },
   "models": [
     {
       "id": "opus-5",
       "label": "Opus 5",
       "payload": "out/models/opus-5/payload.json",
-      "runId": "01KZNWNZGBF2DJXHKG8XCC790C + 01KZP295QJFKTZ7MPZ4J656B19",
-      "verdictMode": "primary-score",
-      "notes": "Primary judge from the existing Opus 5 run; the published report additionally panels borderline tasks."
+      "runId": "01KZPDCFWD8KKWRG1Q3BF57BNC",
+      "verdictMode": "stored",
+      "notes": "Stored majority recommendation from three Opus 5 judgments per task under the anchored profile."
     },
     {
       "id": "gpt-5.6-sol",
       "label": "GPT-5.6-sol",
       "payload": "out/models/gpt-5.6-sol/payload.json",
-      "runId": "01KZPJA5TSSS71GRFR1WSFRVHT",
+      "runId": "01KZPPBKFHC25P3TQCSRP282XG",
       "verdictMode": "primary-score",
-      "notes": "One primary judgment per task, effort high, using the identical rubric and Terminal-Bench profile."
+      "notes": "One primary judgment per task, effort high, using the same anchored rubric and Terminal-Bench profile."
     }
   ],
   "summary": {
-    "unanimous": 127,
-    "needsThirdJudge": 36,
+    "unanimous": 129,
+    "needsThirdJudge": 34,
     "modelSummaries": {
       "opus-5": {
-        "babysitter": 58,
-        "borderline": 65,
-        "vanilla": 40,
-        "meanNetLive": 9.4
+        "babysitter": 59,
+        "borderline": 69,
+        "vanilla": 35,
+        "meanNetLive": -6.5
       },
       "gpt-5.6-sol": {
-        "babysitter": 62,
-        "borderline": 61,
-        "vanilla": 40,
-        "meanNetLive": 11.3
+        "babysitter": 66,
+        "borderline": 75,
+        "vanilla": 22,
+        "meanNetLive": -0.3
       }
     },
     "pairwise": {
       "opus-5": {
         "opus-5": 163,
-        "gpt-5.6-sol": 127
+        "gpt-5.6-sol": 129
       },
       "gpt-5.6-sol": {
-        "opus-5": 127,
+        "opus-5": 129,
         "gpt-5.6-sol": 163
       }
     }
@@ -59,11 +59,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 8.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 17.2
         }
       },
       "consensus": "babysitter",
@@ -77,11 +77,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 63.2
+          "netLive": -3.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 31.8
+          "netLive": 5.6
         }
       },
       "consensus": "babysitter",
@@ -95,11 +95,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -67.1
+          "netLive": -61.3
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -67.1
+          "netLive": -58.4
         }
       },
       "consensus": "vanilla",
@@ -112,17 +112,17 @@
       "name": "build-cython-ext",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -24.7
+          "verdict": "borderline",
+          "netLive": -16.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -8.6
+          "netLive": -10.3
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__build-pmars",
@@ -130,15 +130,15 @@
       "name": "build-pmars",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 16.9
+          "verdict": "babysitter",
+          "netLive": -2.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 7.8
+          "verdict": "babysitter",
+          "netLive": 16.5
         }
       },
-      "consensus": "borderline",
+      "consensus": "babysitter",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -148,15 +148,15 @@
       "name": "build-pov-ray",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 10.7
+          "verdict": "babysitter",
+          "netLive": -2.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -2.1
+          "verdict": "babysitter",
+          "netLive": 25.1
         }
       },
-      "consensus": "borderline",
+      "consensus": "babysitter",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -171,7 +171,7 @@
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 28.3
+          "netLive": 28
         }
       },
       "consensus": "babysitter",
@@ -185,16 +185,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 11.1
+          "netLive": -16.5
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 4
+          "verdict": "vanilla",
+          "netLive": -33.7
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__chess-best-move",
@@ -202,15 +202,15 @@
       "name": "chess-best-move",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -12.3
+          "verdict": "vanilla",
+          "netLive": -49.4
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -6.5
+          "verdict": "vanilla",
+          "netLive": -43.7
         }
       },
-      "consensus": "borderline",
+      "consensus": "vanilla",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -221,11 +221,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 40.2
+          "netLive": 30.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 49.2
+          "netLive": 46.4
         }
       },
       "consensus": "babysitter",
@@ -239,11 +239,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -29.9
+          "netLive": -61.3
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -38.1
+          "netLive": -56.7
         }
       },
       "consensus": "vanilla",
@@ -257,16 +257,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -18.4
+          "netLive": -43.7
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -29.3
+          "verdict": "borderline",
+          "netLive": -26.4
         }
       },
-      "consensus": "vanilla",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__compile-compcert",
@@ -275,16 +275,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -16.5
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
+          "verdict": "borderline",
           "netLive": -16.5
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__configure-git-webserver",
@@ -293,16 +293,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -39.9
+          "netLive": -31.2
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -16.7
+          "verdict": "borderline",
+          "netLive": -25.5
         }
       },
-      "consensus": "vanilla",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__constraints-scheduling",
@@ -311,11 +311,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -22.4
+          "netLive": -58.4
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -16.7
+          "netLive": -43.9
         }
       },
       "consensus": "vanilla",
@@ -328,12 +328,12 @@
       "name": "count-dataset-tokens",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 2.1
+          "verdict": "vanilla",
+          "netLive": -30.5
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -16.5
+          "verdict": "borderline",
+          "netLive": -26.4
         }
       },
       "consensus": "needs-third-judge",
@@ -351,7 +351,7 @@
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -54.2
+          "netLive": -64.2
         }
       },
       "consensus": "vanilla",
@@ -365,11 +365,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -65.1
+          "netLive": -56.5
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -47.9
+          "netLive": -50.8
         }
       },
       "consensus": "vanilla",
@@ -382,15 +382,15 @@
       "name": "db-wal-recovery",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -53.6
+          "verdict": "borderline",
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -20.7
+          "verdict": "borderline",
+          "netLive": -14.9
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -401,11 +401,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 11.1
+          "netLive": -19.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 6.9
+          "netLive": -10.7
         }
       },
       "consensus": "borderline",
@@ -418,15 +418,15 @@
       "name": "dna-assembly",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 21.1
+          "verdict": "borderline",
+          "netLive": -27.6
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 32.6
+          "verdict": "borderline",
+          "netLive": -27.6
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -436,17 +436,17 @@
       "name": "dna-insert",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 13.6
+          "verdict": "vanilla",
+          "netLive": -32.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -5
+          "netLive": -13.6
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__extract-elf",
@@ -455,16 +455,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -32.2
+          "netLive": -43.7
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -16.5
+          "verdict": "borderline",
+          "netLive": -25.1
         }
       },
-      "consensus": "vanilla",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__extract-moves-from-video",
@@ -472,17 +472,17 @@
       "name": "extract-moves-from-video",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 11.1
+          "verdict": "vanilla",
+          "netLive": -30.8
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 31.2
+          "verdict": "vanilla",
+          "netLive": -35.1
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__feal-differential-cryptanalysis",
@@ -491,11 +491,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 15.9
+          "netLive": -8.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 14.6
+          "netLive": -0.2
         }
       },
       "consensus": "borderline",
@@ -508,17 +508,17 @@
       "name": "feal-linear-cryptanalysis",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 16.3
+          "verdict": "babysitter",
+          "netLive": 11.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 23.2
+          "netLive": 11.7
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__filter-js-from-html",
@@ -527,16 +527,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -0.8
+          "netLive": -25.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -9.4
+          "verdict": "vanilla",
+          "netLive": -33.7
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__financial-document-processor",
@@ -545,16 +545,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 6.7
+          "netLive": 1.3
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 12.4
+          "verdict": "babysitter",
+          "netLive": 19.9
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__fix-code-vulnerability",
@@ -562,15 +562,15 @@
       "name": "fix-code-vulnerability",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -20.3
+          "verdict": "borderline",
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -18.8
+          "verdict": "borderline",
+          "netLive": -20.7
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -581,11 +581,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -58.4
+          "netLive": -77
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -58.4
+          "netLive": -77
         }
       },
       "consensus": "vanilla",
@@ -599,16 +599,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -4
+          "netLive": 4.6
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
+          "verdict": "babysitter",
           "netLive": 4.6
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__gcode-to-text",
@@ -617,11 +617,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -22.2
+          "netLive": -49.4
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -33.7
+          "netLive": -49.4
         }
       },
       "consensus": "vanilla",
@@ -635,11 +635,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 10.7
+          "netLive": -10.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -2.1
+          "netLive": -29.3
         }
       },
       "consensus": "borderline",
@@ -653,11 +653,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 42
+          "netLive": 50.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 46.2
+          "netLive": 37.4
         }
       },
       "consensus": "babysitter",
@@ -671,7 +671,7 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 40.6
+          "netLive": 37.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
@@ -689,11 +689,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -10.3
+          "netLive": -25.1
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 22.6
+          "verdict": "vanilla",
+          "netLive": -39.1
         }
       },
       "consensus": "needs-third-judge",
@@ -706,15 +706,15 @@
       "name": "hf-model-inference",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -29.9
+          "verdict": "borderline",
+          "netLive": -21.3
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
+          "verdict": "borderline",
           "netLive": -16.7
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -725,11 +725,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 56.3
+          "netLive": 2.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 38.7
         }
       },
       "consensus": "babysitter",
@@ -742,15 +742,15 @@
       "name": "kv-store-grpc",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -21.3
+          "verdict": "borderline",
+          "netLive": -12.7
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -15.5
+          "verdict": "borderline",
+          "netLive": -12.7
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -761,16 +761,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -3.6
+          "netLive": -23.6
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -21.8
+          "verdict": "borderline",
+          "netLive": -9.2
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__largest-eigenval",
@@ -782,13 +782,13 @@
           "netLive": -7.9
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -16.5
+          "verdict": "borderline",
+          "netLive": -7.9
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__llm-inference-batching-scheduler",
@@ -797,11 +797,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 15.3
+          "netLive": -21.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -3.3
+          "netLive": -21.8
         }
       },
       "consensus": "borderline",
@@ -819,7 +819,7 @@
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -7.7
+          "netLive": -1.9
         }
       },
       "consensus": "borderline",
@@ -833,11 +833,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 14.4
+          "netLive": -19.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 5.4
+          "netLive": -6.1
         }
       },
       "consensus": "borderline",
@@ -851,11 +851,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 8.8
+          "netLive": -5.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 3.1
+          "netLive": -5.9
         }
       },
       "consensus": "borderline",
@@ -868,17 +868,17 @@
       "name": "make-mips-interpreter",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 24.9
+          "verdict": "borderline",
+          "netLive": -5.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 24.9
+          "netLive": 23
         }
       },
-      "consensus": "babysitter",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__mcmc-sampling-stan",
@@ -887,11 +887,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 46
+          "netLive": 34.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 31.2
+          "netLive": 38.7
         }
       },
       "consensus": "babysitter",
@@ -905,11 +905,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -39.9
+          "netLive": -44.1
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -28
+          "netLive": -39.5
         }
       },
       "consensus": "vanilla",
@@ -922,17 +922,17 @@
       "name": "model-extraction-relu-logits",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -18.4
+          "verdict": "borderline",
+          "netLive": 6.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 14.6
+          "netLive": -20.3
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__modernize-scientific-stack",
@@ -940,17 +940,17 @@
       "name": "modernize-scientific-stack",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -15.1
+          "verdict": "borderline",
+          "netLive": -1.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 4.2
+          "netLive": -1.9
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__mteb-leaderboard",
@@ -959,16 +959,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -39.9
+          "netLive": -54.2
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -27
+          "verdict": "borderline",
+          "netLive": -21.3
         }
       },
-      "consensus": "vanilla",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__mteb-retrieve",
@@ -976,15 +976,15 @@
       "name": "mteb-retrieve",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -35.6
+          "verdict": "borderline",
+          "netLive": -18.4
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -35.6
+          "verdict": "borderline",
+          "netLive": -18.4
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -994,15 +994,15 @@
       "name": "multi-source-data-merger",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 6.7
+          "verdict": "babysitter",
+          "netLive": 15.3
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 12.4
+          "verdict": "babysitter",
+          "netLive": 15.3
         }
       },
-      "consensus": "borderline",
+      "consensus": "babysitter",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -1012,15 +1012,15 @@
       "name": "nginx-request-logging",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -16.7
+          "verdict": "borderline",
+          "netLive": -10.9
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -16.7
+          "verdict": "borderline",
+          "netLive": -2.3
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -1030,15 +1030,15 @@
       "name": "openssl-selfsigned-cert",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -21.3
+          "verdict": "borderline",
+          "netLive": -8.1
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -21.3
+          "verdict": "borderline",
+          "netLive": -6.9
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -1049,16 +1049,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -9.4
+          "netLive": -0.8
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -13.6
+          "verdict": "babysitter",
+          "netLive": 6.7
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__password-recovery",
@@ -1067,11 +1067,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -20.3
+          "netLive": -43.7
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -17.4
+          "netLive": -43.7
         }
       },
       "consensus": "vanilla",
@@ -1085,11 +1085,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 3.1
+          "netLive": -0.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -6.9
+          "netLive": -3.1
         }
       },
       "consensus": "borderline",
@@ -1102,17 +1102,17 @@
       "name": "path-tracing-reverse",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -14.6
+          "verdict": "vanilla",
+          "netLive": -32.2
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -21.6
+          "netLive": -32.2
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__polyglot-c-py",
@@ -1121,11 +1121,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -44.3
+          "netLive": -38.5
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -33.9
+          "netLive": -48.5
         }
       },
       "consensus": "vanilla",
@@ -1139,11 +1139,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 2.5
+          "netLive": -10.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 14
+          "netLive": -10.3
         }
       },
       "consensus": "borderline",
@@ -1157,11 +1157,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 25.5
+          "netLive": 10.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 38.7
+          "netLive": 23.9
         }
       },
       "consensus": "babysitter",
@@ -1175,11 +1175,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 8.2
+          "netLive": -10.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 18.6
+          "netLive": 0
         }
       },
       "consensus": "borderline",
@@ -1192,15 +1192,15 @@
       "name": "prove-plus-comm",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -35.6
+          "verdict": "borderline",
+          "netLive": -27
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -29.9
+          "verdict": "borderline",
+          "netLive": -21.3
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -1210,15 +1210,15 @@
       "name": "pypi-server",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 1
+          "verdict": "babysitter",
+          "netLive": -7.9
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 6.7
+          "verdict": "babysitter",
+          "netLive": 16.5
         }
       },
-      "consensus": "borderline",
+      "consensus": "babysitter",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -1228,17 +1228,17 @@
       "name": "pytorch-model-cli",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -16.5
+          "verdict": "borderline",
+          "netLive": -22.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -6.5
+          "netLive": -16.5
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__pytorch-model-recovery",
@@ -1247,11 +1247,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -28.4
+          "netLive": -38.3
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -32.6
+          "netLive": -38.3
         }
       },
       "consensus": "vanilla",
@@ -1265,11 +1265,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -10.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 7.8
+          "netLive": -10.7
         }
       },
       "consensus": "borderline",
@@ -1283,11 +1283,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -3.6
+          "netLive": -19.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -10.7
         }
       },
       "consensus": "borderline",
@@ -1300,12 +1300,12 @@
       "name": "query-optimize",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 5
+          "verdict": "vanilla",
+          "netLive": -49.4
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -32.2
+          "verdict": "borderline",
+          "netLive": -26.4
         }
       },
       "consensus": "needs-third-judge",
@@ -1319,11 +1319,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -25.3
+          "netLive": -53.8
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -43.9
+          "netLive": -68.2
         }
       },
       "consensus": "vanilla",
@@ -1337,11 +1337,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 53.4
+          "netLive": 49.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 71.1
+          "netLive": 60.7
         }
       },
       "consensus": "babysitter",
@@ -1355,11 +1355,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -0.8
+          "netLive": -20.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -9.4
+          "netLive": -15.1
         }
       },
       "consensus": "borderline",
@@ -1373,11 +1373,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -16.5
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 12.4
+          "netLive": -0.4
         }
       },
       "consensus": "borderline",
@@ -1391,16 +1391,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -11.7
+          "netLive": -17.8
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 36
+          "verdict": "borderline",
+          "netLive": -3.1
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__sam-cell-seg",
@@ -1409,11 +1409,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 64.9
+          "netLive": 34.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 40.6
+          "netLive": 39.5
         }
       },
       "consensus": "babysitter",
@@ -1427,11 +1427,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -11.9
+          "netLive": -1.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 5.4
+          "netLive": 2.5
         }
       },
       "consensus": "borderline",
@@ -1444,17 +1444,17 @@
       "name": "schemelike-metacircular-eval",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 51.7
+          "verdict": "borderline",
+          "netLive": -7.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 7.3
         }
       },
-      "consensus": "babysitter",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__sparql-university",
@@ -1462,17 +1462,17 @@
       "name": "sparql-university",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 21.7
+          "verdict": "borderline",
+          "netLive": 3.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 18.8
+          "netLive": 3.1
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb2.1__sqlite-db-truncate",
@@ -1481,11 +1481,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -37.9
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -32.2
+          "netLive": -35.1
         }
       },
       "consensus": "vanilla",
@@ -1499,11 +1499,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -6.5
+          "netLive": 2.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -16.5
         }
       },
       "consensus": "borderline",
@@ -1517,11 +1517,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 54.6
+          "netLive": 20.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 64.9
+          "netLive": 34.1
         }
       },
       "consensus": "babysitter",
@@ -1535,11 +1535,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 42
+          "netLive": 30.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 56.3
+          "netLive": 30.1
         }
       },
       "consensus": "babysitter",
@@ -1553,11 +1553,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 5
+          "netLive": -13.6
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 10.7
+          "netLive": -7.9
         }
       },
       "consensus": "borderline",
@@ -1571,11 +1571,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -7.9
+          "netLive": -26.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -7.9
+          "netLive": -26.4
         }
       },
       "consensus": "borderline",
@@ -1589,11 +1589,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -5.5
+          "netLive": -20.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -8.4
+          "netLive": -20.3
         }
       },
       "consensus": "borderline",
@@ -1607,11 +1607,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -91.4
+          "netLive": -58.4
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -85.6
+          "netLive": -58.4
         }
       },
       "consensus": "vanilla",
@@ -1625,16 +1625,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -11.9
+          "netLive": -21.8
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -11.9
+          "verdict": "babysitter",
+          "netLive": 5.4
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb2.1__write-compressor",
@@ -1642,17 +1642,17 @@
       "name": "write-compressor",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -1.1
+          "verdict": "babysitter",
+          "netLive": 8.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 28.9
+          "netLive": 14.6
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__atrx-vep-crispr",
@@ -1661,11 +1661,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 53.4
+          "netLive": 38.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 67.8
+          "netLive": 47.3
         }
       },
       "consensus": "babysitter",
@@ -1679,16 +1679,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 13.4
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 39.3
+          "verdict": "borderline",
+          "netLive": 0.6
         }
       },
-      "consensus": "babysitter",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__biped-contact-dynamics",
@@ -1697,11 +1697,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 49.2
+          "netLive": 18.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 48.1
+          "netLive": 33.3
         }
       },
       "consensus": "babysitter",
@@ -1714,17 +1714,17 @@
       "name": "bun-sourcemap-leak",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 20.1
+          "verdict": "borderline",
+          "netLive": -6.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 5.4
+          "netLive": -19
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__cad-model",
@@ -1733,11 +1733,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -26.1
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 16.9
+          "netLive": -20.3
         }
       },
       "consensus": "needs-third-judge",
@@ -1751,11 +1751,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 17.2
+          "netLive": -1.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 4.4
+          "netLive": 0.4
         }
       },
       "consensus": "borderline",
@@ -1769,11 +1769,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 33.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 55.9
         }
       },
       "consensus": "babysitter",
@@ -1787,11 +1787,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -5.5
+          "netLive": 3.1
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -18.4
+          "verdict": "babysitter",
+          "netLive": 8.8
         }
       },
       "consensus": "needs-third-judge",
@@ -1805,16 +1805,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 28.9
+          "netLive": 19.9
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 16.1
+          "verdict": "babysitter",
+          "netLive": 14.2
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__cumulative-layout-shift",
@@ -1822,12 +1822,12 @@
       "name": "cumulative-layout-shift",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 13.4
+          "verdict": "babysitter",
+          "netLive": 11.9
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 26.6
+          "verdict": "borderline",
+          "netLive": -6.7
         }
       },
       "consensus": "needs-third-judge",
@@ -1841,11 +1841,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 27.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 73.6
+          "netLive": 27.8
         }
       },
       "consensus": "babysitter",
@@ -1859,7 +1859,7 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 69
+          "netLive": 56.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
@@ -1877,11 +1877,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 10.5
+          "netLive": -33.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 15.1
+          "netLive": -1.3
         }
       },
       "consensus": "borderline",
@@ -1895,11 +1895,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 52.1
+          "netLive": 24.5
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 57.9
+          "netLive": 24.5
         }
       },
       "consensus": "babysitter",
@@ -1913,11 +1913,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 65.3
+          "netLive": 51.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 65.3
+          "netLive": 75.7
         }
       },
       "consensus": "babysitter",
@@ -1930,15 +1930,15 @@
       "name": "fin-saccr-rwa",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 59.2
+          "verdict": "borderline",
+          "netLive": 1.5
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 45.2
+          "verdict": "borderline",
+          "netLive": 1.5
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -1949,11 +1949,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 14.6
+          "netLive": -15.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 6.3
+          "netLive": -18.8
         }
       },
       "consensus": "borderline",
@@ -1967,11 +1967,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -16.5
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 2.5
+          "netLive": -21.8
         }
       },
       "consensus": "needs-third-judge",
@@ -1984,15 +1984,15 @@
       "name": "formal-crypto",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -18.4
+          "verdict": "borderline",
+          "netLive": -8.8
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -18.8
+          "verdict": "borderline",
+          "netLive": -8.8
         }
       },
-      "consensus": "vanilla",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -2007,7 +2007,7 @@
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 56.1
+          "netLive": 60.7
         }
       },
       "consensus": "babysitter",
@@ -2020,17 +2020,17 @@
       "name": "freecad-impeller",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 25.5
+          "verdict": "borderline",
+          "netLive": -16.5
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 38.7
         }
       },
-      "consensus": "babysitter",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__freecad-platform-drawing",
@@ -2038,17 +2038,17 @@
       "name": "freecad-platform-drawing",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -5.9
+          "verdict": "vanilla",
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 18.4
+          "netLive": -17.8
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__freecad-spring-clip",
@@ -2057,7 +2057,7 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 22.6
+          "netLive": -7.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
@@ -2075,11 +2075,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 64.9
+          "netLive": 25.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 70.7
+          "netLive": 44.4
         }
       },
       "consensus": "babysitter",
@@ -2093,11 +2093,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 15.9
+          "netLive": -8.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 8.8
+          "netLive": -7.1
         }
       },
       "consensus": "borderline",
@@ -2110,17 +2110,17 @@
       "name": "gpt2-codegolf",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 14.6
+          "verdict": "babysitter",
+          "netLive": 28.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 52.1
+          "netLive": 43.5
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__gsea-proteomics",
@@ -2129,11 +2129,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 58
+          "netLive": 43.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 66.7
+          "netLive": 53.6
         }
       },
       "consensus": "babysitter",
@@ -2147,16 +2147,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 11.9
+          "netLive": -7.1
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 36.6
+          "verdict": "borderline",
+          "netLive": -2.5
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__hof-topology-interpenetration",
@@ -2165,11 +2165,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 53.4
+          "netLive": 6.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 39.5
+          "netLive": 17.6
         }
       },
       "consensus": "babysitter",
@@ -2182,17 +2182,17 @@
       "name": "html-js-filter",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -15.1
+          "verdict": "borderline",
+          "netLive": -28
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -3.6
+          "netLive": -25.1
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__ico-path-patch",
@@ -2200,15 +2200,15 @@
       "name": "ico-path-patch",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 3.5
+          "verdict": "babysitter",
+          "netLive": 18.8
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 15
+          "verdict": "babysitter",
+          "netLive": 30.3
         }
       },
-      "consensus": "borderline",
+      "consensus": "babysitter",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -2218,17 +2218,17 @@
       "name": "interleaved-vigenere",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -21.6
+          "verdict": "borderline",
+          "netLive": -29.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -13
+          "netLive": -14.9
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__intrastat-meldung",
@@ -2237,11 +2237,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 46.4
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 50.6
+          "netLive": 63.4
         }
       },
       "consensus": "babysitter",
@@ -2255,11 +2255,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 57.9
+          "netLive": 39.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 52.1
+          "netLive": 66.5
         }
       },
       "consensus": "babysitter",
@@ -2272,17 +2272,17 @@
       "name": "ks-solver-cpp",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 14.6
+          "verdict": "babysitter",
+          "netLive": 21.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 21.7
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__kv-live-surgery",
@@ -2290,17 +2290,17 @@
       "name": "kv-live-surgery",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 28.9
+          "verdict": "borderline",
+          "netLive": -10.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 16.1
+          "netLive": 0.2
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__lake-temp-glm",
@@ -2309,11 +2309,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 24.5
+          "netLive": 5.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 24.9
+          "netLive": 5.6
         }
       },
       "consensus": "babysitter",
@@ -2326,17 +2326,17 @@
       "name": "layout-config-recreation",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 20.1
+          "verdict": "borderline",
+          "netLive": -13.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 1.5
+          "netLive": -13.2
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__layout-config-recreation2",
@@ -2345,11 +2345,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 37.4
+          "netLive": 5.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 33.3
+          "netLive": 10.2
         }
       },
       "consensus": "babysitter",
@@ -2366,8 +2366,8 @@
           "netLive": 8.8
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -18.4
+          "verdict": "babysitter",
+          "netLive": 8.8
         }
       },
       "consensus": "needs-third-judge",
@@ -2380,15 +2380,15 @@
       "name": "legacy-utility-triage",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 27.6
+          "verdict": "borderline",
+          "netLive": 2.9
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 55.2
+          "verdict": "borderline",
+          "netLive": -5.4
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -2399,11 +2399,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 57.9
+          "netLive": 19.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 45
+          "netLive": 24.5
         }
       },
       "consensus": "babysitter",
@@ -2417,11 +2417,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 53.4
+          "netLive": 16.5
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 61.3
+          "netLive": 53.6
         }
       },
       "consensus": "babysitter",
@@ -2434,17 +2434,17 @@
       "name": "medical-claims-processing",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 17.6
+          "verdict": "babysitter",
+          "netLive": 8.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 33.7
+          "netLive": 21.8
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__memcached-backdoor",
@@ -2453,16 +2453,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -38.9
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -38.9
+          "verdict": "borderline",
+          "netLive": -20.3
         }
       },
-      "consensus": "vanilla",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__mp-checkpoint-consolidation",
@@ -2471,16 +2471,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -10.9
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 9.2
+          "verdict": "babysitter",
+          "netLive": 4.4
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__music-harmony",
@@ -2488,15 +2488,15 @@
       "name": "music-harmony",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 2.1
+          "verdict": "vanilla",
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 7.8
+          "verdict": "vanilla",
+          "netLive": -35.1
         }
       },
-      "consensus": "borderline",
+      "consensus": "vanilla",
       "agreement": "2/2",
       "unanimous": true
     },
@@ -2506,17 +2506,17 @@
       "name": "mvcc-lsm-compaction",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -4
+          "verdict": "babysitter",
+          "netLive": 8.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 14.6
+          "netLive": -1.3
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__nextjs-performance",
@@ -2525,11 +2525,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -7.1
+          "netLive": -23.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -1
+          "netLive": -26.8
         }
       },
       "consensus": "borderline",
@@ -2543,11 +2543,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 60.7
+          "netLive": 16.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 22
+          "netLive": 27.8
         }
       },
       "consensus": "babysitter",
@@ -2560,12 +2560,12 @@
       "name": "payments-pipeline-fix",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -8.8
+          "verdict": "vanilla",
+          "netLive": -45
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -30.3
+          "verdict": "borderline",
+          "netLive": -19.9
         }
       },
       "consensus": "needs-third-judge",
@@ -2579,11 +2579,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 18.2
+          "netLive": -29.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 19.9
+          "netLive": -20.1
         }
       },
       "consensus": "borderline",
@@ -2596,17 +2596,17 @@
       "name": "pretrain-shard-corruption",
       "recommendations": {
         "opus-5": {
-          "verdict": "vanilla",
-          "netLive": -18.8
+          "verdict": "borderline",
+          "netLive": -19.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -4.4
+          "netLive": -13
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__production-planning",
@@ -2615,11 +2615,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 64.9
+          "netLive": 18.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 57.9
+          "netLive": 24.5
         }
       },
       "consensus": "babysitter",
@@ -2633,11 +2633,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": -8.8
+          "netLive": -30.5
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -14.2
+          "netLive": -17.2
         }
       },
       "consensus": "borderline",
@@ -2651,11 +2651,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 59.2
+          "netLive": 38.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 64.9
+          "netLive": 36.2
         }
       },
       "consensus": "babysitter",
@@ -2669,11 +2669,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 48.1
+          "netLive": 49.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 59.6
+          "netLive": 62.5
         }
       },
       "consensus": "babysitter",
@@ -2687,11 +2687,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 33.5
+          "netLive": 13
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 33.5
+          "netLive": 13
         }
       },
       "consensus": "babysitter",
@@ -2705,11 +2705,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 40.6
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 45.2
+          "netLive": 6.1
         }
       },
       "consensus": "babysitter",
@@ -2723,11 +2723,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 56.7
+          "netLive": 53.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 43.9
+          "netLive": 37
         }
       },
       "consensus": "babysitter",
@@ -2741,16 +2741,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 26.2
+          "netLive": 1.5
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 37.7
+          "verdict": "borderline",
+          "netLive": 2.9
         }
       },
-      "consensus": "babysitter",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__session-window-debug",
@@ -2758,17 +2758,17 @@
       "name": "session-window-debug",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": 7.7
+          "verdict": "vanilla",
+          "netLive": -33.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -4
+          "netLive": -28.5
         }
       },
-      "consensus": "borderline",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__sglang-qwen-burst",
@@ -2777,11 +2777,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -21.6
+          "netLive": -53.6
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -22.8
+          "netLive": -53.6
         }
       },
       "consensus": "vanilla",
@@ -2795,11 +2795,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "borderline",
-          "netLive": 7.7
+          "netLive": -7.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 16.3
+          "netLive": -7.1
         }
       },
       "consensus": "borderline",
@@ -2813,16 +2813,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 28.9
+          "netLive": 8.4
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 15
+          "verdict": "babysitter",
+          "netLive": 24.5
         }
       },
-      "consensus": "needs-third-judge",
-      "agreement": "1/2",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "2/2",
+      "unanimous": true
     },
     {
       "id": "tb3__takens-embedding-lean",
@@ -2830,17 +2830,17 @@
       "name": "takens-embedding-lean",
       "recommendations": {
         "opus-5": {
-          "verdict": "babysitter",
-          "netLive": 46
+          "verdict": "borderline",
+          "netLive": 3.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 30.3
+          "netLive": 17.4
         }
       },
-      "consensus": "babysitter",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__telecom-entity-resolution",
@@ -2849,7 +2849,7 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 38.1
+          "netLive": 35.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
@@ -2866,12 +2866,12 @@
       "name": "uefi-bootkit",
       "recommendations": {
         "opus-5": {
-          "verdict": "borderline",
-          "netLive": -11.7
+          "verdict": "vanilla",
+          "netLive": -33.5
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -15.9
+          "verdict": "borderline",
+          "netLive": -18.8
         }
       },
       "consensus": "needs-third-judge",
@@ -2885,11 +2885,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 46.4
+          "netLive": 23.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 48.1
+          "netLive": 6.1
         }
       },
       "consensus": "babysitter",
@@ -2903,11 +2903,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 67.8
+          "netLive": 34.5
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 35.3
+          "netLive": 33.3
         }
       },
       "consensus": "babysitter",
@@ -2921,11 +2921,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -33.1
+          "netLive": -47.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -8.4
+          "netLive": -24.5
         }
       },
       "consensus": "needs-third-judge",
@@ -2939,16 +2939,16 @@
       "recommendations": {
         "opus-5": {
           "verdict": "vanilla",
-          "netLive": -24.5
+          "netLive": -23.6
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -18.8
+          "verdict": "borderline",
+          "netLive": -27.4
         }
       },
-      "consensus": "vanilla",
-      "agreement": "2/2",
-      "unanimous": true
+      "consensus": "needs-third-judge",
+      "agreement": "1/2",
+      "unanimous": false
     },
     {
       "id": "tb3__wal-recovery-ordering",
@@ -2957,11 +2957,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 64.9
+          "netLive": 44.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 46.4
+          "netLive": 43.3
         }
       },
       "consensus": "babysitter",
@@ -2975,11 +2975,11 @@
       "recommendations": {
         "opus-5": {
           "verdict": "babysitter",
-          "netLive": 62.1
+          "netLive": 32.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 34.9
+          "netLive": 20.1
         }
       },
       "consensus": "babysitter",
