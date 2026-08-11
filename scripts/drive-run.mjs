@@ -13,6 +13,8 @@
  *
  * Usage:
  *   node scripts/drive-run.mjs <runDir> [--concurrency 8] [--max-iterations 400]
+ *                                       [--harness claude|codex]
+ *                                       [--model opus|gpt-5.6-sol] [--effort high]
  *                                       [--auto-approve] [--stop-at-breakpoint]
  */
 
@@ -35,6 +37,9 @@ const CONCURRENCY = Number(flag('concurrency', 8));
 const MAX_ITER = Number(flag('max-iterations', 400));
 const AUTO_APPROVE = has('auto-approve');
 const STOP_AT_BREAKPOINT = has('stop-at-breakpoint');
+const MODEL = flag('model', null);
+const EFFORT = flag('effort', null);
+const HARNESS = flag('harness', 'claude');
 const BABYSITTER = 'npx';
 const BABY_ARGS = ['babysitter'];
 
@@ -46,6 +51,26 @@ async function babysitter(argv, opts = {}) {
     cwd: opts.cwd ?? process.cwd(),
   });
   return stdout;
+}
+
+function execCodex(argv) {
+  return new Promise((resolve, reject) => {
+    const child = spawn('codex', argv, { cwd: process.cwd() });
+    let stdout = '';
+    let stderr = '';
+    const timer = setTimeout(() => child.kill('SIGTERM'), 900000);
+    child.stdout.on('data', (data) => (stdout += data));
+    child.stderr.on('data', (data) => (stderr += data));
+    child.on('error', reject);
+    child.on('close', (code) => {
+      clearTimeout(timer);
+      if (code === 0) resolve({ stdout, stderr });
+      else reject(new Error(`Codex CLI exited ${code}: ${(stderr + '\n' + stdout).slice(-4000)}`));
+    });
+    // codex exec probes stdin even when a prompt argument is present. An execFile-created
+    // pipe stays open until explicitly ended, which otherwise blocks before model dispatch.
+    child.stdin.end();
+  });
 }
 
 async function iterate() {
@@ -64,6 +89,11 @@ async function post(effectId, status, value, extra = {}) {
     const tmp = path.join('/tmp', `err-${effectId}.json`);
     await writeFile(tmp, JSON.stringify({ message: String(extra.error ?? 'failed') }));
     argv.push('--error', tmp);
+  }
+  if (extra.metadata) {
+    const tmp = path.join('/tmp', `metadata-${effectId}.json`);
+    await writeFile(tmp, JSON.stringify(extra.metadata));
+    argv.push('--metadata', tmp);
   }
   await babysitter(argv);
 }
@@ -173,20 +203,99 @@ function validate(value, schema, pathStr = '$') {
   return errs;
 }
 
+function strictOutputSchema(schema) {
+  if (!schema || typeof schema !== 'object') return schema;
+  if (schema.type === 'object') {
+    const properties = Object.fromEntries(
+      Object.entries(schema.properties ?? {}).map(([key, value]) => [key, strictOutputSchema(value)]),
+    );
+    return {
+      ...schema,
+      properties,
+      required: Object.keys(properties),
+      additionalProperties: false,
+    };
+  }
+  if (schema.type === 'array') return { ...schema, items: strictOutputSchema(schema.items) };
+  return schema;
+}
+
 async function runAgent(action, attempt = 0) {
   const def = action.taskDef;
   const prompt = renderPrompt(def);
-  const promptFile = path.join('/tmp', `prompt-${action.effectId}.txt`);
-  await writeFile(promptFile, prompt);
+  const model = def.execution?.model ?? MODEL;
+  const effort = def.execution?.effort ?? EFFORT;
 
   try {
-    const { stdout } = await execFileP(
-      'bash',
-      ['-lc', `claude -p "$(cat ${promptFile})" 2>/dev/null`],
-      { maxBuffer: 32 * 1024 * 1024, timeout: 900000 },
-    );
-    const value = extractJson(stdout);
+    if (HARNESS === 'codex') {
+      const schemaPath = path.join('/tmp', `schema-${action.effectId}.json`);
+      const outputPath = path.join('/tmp', `output-${action.effectId}.json`);
+      const schema = def.agent?.outputSchema;
+      if (schema) await writeFile(schemaPath, JSON.stringify(strictOutputSchema(schema)));
+
+      const codexArgs = [
+        'exec',
+        '--ephemeral',
+        '--ignore-user-config',
+        '--ignore-rules',
+        '--sandbox', 'read-only',
+        '--json',
+        '--output-last-message', outputPath,
+      ];
+      if (model) codexArgs.push('--model', model);
+      if (schema) codexArgs.push('--output-schema', schemaPath);
+      if (effort) codexArgs.push('-c', `model_reasoning_effort="${effort}"`);
+      codexArgs.push(prompt);
+
+      const { stdout } = await execCodex(codexArgs);
+      const value = extractJson(await readFile(outputPath, 'utf8'));
+      const events = stdout.trim().split('\n').flatMap((line) => {
+        try { return [JSON.parse(line)]; } catch { return []; }
+      });
+      const usage = events.findLast((event) => event.type === 'turn.completed')?.usage ?? null;
+      if (schema) {
+        const errs = validate(value, schema);
+        if (errs.length) {
+          if (attempt < 2) {
+            log(`  schema errors on ${action.effectId}, retry ${attempt + 1}: ${errs.slice(0, 3).join('; ')}`);
+            return runAgent(action, attempt + 1);
+          }
+          return { __error: `schema validation failed: ${errs.slice(0, 5).join('; ')}` };
+        }
+      }
+      log(`  model ${action.effectId}: ${model}`);
+      return {
+        __value: value,
+        __metadata: {
+          harness: 'codex',
+          requestedModel: model,
+          requestedEffort: effort,
+          actualModels: model ? [model] : [],
+          usage,
+        },
+      };
+    }
+
+    if (HARNESS !== 'claude') throw new Error(`unsupported harness: ${HARNESS}`);
+    const claudeArgs = [
+      '-p',
+      '--output-format', 'json',
+      '--no-session-persistence',
+      '--tools', '',
+      '--prompt-suggestions', 'false',
+    ];
+    if (model) claudeArgs.push('--model', model);
+    if (effort) claudeArgs.push('--effort', effort);
     const schema = def.agent?.outputSchema;
+    if (schema) claudeArgs.push('--json-schema', JSON.stringify(schema));
+    claudeArgs.push(prompt);
+    const { stdout } = await execFileP('claude', claudeArgs, {
+      maxBuffer: 32 * 1024 * 1024,
+      timeout: 900000,
+    });
+    const response = JSON.parse(stdout);
+    if (response.is_error) throw new Error(response.result ?? 'Claude CLI returned an error');
+    const value = response.structured_output ?? extractJson(response.result);
     if (schema) {
       const errs = validate(value, schema);
       if (errs.length) {
@@ -197,11 +306,24 @@ async function runAgent(action, attempt = 0) {
         return { __error: `schema validation failed: ${errs.slice(0, 5).join('; ')}` };
       }
     }
-    return value;
+    const actualModels = Object.keys(response.modelUsage ?? {});
+    log(`  model ${action.effectId}: ${actualModels.join(', ') || 'unknown'}`);
+    return {
+      __value: value,
+      __metadata: {
+        requestedModel: model,
+        requestedEffort: effort,
+        harness: 'claude',
+        actualModels,
+        modelUsage: response.modelUsage ?? null,
+        totalCostUsd: response.total_cost_usd ?? null,
+      },
+    };
   } catch (e) {
     if (attempt < 2) {
       log(`  agent error on ${action.effectId}, retry ${attempt + 1}: ${String(e.message).slice(0, 160)}`);
-      await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
+      const retryDelay = HARNESS === 'codex' ? 10000 : 2000;
+      await new Promise((r) => setTimeout(r, retryDelay * (attempt + 1)));
       return runAgent(action, attempt + 1);
     }
     return { __error: String(e.message).slice(0, 500) };
@@ -257,6 +379,7 @@ async function mapLimit(items, limit, fn) {
 
 let iterations = 0;
 let done = false;
+let exitStatus = 0;
 
 while (!done && iterations < MAX_ITER) {
   iterations++;
@@ -266,6 +389,7 @@ while (!done && iterations < MAX_ITER) {
     log(`run ${state.status}`);
     if (state.output) console.error(JSON.stringify(state.output, null, 2));
     if (state.error) console.error(JSON.stringify(state.error, null, 2));
+    if (state.status === 'failed') exitStatus = 1;
     done = true;
     break;
   }
@@ -315,17 +439,24 @@ while (!done && iterations < MAX_ITER) {
   if (agents.length) {
     log(`  dispatching ${agents.length} agent task(s), concurrency ${CONCURRENCY}`);
     let completed = 0;
+    let agentFailure = false;
     await mapLimit(agents, CONCURRENCY, async (a) => {
       const value = await runAgent(a);
       completed++;
       if (value?.__error) {
         log(`  [${completed}/${agents.length}] FAILED ${a.taskDef.title}: ${value.__error.slice(0, 160)}`);
-        await post(a.effectId, 'error', null, { error: value.__error });
+        agentFailure = true;
       } else {
         log(`  [${completed}/${agents.length}] ok ${a.taskDef.title}`);
-        await post(a.effectId, 'ok', value);
+        await post(a.effectId, 'ok', value.__value, { metadata: value.__metadata });
       }
     });
+    if (agentFailure) {
+      log('stopping with failed agent effects still pending; rerun the driver to retry them');
+      exitStatus = 1;
+      done = true;
+      break;
+    }
   }
 
   for (const a of others) {
@@ -334,5 +465,9 @@ while (!done && iterations < MAX_ITER) {
   }
 }
 
-if (iterations >= MAX_ITER) log(`stopped: hit max-iterations ${MAX_ITER}`);
+if (!done && iterations >= MAX_ITER) {
+  log(`stopped: hit max-iterations ${MAX_ITER}`);
+  exitStatus = 1;
+}
 log(`driver finished after ${iterations} iteration(s)`);
+process.exitCode = exitStatus;
