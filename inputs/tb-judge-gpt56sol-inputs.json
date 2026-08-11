@@ -1,0 +1,7 @@
+{
+  "workspaceDir": ".",
+  "manifestPath": "out/manifest.json",
+  "chunkSize": 8,
+  "model": "gpt-5.6-sol",
+  "effort": "high"
+}

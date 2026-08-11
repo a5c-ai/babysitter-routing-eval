@@ -155,6 +155,7 @@ const byCategory = Object.entries(
 
 const panelled = rows.filter((row) => row.panel);
 const unanimous = panelled.filter((row) => row.agreement === '3/3').length;
+const unpanelledBorderline = rows.filter((row) => row.verdict === 'borderline' && !row.panel);
 
 // Does net_live track horizon? Spearman against expert time estimate.
 const withEst = rows.filter((row) => row.expertMinutes != null);
@@ -173,9 +174,7 @@ if (withEst.length > 2) {
   spearman = r1(1 - (6 * d2) / (n * (n * n - 1)));
 }
 
-writeFileSync(
-  path.join(outDir, 'summary.md'),
-  [
+const summaryLines = [
     '# Summary',
     '',
     `Corpus ${p.manifest.total} tasks · thresholds low=${p.thresholds.low} high=${p.thresholds.high} (${p.thresholds.source})`,
@@ -208,8 +207,11 @@ writeFileSync(
     '## Panel reliability',
     '',
     panelled.length
-      ? `${panelled.length} tasks went to a 3-judge panel. ${unanimous} unanimous (${r1((unanimous / panelled.length) * 100)}%), ${panelled.length - unanimous} split 2/3. Mean net_live spread across judges: ${stats(panelled.map((x) => x.scores.netLiveSpread ?? 0)).mean}.`
-      : 'No tasks landed in the borderline band; no panel ran.',
+      ? `${panelled.length} tasks went to a 3-judge panel. ${unanimous} unanimous (${r1((unanimous / panelled.length) * 100)}%), ${panelled.length - unanimous} split 2/3. Mean net_live spread across judges: ${stats(panelled.map((x) => x.scores.netLiveSpread ?? 0)).mean}.` +
+        (unpanelledBorderline.length ? ` ${unpanelledBorderline.length} additional borderline task(s) have no panel results.` : '')
+      : unpanelledBorderline.length
+        ? `${unpanelledBorderline.length} tasks are borderline in this one-judge payload; no panel results are present.`
+        : 'No tasks landed in the borderline band; no panel ran.',
     '',
     '## Counterfactual quality',
     '',
@@ -228,9 +230,10 @@ writeFileSync(
       .slice(0, 10)
       .map((x, i) => `${i + 1}. **${x.name}** (${x.bench}, ${mins(x.expertMinutes)}, net_live ${r1(x.scores.netLive)}) — ${esc(x.rationale)}`),
     '',
-    mismatches.length ? ['## ⚠️ Arithmetic mismatches', '', ...mismatches.map((m) => `- ${m}`), ''].join('\n') : '',
-  ].join('\n'),
-);
+    mismatches.length ? ['## ⚠️ Arithmetic mismatches', '', ...mismatches.map((m) => `- ${m}`)].join('\n') : '',
+  ];
+while (summaryLines.at(-1) === '') summaryLines.pop();
+writeFileSync(path.join(outDir, 'summary.md'), summaryLines.join('\n') + '\n');
 
 console.error(`wrote results.md, results.csv, summary.md to ${outDir}`);
 if (mismatches.length) {

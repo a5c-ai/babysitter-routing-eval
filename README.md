@@ -12,6 +12,28 @@ longer. Open [`out/report.html`](out/report.html) for the interactive version: s
 charts plus all 163 tasks with the verbatim instruction each was judged from, the evidence
 cited for every dimension, and the panel votes.
 
+## Multi-model comparison
+
+The current table uses three **Opus 5** judgments per task. The same judge prompt and
+scoring code have now been run once per task with **GPT-5.6-sol** under the same anchored
+profile. `borderline` is the rubric's undecided band.
+
+| model recommendation | babysitter | borderline | vanilla | mean primary `net_live` |
+|---|---:|---:|---:|---:|
+| Opus 5 majority (3 judgments/task) | 59 | 69 | 35 | -6.5 |
+| GPT-5.6-sol (1 judgment/task) | 66 | 75 | 22 | -0.3 |
+
+The two model recommendations agree on **129/163 tasks (79.1%)**. The remaining **34**
+are marked `needs-third-judge`, ready for a third model to break the tie. See the complete
+[multi-model table](out/models/comparison/comparison.md), its
+[CSV](out/models/comparison/comparison.csv), the [Opus 5 report](out/models/opus-5/report.html),
+and the [GPT-5.6-sol report](out/models/gpt-5.6-sol/report.html).
+
+The Opus column uses its stored three-judge majority; the GPT column uses its primary
+`net_live` score and the shared thresholds. The score shown beside each recommendation in
+the detailed table is the primary score, so it can differ from an Opus panel majority. The
+published Opus report at [`out/report.html`](out/report.html) remains unchanged.
+
 ## How it works
 
 The rubric ([`babysitter-vs-vanilla-eval.md`](babysitter-vs-vanilla-eval.md)) scores a task
@@ -75,6 +97,7 @@ babysitter-vs-vanilla-eval.md   the rubric (corpus-independent)
 prompts/tb-profile.md           Terminal-Bench delta: pins, calibration, renormalization
 .a5c/processes/
   tb-routing-eval.js            the process: fetch → smoke → judge → calibrate → panel → report
+  tb-judge-corpus.js            primary-judge-only pass for model comparisons
   tb-panel-topup.js             adds panel judges after a rubric change
   tb-anchor-experiment.js       re-judges a fixed set N times to A/B a rubric revision
 scripts/
@@ -83,7 +106,8 @@ scripts/
   recompute-payload.mjs         rebuild results from run journals under current weights
   build-report.mjs              results.md / results.csv / summary.md
   build-html-report.mjs         the interactive report
-out/                            manifest, judgments, and all generated reports
+  build-model-comparison.mjs    N-model recommendation/consensus table
+out/                            original Opus report, per-model reports, and comparison
 ```
 
 ## Reproducing
@@ -124,6 +148,41 @@ That is how the C1 removal was done. Verify any such change by recomputing the *
 formula from the journal and diffing against the previous payload — it should reproduce it
 exactly.
 
+### Running another model judge
+
+The judge-only process uses the exact same rubric, profile, schema, and deterministic
+scoring as the original process, without the smoke duplicate or panel phase:
+
+```bash
+npx babysitter run:create \
+  --process-id tb/judge-corpus \
+  --entry "$PWD/.a5c/processes/tb-judge-corpus.js#process" \
+  --inputs inputs/tb-judge-gpt56sol-inputs.json \
+  --harness codex --non-interactive --json
+
+node scripts/drive-run.mjs ~/.a5c/runs/<runId> \
+  --concurrency 4 --harness codex --model gpt-5.6-sol --effort high
+
+node scripts/recompute-payload.mjs ~/.a5c/runs/<runId> \
+  out/models/gpt-5.6-sol/payload.json out/manifest.json --low -31 --high 4
+node scripts/build-report.mjs \
+  out/models/gpt-5.6-sol/payload.json out/models/gpt-5.6-sol
+node scripts/build-html-report.mjs \
+  out/models/gpt-5.6-sol/payload.json \
+  out/models/gpt-5.6-sol/report.html out/manifest.json
+```
+
+To add a third judge, generate its payload under `out/models/<model-id>/`, append one entry
+to [`inputs/model-comparison.json`](inputs/model-comparison.json), and run:
+
+```bash
+npm run compare:models
+```
+
+The comparison generator accepts any number of models. With two disagreeing judges it
+emits `needs-third-judge`; with three or more it emits a verdict only when one has a strict
+majority, otherwise `undecided`.
+
 ## Known limitations
 
 - **26 of 163 tasks reference an asset the judge never saw** (a PNG schematic, a video, a
@@ -136,5 +195,5 @@ exactly.
 - **B6 and B8 remain prose.** Anchor ladders were written for both and made agreement
   worse, so they were reverted. They are the two dimensions most in need of a better
   observable anchor.
-- Judging is three samples of one model, which measures self-consistency. Correlated model
-  bias is invisible to it; genuinely independent judges would need different models.
+- The published Opus baseline measures one model's self-consistency. This comparison adds
+  a second model, but still lacks hand labels and the planned third independent model.

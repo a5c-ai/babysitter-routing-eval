@@ -137,6 +137,10 @@ export const judgeTask = defineTask('tb.judge', (args, taskCtx) => ({
   title: `Judge ${args.task.id}${args.judgeIndex > 0 ? ` (panel judge ${args.judgeIndex + 1})` : ''}`,
   description: 'Score one Terminal-Bench task against the babysitter-vs-vanilla rubric',
 
+  execution: args.model
+    ? { model: args.model, ...(args.effort ? { effort: args.effort } : {}) }
+    : undefined,
+
   agent: {
     name: 'routing-judge',
     prompt: {

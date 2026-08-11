@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compare:models": "node scripts/build-model-comparison.mjs inputs/model-comparison.json",
+    "test": "node --check scripts/*.mjs && node --check .a5c/processes/*.js && npm run compare:models"
   },
   "keywords": [],
   "author": "",
