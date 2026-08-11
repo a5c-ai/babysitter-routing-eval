@@ -1,0 +1,89 @@
+name: Provider routing judges
+
+on:
+  workflow_dispatch:
+    inputs:
+      config_path:
+        description: Provider/model JSON file in this revision
+        required: true
+        default: inputs/provider-models.example.json
+        type: string
+      model_ids:
+        description: Comma-separated model IDs (empty means every enabled model)
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.models.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: models
+        env:
+          CONFIG_PATH: ${{ inputs.config_path }}
+          MODEL_IDS: ${{ inputs.model_ids }}
+        run: >-
+          node scripts/provider-config.mjs "$CONFIG_PATH"
+          --models "$MODEL_IDS"
+          --matrix
+          --github-output "$GITHUB_OUTPUT"
+
+  judge:
+    needs: configure
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include: ${{ fromJSON(needs.configure.outputs.matrix) }}
+    env:
+      LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+      LITELLM_BASE_URL: ${{ vars.LITELLM_BASE_URL }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      JUDGE_API_KEY: ${{ secrets.JUDGE_API_KEY }}
+      JUDGE_BASE_URL: ${{ vars.JUDGE_BASE_URL }}
+      JUDGE_PROVIDER_ENV_JSON: ${{ secrets.JUDGE_PROVIDER_ENV_JSON }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate selected provider credentials
+        env:
+          CONFIG_PATH: ${{ inputs.config_path }}
+          MODEL_ID: ${{ matrix.modelId }}
+        run: node scripts/provider-config.mjs "$CONFIG_PATH" --models "$MODEL_ID" --check-env
+      - name: Run one complete routing-judge vote
+        env:
+          CONFIG_PATH: ${{ inputs.config_path }}
+          MODEL_ID: ${{ matrix.modelId }}
+          MODEL_CONCURRENCY: ${{ matrix.concurrency }}
+          PROVIDER_RUN_ID: provider-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.modelId }}
+        run: >-
+          node scripts/run-provider-judge.mjs "$CONFIG_PATH" "$MODEL_ID"
+          --concurrency "$MODEL_CONCURRENCY"
+          --run-id "$PROVIDER_RUN_ID"
+      - name: Upload journal and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: routing-judge-${{ matrix.modelId }}-${{ github.run_attempt }}
+          path: out/provider-judges/${{ matrix.modelId }}/
+          if-no-files-found: error
+          retention-days: 30
