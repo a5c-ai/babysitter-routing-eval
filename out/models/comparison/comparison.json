@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-08-11T08:44:51.868Z",
+  "generatedAt": "2026-08-11T12:05:28.094Z",
   "taskCount": 163,
   "thresholds": {
-    "low": -31,
-    "high": 4
+    "low": -25,
+    "high": 10
   },
   "models": [
     {
       "id": "gpt-5.6-terra",
       "label": "GPT-5.6-terra",
       "payload": "out/models/gpt-5.6-terra/payload.json",
-      "runId": "01KZPDCFWD8KKWRG1Q3BF57BNC",
+      "runId": "01KZR7VRQ7E9DZZ97FK7507P2T",
       "verdictMode": "stored",
-      "notes": "Stored majority recommendation from three judgments per task under the anchored profile. Originally labelled \"Opus 5\"; the local `claude` CLI routes to gpt-5.6-terra, which its own modelUsage field reports for every judgment."
+      "notes": "Stored majority recommendation from three judgments per task under the anchored profile."
     },
     {
       "id": "gpt-5.6-sol",
       "label": "GPT-5.6-sol",
       "payload": "out/models/gpt-5.6-sol/payload.json",
-      "runId": "01KZPPBKFHC25P3TQCSRP282XG",
+      "runId": "01KZR9EVPETJ1YHZC57GACBN7Z",
       "verdictMode": "primary-score",
       "notes": "One primary judgment per task, effort high, using the same anchored rubric and Terminal-Bench profile."
     },
@@ -26,7 +26,7 @@
       "id": "claude-opus-5",
       "label": "Claude Opus 5",
       "payload": "out/models/claude-opus-5/payload.json",
-      "runId": "01KZQX9G105JMBESN3G09KNYQJ",
+      "runId": "01KZR9EWXMQAYGM26036HN5QK7",
       "verdictMode": "primary-score",
       "notes": "One judgment per task, effort high. Cross-vendor (Anthropic). 161/163 scored: declined break-filter-js-from-html and crack-7z-hash on content policy."
     },
@@ -34,63 +34,63 @@
       "id": "gemini-2.5-pro",
       "label": "Gemini 2.5 Pro",
       "payload": "out/models/gemini-2.5-pro/payload.json",
-      "runId": "01KZQYKG09DX1VHH4VBRBF4JJQ",
+      "runId": "01KZR9EY550KZSHHJXTDQA2Q1B",
       "verdictMode": "primary-score",
       "notes": "One judgment per task, effort high. Cross-vendor (Google). 163/163 scored, no refusals."
     }
   ],
   "summary": {
-    "unanimous": 75,
+    "unanimous": 86,
     "needsThirdJudge": 0,
     "modelSummaries": {
       "gpt-5.6-terra": {
-        "babysitter": 59,
-        "borderline": 69,
-        "vanilla": 35,
-        "meanNetLive": -6.5
+        "babysitter": 50,
+        "borderline": 82,
+        "vanilla": 31,
+        "meanNetLive": -2.7
       },
       "gpt-5.6-sol": {
-        "babysitter": 66,
-        "borderline": 75,
-        "vanilla": 22,
-        "meanNetLive": -0.3
+        "babysitter": 64,
+        "borderline": 78,
+        "vanilla": 21,
+        "meanNetLive": 3.9
       },
       "claude-opus-5": {
-        "babysitter": 66,
-        "borderline": 65,
-        "vanilla": 30,
-        "meanNetLive": -2.6
+        "babysitter": 51,
+        "borderline": 68,
+        "vanilla": 42,
+        "meanNetLive": -4.2
       },
       "gemini-2.5-pro": {
-        "babysitter": 91,
-        "borderline": 53,
-        "vanilla": 19,
-        "meanNetLive": 11.6
+        "babysitter": 59,
+        "borderline": 63,
+        "vanilla": 41,
+        "meanNetLive": -0.6
       }
     },
     "pairwise": {
       "gpt-5.6-terra": {
         "gpt-5.6-terra": 163,
-        "gpt-5.6-sol": 129,
-        "claude-opus-5": 120,
-        "gemini-2.5-pro": 106
+        "gpt-5.6-sol": 127,
+        "claude-opus-5": 117,
+        "gemini-2.5-pro": 121
       },
       "gpt-5.6-sol": {
-        "gpt-5.6-terra": 129,
+        "gpt-5.6-terra": 127,
         "gpt-5.6-sol": 163,
-        "claude-opus-5": 118,
-        "gemini-2.5-pro": 107
+        "claude-opus-5": 108,
+        "gemini-2.5-pro": 120
       },
       "claude-opus-5": {
-        "gpt-5.6-terra": 120,
-        "gpt-5.6-sol": 118,
+        "gpt-5.6-terra": 117,
+        "gpt-5.6-sol": 108,
         "claude-opus-5": 163,
-        "gemini-2.5-pro": 104
+        "gemini-2.5-pro": 126
       },
       "gemini-2.5-pro": {
-        "gpt-5.6-terra": 106,
-        "gpt-5.6-sol": 107,
-        "claude-opus-5": 104,
+        "gpt-5.6-terra": 121,
+        "gpt-5.6-sol": 120,
+        "claude-opus-5": 126,
         "gemini-2.5-pro": 163
       }
     }
@@ -103,19 +103,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 8.6
+          "netLive": 37.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 17.2
+          "netLive": 37.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 14.4
+          "netLive": 28.7
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 47.3
         }
       },
       "consensus": "babysitter",
@@ -129,24 +129,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": -3.1
+          "netLive": 17.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 5.6
+          "netLive": 17.1
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 31.6
+          "verdict": "borderline",
+          "netLive": 8.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 69
+          "netLive": 17.1
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__break-filter-js-from-html",
@@ -155,11 +155,11 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -61.3
+          "netLive": -46.9
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -58.4
+          "netLive": -46.9
         },
         "claude-opus-5": {
           "verdict": "refused",
@@ -167,7 +167,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -52.7
+          "netLive": -65.5
         }
       },
       "consensus": "vanilla",
@@ -180,25 +180,25 @@
       "name": "build-cython-ext",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -16.1
+          "verdict": "vanilla",
+          "netLive": -34.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -10.3
+          "verdict": "vanilla",
+          "netLive": -28.9
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -19
+          "verdict": "vanilla",
+          "netLive": -28.9
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 16.5
+          "verdict": "vanilla",
+          "netLive": -45
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__build-pmars",
@@ -206,7 +206,7 @@
       "name": "build-pmars",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
+          "verdict": "borderline",
           "netLive": -2.1
         },
         "gpt-5.6-sol": {
@@ -215,14 +215,14 @@
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -5
+          "netLive": -10.7
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 7.8
+          "verdict": "borderline",
+          "netLive": -2.1
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "3/4",
       "unanimous": false
     },
@@ -232,25 +232,25 @@
       "name": "build-pov-ray",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": -2.1
+          "verdict": "borderline",
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 25.1
+          "verdict": "borderline",
+          "netLive": 6.5
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 8.2
+          "verdict": "borderline",
+          "netLive": -7.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 22.2
+          "netLive": 10.7
         }
       },
-      "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "borderline",
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__caffe-cifar-10",
@@ -259,11 +259,11 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 22.2
+          "netLive": 28
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 28
+          "netLive": 45.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
@@ -285,23 +285,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -10.7
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -33.7
+          "verdict": "borderline",
+          "netLive": -10.7
         },
         "claude-opus-5": {
-          "verdict": "vanilla",
-          "netLive": -33.7
+          "verdict": "borderline",
+          "netLive": -13.6
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -9.4
+          "verdict": "babysitter",
+          "netLive": 13.6
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
+      "consensus": "borderline",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -311,23 +311,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -49.4
+          "netLive": -26.4
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -43.7
+          "verdict": "borderline",
+          "netLive": -14.9
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -25.1
+          "netLive": -23.6
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -4.6
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
+      "consensus": "borderline",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -337,19 +337,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 30.3
+          "netLive": 42.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 46.4
+          "netLive": 42.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 37.7
+          "netLive": 42.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 80.5
+          "netLive": 29.5
         }
       },
       "consensus": "babysitter",
@@ -363,24 +363,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -61.3
+          "netLive": -52.7
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -56.7
+          "netLive": -49.8
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -29.5
+          "verdict": "vanilla",
+          "netLive": -42.3
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -21.3
+          "verdict": "vanilla",
+          "netLive": -58.4
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__code-from-image",
@@ -388,20 +388,20 @@
       "name": "code-from-image",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -43.7
+          "verdict": "borderline",
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
+          "verdict": "vanilla",
           "netLive": -26.4
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -55.6
+          "netLive": -35.1
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -49.8
+          "netLive": -58.4
         }
       },
       "consensus": "vanilla",
@@ -415,24 +415,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -2.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -20.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
           "netLive": -10.7
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 16.5
+          "verdict": "borderline",
+          "netLive": -7.9
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__configure-git-webserver",
@@ -440,20 +440,20 @@
       "name": "configure-git-webserver",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -31.2
+          "verdict": "borderline",
+          "netLive": -15.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -25.5
+          "netLive": -15.1
         },
         "claude-opus-5": {
           "verdict": "vanilla",
           "netLive": -38.1
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -19.7
+          "verdict": "vanilla",
+          "netLive": -25.5
         }
       },
       "consensus": "undecided",
@@ -467,24 +467,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -58.4
+          "netLive": -33.7
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -43.9
+          "netLive": -33.7
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -43.9
+          "netLive": -34.1
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": 3.4
+          "verdict": "vanilla",
+          "netLive": -44.1
         }
       },
       "consensus": "vanilla",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__count-dataset-tokens",
@@ -492,12 +492,12 @@
       "name": "count-dataset-tokens",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -30.5
+          "verdict": "borderline",
+          "netLive": -26.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -26.4
+          "netLive": -17.2
         },
         "claude-opus-5": {
           "verdict": "vanilla",
@@ -505,11 +505,11 @@
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -64.2
+          "netLive": -26.4
         }
       },
-      "consensus": "vanilla",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -519,23 +519,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -54.2
+          "netLive": -44.1
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -64.2
+          "netLive": -44.1
         },
         "claude-opus-5": {
           "verdict": "refused",
           "netLive": null
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -27
+          "verdict": "vanilla",
+          "netLive": -58.4
         }
       },
       "consensus": "vanilla",
-      "agreement": "2/4",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -545,24 +545,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -56.5
+          "netLive": -22
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -50.8
+          "verdict": "borderline",
+          "netLive": -22
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -74.1
+          "netLive": -79.9
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -56.9
+          "netLive": -77
         }
       },
       "consensus": "vanilla",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__db-wal-recovery",
@@ -570,25 +570,25 @@
       "name": "db-wal-recovery",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -20.7
+          "verdict": "vanilla",
+          "netLive": -39.3
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -14.9
+          "verdict": "vanilla",
+          "netLive": -27.8
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -23.6
+          "verdict": "vanilla",
+          "netLive": -33.5
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
           "netLive": -33.5
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__distribution-search",
@@ -597,19 +597,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -19.4
+          "netLive": 0.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -10.7
+          "netLive": 0.8
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -13.6
+          "netLive": -7.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -9.4
+          "netLive": -22.2
         }
       },
       "consensus": "borderline",
@@ -623,19 +623,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -27.6
+          "netLive": -4.6
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -27.6
+          "verdict": "babysitter",
+          "netLive": 37.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -9
+          "netLive": 5.4
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 42.9
+          "verdict": "borderline",
+          "netLive": -10.3
         }
       },
       "consensus": "borderline",
@@ -648,24 +648,24 @@
       "name": "dna-insert",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -32.2
+          "verdict": "borderline",
+          "netLive": -14.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -13.6
+          "netLive": -9.2
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -55.6
+          "netLive": -41.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 23.9
+          "verdict": "borderline",
+          "netLive": 7.5
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
+      "consensus": "borderline",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -678,21 +678,21 @@
           "netLive": -43.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -25.1
+          "verdict": "vanilla",
+          "netLive": -26.4
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -42.7
+          "netLive": -52.7
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -55.6
+          "netLive": -58.4
         }
       },
       "consensus": "vanilla",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__extract-moves-from-video",
@@ -701,18 +701,18 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -30.8
+          "netLive": -29.3
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -35.1
+          "verdict": "borderline",
+          "netLive": -24.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -30.5
+          "netLive": -24.7
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
+          "verdict": "vanilla",
           "netLive": -29.3
         }
       },
@@ -726,20 +726,20 @@
       "name": "feal-differential-cryptanalysis",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -8.8
+          "verdict": "babysitter",
+          "netLive": 14.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -0.2
+          "netLive": 5.6
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -8.8
+          "netLive": 5.6
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 12.6
+          "verdict": "borderline",
+          "netLive": 6.9
         }
       },
       "consensus": "borderline",
@@ -753,19 +753,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 11.7
+          "netLive": 26.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 11.7
+          "netLive": 28.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 36.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 50.4
+          "netLive": 31.8
         }
       },
       "consensus": "babysitter",
@@ -779,24 +779,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -25.1
+          "netLive": -5
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -33.7
+          "verdict": "borderline",
+          "netLive": 9.4
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -14.8
+          "netLive": -3.3
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -25.1
+          "netLive": -5
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__financial-document-processor",
@@ -805,23 +805,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": 1.3
+          "netLive": -6.9
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 19.9
+          "verdict": "borderline",
+          "netLive": -6.9
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -11.9
+          "verdict": "vanilla",
+          "netLive": -43.5
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 30.3
+          "verdict": "borderline",
+          "netLive": -1.1
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
+      "consensus": "borderline",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -834,20 +834,20 @@
           "netLive": -20.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -20.7
+          "verdict": "vanilla",
+          "netLive": -39.3
         },
         "claude-opus-5": {
           "verdict": "borderline",
           "netLive": -19
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 22.2
+          "verdict": "vanilla",
+          "netLive": -47.9
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -857,15 +857,15 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -77
+          "netLive": -71.3
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -77
+          "netLive": -65.5
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -85.6
+          "netLive": -65.5
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
@@ -882,12 +882,12 @@
       "name": "fix-ocaml-gc",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": 4.6
+          "verdict": "babysitter",
+          "netLive": 13.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 4.6
+          "netLive": 13.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
@@ -895,12 +895,12 @@
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 10.4
+          "netLive": 19
         }
       },
       "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__gcode-to-text",
@@ -909,19 +909,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -49.4
+          "netLive": -35.1
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -49.4
+          "netLive": -29.3
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -43.7
+          "netLive": -29.3
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -49.4
+          "netLive": -40.8
         }
       },
       "consensus": "vanilla",
@@ -935,24 +935,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -10.7
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -29.3
+          "netLive": -20.7
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -28.4
+          "verdict": "vanilla",
+          "netLive": -52.7
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": 2.1
+          "verdict": "vanilla",
+          "netLive": -26.4
         }
       },
-      "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__git-multibranch",
@@ -961,19 +961,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 50.2
+          "netLive": 31.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 37.4
+          "netLive": 43.1
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 28.7
+          "netLive": 23
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 45.6
+          "netLive": 37.4
         }
       },
       "consensus": "babysitter",
@@ -987,19 +987,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 37.6
+          "netLive": 42.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 60.7
+          "netLive": 42.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 37.7
+          "netLive": 42.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 57.5
+          "netLive": 50.4
         }
       },
       "consensus": "babysitter",
@@ -1012,24 +1012,24 @@
       "name": "headless-terminal",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -25.1
+          "verdict": "vanilla",
+          "netLive": -29.3
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -39.1
+          "verdict": "borderline",
+          "netLive": -23.6
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -20.5
+          "verdict": "vanilla",
+          "netLive": -27.6
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -0.8
+          "netLive": -13.6
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -1038,25 +1038,25 @@
       "name": "hf-model-inference",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -21.3
+          "verdict": "vanilla",
+          "netLive": -34.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -16.7
+          "netLive": -6.9
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -10.9
+          "verdict": "vanilla",
+          "netLive": -29.5
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -27
+          "netLive": -21.3
         }
       },
-      "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__install-windows-3.11",
@@ -1065,24 +1065,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 2.9
+          "netLive": 23
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 38.7
+          "netLive": 13
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 4.4
+          "verdict": "borderline",
+          "netLive": -1.3
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 35.8
+          "netLive": 12.6
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__kv-store-grpc",
@@ -1091,7 +1091,7 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -12.7
+          "netLive": -6.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
@@ -1103,7 +1103,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -18.4
+          "netLive": -12.7
         }
       },
       "consensus": "borderline",
@@ -1121,15 +1121,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -9.2
+          "netLive": -23.6
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -27.6
+          "netLive": -13.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 22.2
+          "verdict": "vanilla",
+          "netLive": -32.2
         }
       },
       "consensus": "borderline",
@@ -1143,15 +1143,15 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -7.9
+          "netLive": -17.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -7.9
+          "netLive": -12.1
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -2.1
+          "netLive": -7.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
@@ -1169,24 +1169,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -21.8
+          "netLive": -4.6
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -21.8
+          "netLive": -4.6
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -21.8
+          "netLive": -13.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 15.3
+          "verdict": "borderline",
+          "netLive": -4.6
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__log-summary-date-ranges",
@@ -1195,24 +1195,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -7.7
+          "netLive": -24.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -1.9
+          "verdict": "babysitter",
+          "netLive": 19.9
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -20.5
+          "verdict": "vanilla",
+          "netLive": -39.1
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": 2.7
+          "netLive": -1.5
         }
       },
-      "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__mailman",
@@ -1221,24 +1221,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -19.4
+          "netLive": -10.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -6.1
+          "netLive": -0.4
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -0.4
+          "netLive": 5.4
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 19.3
+          "verdict": "borderline",
+          "netLive": 5.4
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__make-doom-for-mips",
@@ -1247,19 +1247,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -5.9
+          "netLive": 2.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -5.9
+          "verdict": "babysitter",
+          "netLive": 13
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 4.4
+          "verdict": "borderline",
+          "netLive": -0.2
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -4.4
+          "netLive": 8.4
         }
       },
       "consensus": "borderline",
@@ -1273,22 +1273,22 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -5.9
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 23
+          "verdict": "borderline",
+          "netLive": 7.3
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 14.4
+          "netLive": 10.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 74.7
+          "verdict": "borderline",
+          "netLive": 7.3
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "3/4",
       "unanimous": false
     },
@@ -1303,15 +1303,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 38.7
+          "netLive": 50.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 23
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 34.1
+          "netLive": 28.3
         }
       },
       "consensus": "babysitter",
@@ -1328,16 +1328,16 @@
           "netLive": -44.1
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -39.5
+          "verdict": "borderline",
+          "netLive": -13.6
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -39.5
+          "netLive": -33.7
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -6.9
+          "verdict": "vanilla",
+          "netLive": -44.1
         }
       },
       "consensus": "vanilla",
@@ -1351,24 +1351,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": 6.9
+          "netLive": 8.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -20.3
+          "netLive": 4.4
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 9.8
+          "verdict": "borderline",
+          "netLive": 4.4
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 6.9
+          "verdict": "borderline",
+          "netLive": 7.3
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__modernize-scientific-stack",
@@ -1376,25 +1376,25 @@
       "name": "modernize-scientific-stack",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -1.9
+          "verdict": "vanilla",
+          "netLive": -34.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -1.9
+          "verdict": "vanilla",
+          "netLive": -34.7
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -20.5
+          "verdict": "vanilla",
+          "netLive": -33.3
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -6.5
+          "netLive": -24.7
         }
       },
-      "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "vanilla",
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__mteb-leaderboard",
@@ -1403,19 +1403,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -54.2
+          "netLive": -52.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -21.3
+          "netLive": -9.4
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -48.5
+          "netLive": -61.3
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -39.9
+          "netLive": -52.7
         }
       },
       "consensus": "vanilla",
@@ -1429,7 +1429,7 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -18.4
+          "netLive": -20.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
@@ -1437,11 +1437,11 @@
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -48.5
+          "netLive": -39.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -27
+          "netLive": 6.9
         }
       },
       "consensus": "borderline",
@@ -1454,24 +1454,24 @@
       "name": "multi-source-data-merger",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 15.3
+          "verdict": "borderline",
+          "netLive": -3.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 15.3
+          "netLive": 21.1
         },
         "claude-opus-5": {
-          "verdict": "vanilla",
-          "netLive": -38.1
+          "verdict": "borderline",
+          "netLive": -6.1
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 12.4
+          "netLive": 21.1
         }
       },
-      "consensus": "babysitter",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -1481,15 +1481,15 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -10.9
+          "netLive": -2.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -2.3
+          "netLive": 3.4
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -19.5
+          "netLive": -10.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
@@ -1511,11 +1511,11 @@
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -6.9
+          "netLive": -2.3
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -10.9
+          "netLive": -20.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
@@ -1532,24 +1532,24 @@
       "name": "overfull-hbox",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -0.8
+          "verdict": "vanilla",
+          "netLive": -9.2
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 6.7
+          "verdict": "vanilla",
+          "netLive": -45
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -3.3
+          "netLive": -7.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -0.8
+          "netLive": -17.8
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -1559,19 +1559,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -43.7
+          "netLive": -29.3
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -43.7
+          "netLive": -47.9
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -33.3
+          "netLive": -29.3
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -50.8
+          "netLive": -47.9
         }
       },
       "consensus": "vanilla",
@@ -1584,25 +1584,25 @@
       "name": "path-tracing",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -0.2
+          "verdict": "babysitter",
+          "netLive": 14.2
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -3.1
+          "verdict": "babysitter",
+          "netLive": 14.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": 2.7
+          "netLive": 5.6
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -8.8
+          "netLive": -10.1
         }
       },
-      "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__path-tracing-reverse",
@@ -1610,24 +1610,24 @@
       "name": "path-tracing-reverse",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -32.2
+          "verdict": "borderline",
+          "netLive": -23.6
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -32.2
+          "verdict": "borderline",
+          "netLive": -4.6
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -32.2
+          "netLive": -26.4
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -23.6
+          "verdict": "vanilla",
+          "netLive": -29.3
         }
       },
-      "consensus": "vanilla",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -1637,24 +1637,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -38.5
+          "netLive": -39.9
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -48.5
+          "verdict": "borderline",
+          "netLive": -20.9
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -46.7
+          "netLive": -43.9
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -38.5
+          "netLive": -39.9
         }
       },
       "consensus": "vanilla",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__polyglot-rust-c",
@@ -1662,24 +1662,24 @@
       "name": "polyglot-rust-c",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -10.3
+          "verdict": "babysitter",
+          "netLive": -1.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -10.3
+          "netLive": -5.9
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -18.6
+          "netLive": -15.7
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 22.6
+          "verdict": "vanilla",
+          "netLive": -33.1
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -1688,25 +1688,25 @@
       "name": "portfolio-optimization",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 10.7
+          "verdict": "borderline",
+          "netLive": -17.8
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 23.9
+          "verdict": "borderline",
+          "netLive": -9.2
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 15.3
+          "verdict": "borderline",
+          "netLive": -3.3
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
           "netLive": 13.6
         }
       },
-      "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "borderline",
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__protein-assembly",
@@ -1715,7 +1715,7 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -10.3
+          "netLive": -4.6
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
@@ -1723,11 +1723,11 @@
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": 1.3
+          "netLive": -14.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 26.8
+          "netLive": 22.2
         }
       },
       "consensus": "borderline",
@@ -1740,8 +1740,8 @@
       "name": "prove-plus-comm",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -27
+          "verdict": "vanilla",
+          "netLive": -52.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
@@ -1749,14 +1749,14 @@
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -42.7
+          "netLive": -61.3
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -27
+          "verdict": "vanilla",
+          "netLive": -58.4
         }
       },
-      "consensus": "borderline",
+      "consensus": "vanilla",
       "agreement": "3/4",
       "unanimous": false
     },
@@ -1766,12 +1766,12 @@
       "name": "pypi-server",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": -7.9
+          "verdict": "borderline",
+          "netLive": -2.1
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 16.5
+          "verdict": "borderline",
+          "netLive": -2.1
         },
         "claude-opus-5": {
           "verdict": "borderline",
@@ -1779,12 +1779,12 @@
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -7.9
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__pytorch-model-cli",
@@ -1792,25 +1792,25 @@
       "name": "pytorch-model-cli",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -22.2
+          "verdict": "vanilla",
+          "netLive": -26.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -10.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -29.5
+          "netLive": -15.1
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -27
+          "verdict": "vanilla",
+          "netLive": -45.6
         }
       },
-      "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__pytorch-model-recovery",
@@ -1819,15 +1819,15 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -38.3
+          "netLive": -32.6
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -38.3
+          "netLive": -32.6
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -46.9
+          "netLive": -32.6
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
@@ -1849,15 +1849,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -10.7
+          "netLive": -5
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -28.4
+          "verdict": "vanilla",
+          "netLive": -52.7
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 13.6
+          "verdict": "borderline",
+          "netLive": -10.7
         }
       },
       "consensus": "borderline",
@@ -1871,19 +1871,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -19.4
+          "netLive": -10.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -10.7
+          "netLive": -5
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -42.7
+          "netLive": -61.3
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -10.7
         }
       },
       "consensus": "borderline",
@@ -1896,20 +1896,20 @@
       "name": "query-optimize",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -49.4
+          "verdict": "borderline",
+          "netLive": -3.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -26.4
+          "netLive": -12.1
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -32.2
+          "netLive": -26.4
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 5
+          "verdict": "vanilla",
+          "netLive": -32.2
         }
       },
       "consensus": "undecided",
@@ -1923,19 +1923,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -53.8
+          "netLive": -42.3
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -68.2
+          "netLive": -42.3
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -43.9
+          "netLive": -51
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -33.9
+          "netLive": -42.3
         }
       },
       "consensus": "vanilla",
@@ -1953,15 +1953,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 60.7
+          "netLive": 65.3
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 36.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 89.7
+          "netLive": 73.6
         }
       },
       "consensus": "babysitter",
@@ -1975,11 +1975,11 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -20.9
+          "netLive": -19.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -15.1
+          "netLive": -6.1
         },
         "claude-opus-5": {
           "verdict": "borderline",
@@ -1987,7 +1987,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -9.4
+          "netLive": -13.6
         }
       },
       "consensus": "borderline",
@@ -2001,19 +2001,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -3.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -0.4
+          "netLive": -7.5
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -0.4
+          "netLive": -13.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 18.2
+          "verdict": "vanilla",
+          "netLive": -29.5
         }
       },
       "consensus": "borderline",
@@ -2027,24 +2027,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -17.8
+          "netLive": -3.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -3.1
+          "netLive": 2.7
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 23
+          "verdict": "borderline",
+          "netLive": -5.9
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 34.1
+          "verdict": "borderline",
+          "netLive": -8.8
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__sam-cell-seg",
@@ -2053,19 +2053,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 34.9
+          "netLive": 42.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 39.5
+          "netLive": 52.5
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 37.7
+          "netLive": 33.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 48.9
+          "netLive": 37
         }
       },
       "consensus": "babysitter",
@@ -2079,23 +2079,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -1.9
+          "netLive": -29.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 2.5
+          "netLive": 5.7
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -32.4
+          "netLive": -51
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -1.9
+          "verdict": "vanilla",
+          "netLive": -32.8
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -2105,23 +2105,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -7.1
+          "netLive": 8.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 7.3
+          "netLive": 24.5
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 20.1
+          "verdict": "borderline",
+          "netLive": 1.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 29.9
+          "netLive": 37.4
         }
       },
-      "consensus": "babysitter",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -2130,25 +2130,25 @@
       "name": "sparql-university",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": 3.1
+          "verdict": "babysitter",
+          "netLive": 17.4
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 3.1
+          "verdict": "babysitter",
+          "netLive": 22
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -15.7
+          "verdict": "babysitter",
+          "netLive": 22
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 40.2
+          "netLive": 11.7
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "consensus": "babysitter",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__sqlite-db-truncate",
@@ -2156,20 +2156,20 @@
       "name": "sqlite-db-truncate",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -35.1
+          "verdict": "borderline",
+          "netLive": -23.6
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -35.1
+          "netLive": -42.1
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -37.9
+          "netLive": -26.4
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -23.6
+          "verdict": "vanilla",
+          "netLive": -36.4
         }
       },
       "consensus": "vanilla",
@@ -2183,23 +2183,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": 2.1
+          "netLive": -2.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -14.9
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -48.5
+          "netLive": -28.4
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -16.5
+          "verdict": "vanilla",
+          "netLive": -25.5
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -2208,25 +2208,25 @@
       "name": "torch-pipeline-parallelism",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 20.1
+          "verdict": "borderline",
+          "netLive": 2.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 34.1
+          "netLive": 45.6
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 31.2
+          "netLive": 31.6
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 34.1
+          "netLive": 39.8
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb2.1__torch-tensor-parallelism",
@@ -2235,19 +2235,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 30.1
+          "netLive": 31.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 30.1
+          "netLive": 50.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -5.7
+          "netLive": 8.6
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 12.8
+          "netLive": 44.4
         }
       },
       "consensus": "babysitter",
@@ -2261,19 +2261,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -13.6
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -7.9
+          "netLive": -3.4
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -7.9
+          "netLive": -17.8
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 5
+          "verdict": "vanilla",
+          "netLive": -35.4
         }
       },
       "consensus": "borderline",
@@ -2287,19 +2287,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -26.4
+          "netLive": -17.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -26.4
+          "netLive": -12.1
         },
         "claude-opus-5": {
           "verdict": "vanilla",
           "netLive": -49.8
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 10.7
+          "verdict": "vanilla",
+          "netLive": -41.2
         }
       },
       "consensus": "undecided",
@@ -2313,19 +2313,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -20.3
+          "netLive": -5.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -20.3
+          "netLive": 2.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -14.6
+          "netLive": -5.9
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -14.6
+          "netLive": 5.6
         }
       },
       "consensus": "borderline",
@@ -2343,15 +2343,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -58.4
+          "netLive": -49.8
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -67.1
+          "netLive": -61.3
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -91.4
+          "netLive": -58.4
         }
       },
       "consensus": "vanilla",
@@ -2365,24 +2365,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -21.8
+          "netLive": 1.1
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 5.4
+          "verdict": "borderline",
+          "netLive": -7.5
         },
         "claude-opus-5": {
           "verdict": "borderline",
           "netLive": -21.8
         },
         "gemini-2.5-pro": {
-          "verdict": "vanilla",
-          "netLive": -36.2
+          "verdict": "borderline",
+          "netLive": -7.5
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb2.1__write-compressor",
@@ -2391,19 +2391,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 8.8
+          "netLive": 37.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 14.6
+          "netLive": 47.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 14.6
+          "netLive": 23.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 69
+          "netLive": 23.2
         }
       },
       "consensus": "babysitter",
@@ -2421,15 +2421,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 47.3
+          "netLive": 53.1
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 28.7
+          "netLive": 25.9
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 38.7
+          "netLive": 39.8
         }
       },
       "consensus": "babysitter",
@@ -2443,24 +2443,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 13.4
+          "netLive": 13.2
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": 0.6
+          "verdict": "babysitter",
+          "netLive": 23.6
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 33.5
+          "netLive": 15
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 4.6
+          "netLive": 10.4
         }
       },
       "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__biped-contact-dynamics",
@@ -2469,19 +2469,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 18.8
+          "netLive": 23.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 33.3
+          "netLive": 23.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 24.7
+          "netLive": 18.8
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 20.7
+          "netLive": 47.7
         }
       },
       "consensus": "babysitter",
@@ -2494,25 +2494,25 @@
       "name": "bun-sourcemap-leak",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -6.1
+          "verdict": "vanilla",
+          "netLive": -43.3
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -19
+          "verdict": "vanilla",
+          "netLive": -37.5
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -19
+          "verdict": "vanilla",
+          "netLive": -37.5
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 16.5
+          "verdict": "vanilla",
+          "netLive": -43.3
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__cad-model",
@@ -2520,25 +2520,25 @@
       "name": "cad-model",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -35.1
+          "verdict": "borderline",
+          "netLive": -20.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -20.3
+          "netLive": 2.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -16.5
+          "netLive": -20.7
         },
         "gemini-2.5-pro": {
-          "verdict": "vanilla",
-          "netLive": -40.8
+          "verdict": "borderline",
+          "netLive": -14.9
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__cargo-flight-dispatch",
@@ -2547,19 +2547,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -1.3
+          "netLive": -5.5
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 0.4
+          "netLive": -5.5
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": 0.4
+          "netLive": 0.2
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -0.2
+          "netLive": 0.2
         }
       },
       "consensus": "borderline",
@@ -2573,24 +2573,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 33.7
+          "netLive": 26.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 55.9
+          "netLive": 26.8
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 23.9
+          "verdict": "borderline",
+          "netLive": 8.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 28
+          "netLive": 16.5
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb3__coq-block-bound",
@@ -2599,19 +2599,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": 3.1
+          "netLive": 8.8
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
+          "verdict": "borderline",
           "netLive": 8.8
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 19.2
+          "netLive": 13.4
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -4
+          "verdict": "babysitter",
+          "netLive": 24.9
         }
       },
       "consensus": "undecided",
@@ -2629,15 +2629,15 @@
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 14.2
+          "netLive": 19.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 38.9
+          "netLive": 24.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 7.1
+          "netLive": 25.7
         }
       },
       "consensus": "babysitter",
@@ -2650,20 +2650,20 @@
       "name": "cumulative-layout-shift",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 11.9
+          "verdict": "borderline",
+          "netLive": 4.8
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -6.7
+          "verdict": "babysitter",
+          "netLive": 16.3
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -1
+          "netLive": -6.7
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -19.9
+          "netLive": 6.5
         }
       },
       "consensus": "borderline",
@@ -2677,19 +2677,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 42.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 42.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 33.5
+          "netLive": 42.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 80.5
+          "netLive": 42.2
         }
       },
       "consensus": "babysitter",
@@ -2703,19 +2703,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 56.1
+          "netLive": 50.4
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 60.7
+          "netLive": 26.1
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 57.9
+          "netLive": 55
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 74.7
+          "netLive": 66.5
         }
       },
       "consensus": "babysitter",
@@ -2729,24 +2729,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -33.1
+          "netLive": -5.5
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -1.3
+          "netLive": 4.8
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -9.6
+          "netLive": -3.8
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 61.7
+          "verdict": "borderline",
+          "netLive": 0.2
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__erp-procurement-planning",
@@ -2755,7 +2755,7 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 24.5
+          "netLive": 18.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
@@ -2767,7 +2767,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 67.4
+          "netLive": 30.3
         }
       },
       "consensus": "babysitter",
@@ -2781,15 +2781,15 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 51.3
+          "netLive": 42.2
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 75.7
+          "netLive": 51.3
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 66.5
+          "netLive": 47.9
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
@@ -2806,24 +2806,24 @@
       "name": "fin-saccr-rwa",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": 1.5
+          "verdict": "babysitter",
+          "netLive": 25.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 1.5
+          "netLive": 6.1
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 39.1
+          "netLive": 24.9
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 51.9
+          "netLive": 66.7
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
+      "consensus": "babysitter",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -2833,19 +2833,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -15.9
+          "netLive": -5.5
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -18.8
+          "netLive": -10.1
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -8.4
+          "netLive": -5.5
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -13
+          "netLive": -4.4
         }
       },
       "consensus": "borderline",
@@ -2858,25 +2858,25 @@
       "name": "foodstuff-beta-activity",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -35.1
+          "verdict": "borderline",
+          "netLive": -12.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -21.8
+          "netLive": -13.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -30.5
+          "netLive": -13.2
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -11.9
+          "netLive": -13.2
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__formal-crypto",
@@ -2884,24 +2884,24 @@
       "name": "formal-crypto",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -8.8
+          "verdict": "babysitter",
+          "netLive": 5.6
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -8.8
+          "verdict": "babysitter",
+          "netLive": 14.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -3.1
+          "netLive": 5.6
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 5.6
+          "verdict": "borderline",
+          "netLive": 2.7
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -2911,19 +2911,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 74.7
+          "netLive": 56.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 60.7
+          "netLive": 47.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 49.2
+          "netLive": 42.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 74.7
+          "netLive": 69
         }
       },
       "consensus": "babysitter",
@@ -2936,12 +2936,64 @@
       "name": "freecad-impeller",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -16.5
+          "verdict": "babysitter",
+          "netLive": 3.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 38.7
+          "netLive": 11.1
+        },
+        "claude-opus-5": {
+          "verdict": "babysitter",
+          "netLive": 14
+        },
+        "gemini-2.5-pro": {
+          "verdict": "borderline",
+          "netLive": 0.8
+        }
+      },
+      "consensus": "babysitter",
+      "agreement": "3/4",
+      "unanimous": false
+    },
+    {
+      "id": "tb3__freecad-platform-drawing",
+      "bench": "tb3",
+      "name": "freecad-platform-drawing",
+      "recommendations": {
+        "gpt-5.6-terra": {
+          "verdict": "borderline",
+          "netLive": -12.1
+        },
+        "gpt-5.6-sol": {
+          "verdict": "borderline",
+          "netLive": -0.6
+        },
+        "claude-opus-5": {
+          "verdict": "borderline",
+          "netLive": -10.3
+        },
+        "gemini-2.5-pro": {
+          "verdict": "borderline",
+          "netLive": -14.9
+        }
+      },
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
+    },
+    {
+      "id": "tb3__freecad-spring-clip",
+      "bench": "tb3",
+      "name": "freecad-spring-clip",
+      "recommendations": {
+        "gpt-5.6-terra": {
+          "verdict": "borderline",
+          "netLive": 6.5
+        },
+        "gpt-5.6-sol": {
+          "verdict": "babysitter",
+          "netLive": 55.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
@@ -2957,82 +3009,30 @@
       "unanimous": false
     },
     {
-      "id": "tb3__freecad-platform-drawing",
-      "bench": "tb3",
-      "name": "freecad-platform-drawing",
-      "recommendations": {
-        "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -35.1
-        },
-        "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -17.8
-        },
-        "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -24.7
-        },
-        "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -6.3
-        }
-      },
-      "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
-    },
-    {
-      "id": "tb3__freecad-spring-clip",
-      "bench": "tb3",
-      "name": "freecad-spring-clip",
-      "recommendations": {
-        "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": -7.9
-        },
-        "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 41.6
-        },
-        "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -0.4
-        },
-        "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 26.8
-        }
-      },
-      "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
-    },
-    {
       "id": "tb3__freight-dispatch-shift",
       "bench": "tb3",
       "name": "freight-dispatch-shift",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 25.9
+          "verdict": "borderline",
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 44.4
+          "verdict": "borderline",
+          "netLive": 7.3
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 36.2
+          "netLive": 13
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 39.8
+          "netLive": 31.6
         }
       },
-      "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb3__glycan-ms2-elucidation",
@@ -3041,19 +3041,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -8.8
+          "netLive": 8.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -7.1
+          "netLive": 8.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 17.2
+          "netLive": 13
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -14.6
+          "netLive": 8.4
         }
       },
       "consensus": "borderline",
@@ -3067,19 +3067,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 28.9
+          "netLive": 37.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 60.7
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 42.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 71.8
+          "netLive": 56.1
         }
       },
       "consensus": "babysitter",
@@ -3093,19 +3093,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 43.3
+          "netLive": 57.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 53.6
+          "netLive": 19.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 25.9
+          "netLive": 31.6
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 41.6
+          "netLive": 54.8
         }
       },
       "consensus": "babysitter",
@@ -3118,12 +3118,12 @@
       "name": "heat-pump-warranty",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": -7.1
+          "verdict": "babysitter",
+          "netLive": 6.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -2.5
+          "verdict": "babysitter",
+          "netLive": 28
         },
         "claude-opus-5": {
           "verdict": "borderline",
@@ -3131,10 +3131,10 @@
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 45
+          "netLive": 13.6
         }
       },
-      "consensus": "borderline",
+      "consensus": "babysitter",
       "agreement": "3/4",
       "unanimous": false
     },
@@ -3144,25 +3144,25 @@
       "name": "hof-topology-interpenetration",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 6.1
+          "verdict": "borderline",
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 17.6
+          "netLive": 10.7
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 36.2
+          "netLive": 20.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 77
+          "netLive": 46.9
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb3__html-js-filter",
@@ -3171,19 +3171,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -28
+          "netLive": -22.2
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -25.1
+          "netLive": -10.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -14.8
+          "netLive": -3.3
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -15.1
+          "netLive": -7.9
         }
       },
       "consensus": "borderline",
@@ -3196,23 +3196,23 @@
       "name": "ico-path-patch",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 18.8
+          "verdict": "borderline",
+          "netLive": -5.5
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 30.3
+          "verdict": "borderline",
+          "netLive": 0.2
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 10.2
+          "verdict": "borderline",
+          "netLive": 5.9
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 33.1
+          "verdict": "borderline",
+          "netLive": -10.1
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "4/4",
       "unanimous": true
     },
@@ -3223,11 +3223,11 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -29.3
+          "netLive": -6.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -14.9
+          "netLive": 4
         },
         "claude-opus-5": {
           "verdict": "borderline",
@@ -3235,7 +3235,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -27.8
+          "netLive": -0.6
         }
       },
       "consensus": "borderline",
@@ -3248,25 +3248,25 @@
       "name": "intrastat-meldung",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
+          "verdict": "borderline",
           "netLive": 7.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 63.4
+          "netLive": 15.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 26.2
+          "netLive": 23.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 50.2
+          "netLive": 54.8
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb3__jax-speedrun-gpu",
@@ -3275,19 +3275,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 39.3
+          "netLive": 47.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 66.5
+          "netLive": 47.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 57.9
+          "netLive": 39.3
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 67.6
+          "netLive": 61.9
         }
       },
       "consensus": "babysitter",
@@ -3301,19 +3301,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 21.7
+          "netLive": 41.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 21.7
+          "netLive": 38.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 43.5
+          "netLive": 27.8
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 13.2
+          "netLive": 61.9
         }
       },
       "consensus": "babysitter",
@@ -3327,19 +3327,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -10.1
+          "netLive": -4.4
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 0.2
+          "netLive": 5.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 24.5
+          "netLive": 18.8
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": 1.3
+          "netLive": -4.4
         }
       },
       "consensus": "borderline",
@@ -3352,25 +3352,25 @@
       "name": "lake-temp-glm",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
+          "verdict": "borderline",
           "netLive": 5.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 5.6
+          "netLive": 14.2
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 24.5
+          "verdict": "borderline",
+          "netLive": 5.6
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 45.6
+          "netLive": 22.8
         }
       },
-      "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "undecided",
+      "agreement": "2/4",
+      "unanimous": false
     },
     {
       "id": "tb3__layout-config-recreation",
@@ -3379,24 +3379,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -13.2
+          "netLive": -4.6
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -13.2
+          "netLive": -4.6
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -7.5
+          "netLive": -8.6
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 4.6
+          "verdict": "borderline",
+          "netLive": -13.2
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__layout-config-recreation2",
@@ -3404,25 +3404,25 @@
       "name": "layout-config-recreation2",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 5.4
+          "verdict": "borderline",
+          "netLive": -4.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 10.2
+          "netLive": 23.4
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 6.1
+          "verdict": "borderline",
+          "netLive": 0
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 41.2
+          "verdict": "borderline",
+          "netLive": -0.6
         }
       },
-      "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "consensus": "borderline",
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb3__lean-midpoint-proof",
@@ -3430,25 +3430,25 @@
       "name": "lean-midpoint-proof",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
+          "verdict": "babysitter",
           "netLive": 8.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 8.8
+          "netLive": 17.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 19.2
+          "netLive": 22
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 50.6
+          "netLive": 31.8
         }
       },
       "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__legacy-utility-triage",
@@ -3457,19 +3457,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": 2.9
+          "netLive": -11.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -5.4
+          "verdict": "babysitter",
+          "netLive": 10.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -5.4
+          "netLive": 9
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 22
+          "verdict": "borderline",
+          "netLive": -3.6
         }
       },
       "consensus": "borderline",
@@ -3491,11 +3491,11 @@
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 51.7
+          "netLive": 47.9
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 30.5
+          "netLive": 72.2
         }
       },
       "consensus": "babysitter",
@@ -3509,19 +3509,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 16.5
+          "netLive": 11.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 53.6
+          "netLive": 28
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 50.6
+          "netLive": 37.7
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 53.6
+          "netLive": 19.4
         }
       },
       "consensus": "babysitter",
@@ -3534,23 +3534,23 @@
       "name": "medical-claims-processing",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 8.6
+          "verdict": "vanilla",
+          "netLive": -30.1
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 21.8
+          "verdict": "borderline",
+          "netLive": -14
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 8.6
+          "verdict": "borderline",
+          "netLive": -4.2
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -4.2
+          "netLive": -14
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "3/4",
       "unanimous": false
     },
@@ -3561,24 +3561,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -35.1
+          "netLive": -26.4
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -20.3
+          "verdict": "vanilla",
+          "netLive": -30.3
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -30.5
+          "verdict": "vanilla",
+          "netLive": -29.3
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -40.8
+          "netLive": -38.9
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "vanilla",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__mp-checkpoint-consolidation",
@@ -3586,20 +3586,20 @@
       "name": "mp-checkpoint-consolidation",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": 7.3
+          "verdict": "babysitter",
+          "netLive": 13
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 4.4
+          "netLive": 17.6
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -4.2
+          "netLive": -1.3
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 45.6
+          "verdict": "borderline",
+          "netLive": 8.4
         }
       },
       "consensus": "undecided",
@@ -3612,25 +3612,25 @@
       "name": "music-harmony",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -35.1
+          "verdict": "borderline",
+          "netLive": -14.9
         },
         "gpt-5.6-sol": {
-          "verdict": "vanilla",
-          "netLive": -35.1
+          "verdict": "borderline",
+          "netLive": 5.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -24.7
+          "netLive": -9.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 25.1
+          "verdict": "borderline",
+          "netLive": -0.6
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__mvcc-lsm-compaction",
@@ -3638,25 +3638,25 @@
       "name": "mvcc-lsm-compaction",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 8.4
+          "verdict": "borderline",
+          "netLive": -10.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -1.3
+          "netLive": -10.1
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 4.4
+          "verdict": "borderline",
+          "netLive": -5.5
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -4.4
+          "netLive": -15.9
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__nextjs-performance",
@@ -3665,11 +3665,11 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -23.9
+          "netLive": -6.7
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -26.8
+          "verdict": "babysitter",
+          "netLive": 16.3
         },
         "claude-opus-5": {
           "verdict": "borderline",
@@ -3677,12 +3677,12 @@
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": 3.6
+          "netLive": 1.9
         }
       },
       "consensus": "borderline",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb3__ontology-kg-querying",
@@ -3691,19 +3691,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 16.3
+          "netLive": 24.9
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 42.2
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 27.8
+          "netLive": 36.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 67.8
+          "netLive": 33.5
         }
       },
       "consensus": "babysitter",
@@ -3716,20 +3716,20 @@
       "name": "payments-pipeline-fix",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -45
+          "verdict": "borderline",
+          "netLive": -24.9
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -19.9
+          "netLive": -7.3
         },
         "claude-opus-5": {
-          "verdict": "borderline",
+          "verdict": "vanilla",
           "netLive": -26.1
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -16.3
+          "netLive": -13.4
         }
       },
       "consensus": "borderline",
@@ -3743,24 +3743,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -29.3
+          "netLive": -1.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -20.1
+          "netLive": -1.7
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 5.4
+          "verdict": "borderline",
+          "netLive": -19
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 28.5
+          "verdict": "borderline",
+          "netLive": -20.7
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__pretrain-shard-corruption",
@@ -3773,7 +3773,7 @@
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -13
+          "netLive": 1.3
         },
         "claude-opus-5": {
           "verdict": "borderline",
@@ -3781,7 +3781,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -27.8
+          "netLive": -22
         }
       },
       "consensus": "borderline",
@@ -3795,19 +3795,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 18.8
+          "netLive": 13
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 24.5
+          "netLive": 13
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 37.4
+          "netLive": 24.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 55.9
+          "netLive": 13
         }
       },
       "consensus": "babysitter",
@@ -3821,19 +3821,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -30.5
+          "netLive": -1.7
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -17.2
+          "netLive": -5.7
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -19
+          "netLive": -10.3
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -21.8
+          "netLive": -4.6
         }
       },
       "consensus": "borderline",
@@ -3846,23 +3846,23 @@
       "name": "react-lead-form",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 38.7
+          "verdict": "borderline",
+          "netLive": -15.9
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 36.2
+          "verdict": "borderline",
+          "netLive": -11.3
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 9
+          "verdict": "borderline",
+          "netLive": -11.3
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 51.3
+          "verdict": "borderline",
+          "netLive": -11.3
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "4/4",
       "unanimous": true
     },
@@ -3873,11 +3873,11 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 49.2
+          "netLive": 60.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 62.5
+          "netLive": 71.1
         },
         "claude-opus-5": {
           "verdict": "babysitter",
@@ -3885,7 +3885,7 @@
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 83.9
+          "netLive": 59.6
         }
       },
       "consensus": "babysitter",
@@ -3898,23 +3898,23 @@
       "name": "risk-scorer-replay",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 13
+          "verdict": "borderline",
+          "netLive": -5.5
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 13
+          "verdict": "borderline",
+          "netLive": -5.5
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 18.8
+          "verdict": "borderline",
+          "netLive": 0.2
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 14.2
+          "verdict": "borderline",
+          "netLive": -15.9
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "4/4",
       "unanimous": true
     },
@@ -3925,24 +3925,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 7.3
+          "netLive": 17.6
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 6.1
+          "netLive": 17.6
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -1.3
+          "verdict": "babysitter",
+          "netLive": 13
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 27.6
+          "netLive": 10.2
         }
       },
       "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__rs-archive-clone",
@@ -3951,19 +3951,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 53.8
+          "netLive": 35.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 37
+          "netLive": 35.3
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 43.9
+          "netLive": 32.4
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 71.1
+          "netLive": 45.6
         }
       },
       "consensus": "babysitter",
@@ -3976,23 +3976,23 @@
       "name": "satb-audio-transcription",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 1.5
+          "verdict": "borderline",
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": 2.9
+          "netLive": 3.3
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 46.4
+          "netLive": 36.4
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 62.1
+          "verdict": "borderline",
+          "netLive": 2.7
         }
       },
-      "consensus": "babysitter",
+      "consensus": "borderline",
       "agreement": "3/4",
       "unanimous": false
     },
@@ -4002,25 +4002,25 @@
       "name": "session-window-debug",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -33.1
+          "verdict": "borderline",
+          "netLive": -10.1
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -28.5
+          "netLive": -14.2
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -28.5
+          "netLive": -14.2
         },
         "gemini-2.5-pro": {
           "verdict": "borderline",
-          "netLive": -18.8
+          "netLive": -4.4
         }
       },
       "consensus": "borderline",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__sglang-qwen-burst",
@@ -4029,24 +4029,24 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -53.6
+          "netLive": -42.1
         },
         "gpt-5.6-sol": {
           "verdict": "vanilla",
-          "netLive": -53.6
+          "netLive": -28.9
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -43.3
+          "netLive": -37.5
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -30.6
+          "verdict": "vanilla",
+          "netLive": -36.4
         }
       },
       "consensus": "vanilla",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__shadow-relay",
@@ -4055,23 +4055,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "borderline",
-          "netLive": -7.1
+          "netLive": -3.1
         },
         "gpt-5.6-sol": {
-          "verdict": "borderline",
-          "netLive": -7.1
+          "verdict": "babysitter",
+          "netLive": 15.9
         },
         "claude-opus-5": {
-          "verdict": "babysitter",
-          "netLive": 13
+          "verdict": "borderline",
+          "netLive": 2.7
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -15.9
+          "verdict": "babysitter",
+          "netLive": 13
         }
       },
-      "consensus": "borderline",
-      "agreement": "3/4",
+      "consensus": "undecided",
+      "agreement": "2/4",
       "unanimous": false
     },
     {
@@ -4081,19 +4081,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 8.4
+          "netLive": 18.8
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 24.5
+          "netLive": 23.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 15.9
+          "netLive": 24.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 57.1
+          "netLive": 14.2
         }
       },
       "consensus": "babysitter",
@@ -4106,8 +4106,8 @@
       "name": "takens-embedding-lean",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "borderline",
-          "netLive": 3.1
+          "verdict": "babysitter",
+          "netLive": 11.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
@@ -4115,16 +4115,16 @@
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 23.8
+          "netLive": 27.8
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 49.2
+          "netLive": 35.3
         }
       },
       "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__telecom-entity-resolution",
@@ -4133,19 +4133,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 35.3
+          "netLive": 16.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 35.3
+          "netLive": 24.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 24.9
+          "netLive": 33.5
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 50.4
+          "netLive": 53.6
         }
       },
       "consensus": "babysitter",
@@ -4158,20 +4158,20 @@
       "name": "uefi-bootkit",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "vanilla",
-          "netLive": -33.5
+          "verdict": "borderline",
+          "netLive": -30.6
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -18.8
+          "netLive": -10.1
         },
         "claude-opus-5": {
           "verdict": "vanilla",
           "netLive": -33.5
         },
         "gemini-2.5-pro": {
-          "verdict": "borderline",
-          "netLive": -19.2
+          "verdict": "vanilla",
+          "netLive": -45
         }
       },
       "consensus": "undecided",
@@ -4184,25 +4184,25 @@
       "name": "vba-userform-port",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 23.4
+          "verdict": "borderline",
+          "netLive": 7.3
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 6.1
+          "netLive": 23.4
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 39.1
+          "netLive": 26.2
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 61.7
+          "netLive": 11.9
         }
       },
       "consensus": "babysitter",
-      "agreement": "4/4",
-      "unanimous": true
+      "agreement": "3/4",
+      "unanimous": false
     },
     {
       "id": "tb3__vf2-speedup-networkx",
@@ -4211,19 +4211,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 34.5
+          "netLive": 28.7
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 33.3
+          "netLive": 25.9
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 34.5
+          "netLive": 28.7
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 47.3
+          "netLive": 28.7
         }
       },
       "consensus": "babysitter",
@@ -4237,15 +4237,15 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -47.9
+          "netLive": -30.6
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -24.5
+          "netLive": -14.2
         },
         "claude-opus-5": {
           "verdict": "vanilla",
-          "netLive": -43.3
+          "netLive": -28.9
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
@@ -4263,23 +4263,23 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "vanilla",
-          "netLive": -23.6
+          "netLive": -27.8
         },
         "gpt-5.6-sol": {
           "verdict": "borderline",
-          "netLive": -27.4
+          "netLive": -10.1
         },
         "claude-opus-5": {
-          "verdict": "borderline",
-          "netLive": -30.6
+          "verdict": "vanilla",
+          "netLive": -27.8
         },
         "gemini-2.5-pro": {
           "verdict": "vanilla",
-          "netLive": -36.4
+          "netLive": -39.3
         }
       },
-      "consensus": "undecided",
-      "agreement": "2/4",
+      "consensus": "vanilla",
+      "agreement": "3/4",
       "unanimous": false
     },
     {
@@ -4288,25 +4288,25 @@
       "name": "wal-recovery-ordering",
       "recommendations": {
         "gpt-5.6-terra": {
-          "verdict": "babysitter",
-          "netLive": 44.4
+          "verdict": "borderline",
+          "netLive": -5.5
         },
         "gpt-5.6-sol": {
-          "verdict": "babysitter",
-          "netLive": 43.3
+          "verdict": "borderline",
+          "netLive": -5.5
         },
         "claude-opus-5": {
           "verdict": "borderline",
-          "netLive": -4.2
+          "netLive": -5.5
         },
         "gemini-2.5-pro": {
-          "verdict": "babysitter",
-          "netLive": 45.6
+          "verdict": "borderline",
+          "netLive": -5.5
         }
       },
-      "consensus": "babysitter",
-      "agreement": "3/4",
-      "unanimous": false
+      "consensus": "borderline",
+      "agreement": "4/4",
+      "unanimous": true
     },
     {
       "id": "tb3__wdm-design",
@@ -4315,19 +4315,19 @@
       "recommendations": {
         "gpt-5.6-terra": {
           "verdict": "babysitter",
-          "netLive": 32.8
+          "netLive": 43.1
         },
         "gpt-5.6-sol": {
           "verdict": "babysitter",
-          "netLive": 20.1
+          "netLive": 43.1
         },
         "claude-opus-5": {
           "verdict": "babysitter",
-          "netLive": 34.5
+          "netLive": 28.7
         },
         "gemini-2.5-pro": {
           "verdict": "babysitter",
-          "netLive": 42.7
+          "netLive": 29.9
         }
       },
       "consensus": "babysitter",

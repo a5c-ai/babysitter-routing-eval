@@ -14,32 +14,37 @@ cited for every dimension, and the panel votes.
 
 ## Multi-model comparison
 
-The current table uses three **GPT-5.6-terra** judgments per task. The same judge prompt and
-scoring code have now been run once per task with **GPT-5.6-sol** under the same anchored
-profile. `borderline` is the rubric's undecided band.
+The same judge prompt, scoring code and anchored profile run across four models from three
+vendors. `borderline` is the rubric's undecided band.
 
-| model recommendation | babysitter | borderline | vanilla | mean primary `net_live` |
+| model | babysitter | borderline | vanilla | median `net_live` |
 |---|---:|---:|---:|---:|
-| GPT-5.6-terra majority (3 judgments/task) | 59 | 69 | 35 | -6.5 |
-| GPT-5.6-sol (1 judgment/task) | 66 | 75 | 22 | -0.3 |
+| GPT-5.6-terra (majority of 3) | 50 | 82 | 31 | −4.6 |
+| GPT-5.6-sol | 64 | 78 | 21 | +2.7 |
+| Claude Opus 5 | 51 | 68 | 42 | −5.5 |
+| Gemini 2.5 Pro | 59 | 63 | 41 | −1.5 |
 
-The two model recommendations agree on **129/163 tasks (79.1%)**. The remaining **34**
-are marked `needs-third-judge`, ready for a third model to break the tie. See the complete
-[multi-model table](out/models/comparison/comparison.md), its
-[CSV](out/models/comparison/comparison.csv), the [GPT-5.6-terra report](out/models/gpt-5.6-terra/report.html),
-and the [GPT-5.6-sol report](out/models/gpt-5.6-sol/report.html).
+**Four-way unanimity is 54% (88/163)**; mean pairwise agreement is 74.0%. Both improved
+after the defect repairs — from 46% and 70.3% — with every Gemini pairing gaining 8–14
+points, which is what the C4 fix specifically targeted.
 
-The terra column uses its stored three-judge majority; the sol column uses its primary
-`net_live` score and the shared thresholds. The score shown beside each recommendation in
-the detailed table is the primary score, so it can differ from a panel majority. The
-published report at [`out/report.html`](out/report.html) remains unchanged.
+Cross-vendor agreement is materially worse than same-vendor, which is the point of running
+it: terra vs sol (one family) sits at 77.9% while claude vs gemini reaches 78.3% only after
+repair and was 64.6% before. A single verdict from this rubric is not reliable; the
+benchmark-level skew is.
 
-> **Correction.** These judgments were first published as "Opus 5". The local `claude` CLI
-> routes to `gpt-5.6-terra` — its own `modelUsage` field reports that model on every one of
-> the 489 judgments. Both columns are therefore GPT-family models. The measured difference
-> between them is real, but they are not the independent cross-vendor judges the original
-> labels implied, and same-family models share bias, so true independent-judge disagreement
-> is likely worse than the 79.1% shown.
+**Refusals are data.** Claude declines two security tasks — `break-filter-js-from-html` and
+`crack-7z-hash` — that the other three score. Content-policy boundaries differ by vendor, so
+a cross-vendor panel has missing-not-at-random gaps concentrated on security work. Refusals
+are recorded and treated as abstentions rather than votes.
+
+See the [multi-model table](out/models/comparison/comparison.md), its
+[CSV](out/models/comparison/comparison.csv), and the per-model reports under
+[`out/models/`](out/models/).
+
+> **Provenance note.** The local `claude` CLI routes through a gateway to `gpt-5.6-terra`;
+> judgments once published as "Opus 5" were that model. Every model above is now identified
+> by the CLI's own `modelUsage` field.
 
 ## How it works
 

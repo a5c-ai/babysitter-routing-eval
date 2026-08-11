@@ -1,0 +1,176 @@
+# Terminal-Bench 2.1 + 3 — Babysitter vs Vanilla routing
+
+Generated 2026-08-11T12:05:28.094Z · run `01KZR9EY550KZSHHJXTDQA2Q1B`
+Corpus: 163 tasks (tb2.1 89 @ `ffccbe05`, tb3 74 @ `d7ff2f36`)
+Thresholds: babysitter ≥ 10, vanilla ≤ -25 (CLI override)
+
+**59 babysitter · 63 borderline · 41 vanilla**
+
+
+| task | bench | category | expert est | verdict | net_live | benefit | cost | top B | top C | process rec | agree |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| regex-chess | tb2.1 | software-engineering | 24h | **babysitter** | 73.6 | 73.6 | 0 | B1 |  | library/methodologies/spec-driven-development.js |  |
+| live-database-cutover | tb3 | Software | 8h | **babysitter** | 72.2 | 90.8 | 18.6 | B1 | C4 | library/specializations/code-migration-modernization/live-database-migration.js |  |
+| fp8-rmsnorm-gemm | tb3 | ML | 12h | **babysitter** | 69 | 69 | 0 | B1 |  | custom; could be based on `library/methodologies/tdd.js` combined with a performance convergence loop, e.g. `library/processes/shared/iterative-convergence.js`. This is a candidate for a new specialization like `library/specializations/ml-engineering/cuda-kernel-optimization.js`. |  |
+| fin-saccr-rwa | tb3 | Operations | 8h | **babysitter** | 66.7 | 66.7 | 0 | B1 |  | custom |  |
+| distributed-dedup | tb3 | Software | 10h | **babysitter** | 66.5 | 85.1 | 18.6 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| jax-speedrun-gpu | tb3 | ML | 10h | **babysitter** | 61.9 | 80.5 | 18.6 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| ks-solver-cpp | tb3 | Science | 10h | **babysitter** | 61.9 | 80.5 | 18.6 | B1 | C4 | custom |  |
+| retro-console-soc | tb3 | Hardware | 10h | **babysitter** | 59.6 | 78.2 | 18.6 | B1 | C4 | custom |  |
+| exam-pdf-eval | tb3 | ML | 14h | **babysitter** | 57.1 | 94.3 | 37.2 | B1 | C4 | custom |  |
+| gpt2-codegolf | tb3 | ML | 40h | **babysitter** | 56.1 | 74.7 | 18.6 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| gsea-proteomics | tb3 | Science | 4h | **babysitter** | 54.8 | 69.5 | 14.8 | B1 | C2 | custom |  |
+| intrastat-meldung | tb3 | Operations | 3h | **babysitter** | 54.8 | 69.5 | 14.8 | B1 | C2 | custom |  |
+| telecom-entity-resolution | tb3 | Software | 16h | **babysitter** | 53.6 | 90.8 | 37.2 | B1 | C4 | custom |  |
+| gpt2-codegolf | tb2.1 | software-engineering | 40h | **babysitter** | 50.4 | 69 | 18.6 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| biped-contact-dynamics | tb3 | Science | 5h | **babysitter** | 47.7 | 81 | 33.3 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| adaptive-rejection-sampler | tb2.1 | scientific-computing | 3h | **babysitter** | 47.3 | 62.1 | 14.8 | B1 | C2 | library/methodologies/tdd.js |  |
+| hof-topology-interpenetration | tb3 | Science | 8h | **babysitter** | 46.9 | 65.5 | 18.6 | B1 | C4 | custom |  |
+| rs-archive-clone | tb3 | Software | 16h | **babysitter** | 45.6 | 82.8 | 37.2 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| torch-tensor-parallelism | tb2.1 | software-engineering | 4h | **babysitter** | 44.4 | 59.2 | 14.8 | B1 | C2 | custom |  |
+| data-anonymization | tb3 | Software | 24h | **babysitter** | 42.2 | 79.3 | 37.2 | B1 | C4 | library/specializations/data-engineering-analytics/data-anonymization-pipeline.js |  |
+| torch-pipeline-parallelism | tb2.1 | software-engineering | 4h | **babysitter** | 39.8 | 54.6 | 14.8 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| atrx-vep-crispr | tb3 | Science | 7h | **babysitter** | 39.8 | 54.6 | 14.8 | B1 | C2 | custom |  |
+| git-multibranch | tb2.1 | system-administration | 3h | **babysitter** | 37.4 | 70.7 | 33.3 | B1 | C4 | custom |  |
+| schemelike-metacircular-eval | tb2.1 | software-engineering | 5h | **babysitter** | 37.4 | 70.7 | 33.3 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| sam-cell-seg | tb2.1 | data-science | 10h | **babysitter** | 37 | 74.1 | 37.2 | B3 | C4 | custom |  |
+| takens-embedding-lean | tb3 | Science | 60h | **babysitter** | 35.3 | 72.4 | 37.2 | B1 | C4 | custom |  |
+| ontology-kg-querying | tb3 | Software | 20h | **babysitter** | 33.5 | 70.7 | 37.2 | B3 | C4 | library/specializations/data-engineering-analytics/knowledge-graph-construction.js |  |
+| feal-linear-cryptanalysis | tb2.1 | mathematics | 16h | **babysitter** | 31.8 | 69 | 37.2 | B1 | C4 | custom |  |
+| lean-midpoint-proof | tb3 | Science | 10h | **babysitter** | 31.8 | 69 | 37.2 | B1 | C4 | custom |  |
+| freight-dispatch-shift | tb3 | Operations | 4h | **babysitter** | 31.6 | 64.9 | 33.3 | B1 | C4 | library/methodologies/state-machine-orchestration.js |  |
+| erp-procurement-planning | tb3 | Operations | 4h | **babysitter** | 30.3 | 82.2 | 51.9 | B1 | C4 | library/methodologies/plan-and-execute.js |  |
+| wdm-design | tb3 | Science | 4h | **babysitter** | 29.9 | 63.2 | 33.3 | B1 | C4 | custom |  |
+| circuit-fibsqrt | tb2.1 | software-engineering | 16h | **babysitter** | 29.5 | 66.7 | 37.2 | B1 | C4 | custom |  |
+| vf2-speedup-networkx | tb3 | Software | 4h | **babysitter** | 28.7 | 62.1 | 33.3 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| mcmc-sampling-stan | tb2.1 | data-science | 3h | **babysitter** | 28.3 | 43.1 | 14.8 | B1 | C2 | library/methodologies/plan-and-execute.js |  |
+| ctr-optimization | tb3 | Operations | 4.8h | **babysitter** | 25.7 | 77.6 | 51.9 | B1 | C4 | custom |  |
+| coq-block-bound | tb3 | Science | 16h | **babysitter** | 24.9 | 62.1 | 37.2 | B1 | C4 | methodologies/plan-and-execute.js |  |
+| write-compressor | tb2.1 | software-engineering | 24h | **babysitter** | 23.2 | 60.3 | 37.2 | B3 | C4 | library/methodologies/spec-driven-development.js |  |
+| lake-temp-glm | tb3 | Science | 8h | **babysitter** | 22.8 | 74.7 | 51.9 | B1 | C4 | custom |  |
+| caffe-cifar-10 | tb2.1 | machine-learning | — | **babysitter** | 22.2 | 51.7 | 29.5 | B1 | C2 | custom |  |
+| protein-assembly | tb2.1 | scientific-computing | 1h | **babysitter** | 22.2 | 51.7 | 29.5 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| multi-source-data-merger | tb2.1 | data-processing | 30m | **babysitter** | 21.1 | 50.6 | 29.5 | B1 | C2 | library/methodologies/plan-and-execute.js |  |
+| math-eval-grader | tb3 | ML | 6h | **babysitter** | 19.4 | 71.3 | 51.9 | B1 | C4 | library/methodologies/atdd-tdd/ |  |
+| fix-ocaml-gc | tb2.1 | software-engineering | 24h | **babysitter** | 19 | 74.7 | 55.7 | B1 | C4 | library/cradle/bugfix.js |  |
+| bn-fit-modify | tb2.1 | scientific-computing | 8h | **babysitter** | 17.1 | 69 | 51.9 | B1 | C4 | library/methodologies/plan-and-execute.js |  |
+| cli-2ph-simplex | tb3 | Software | 2h | **babysitter** | 16.5 | 46 | 29.5 | B1 | C2 | custom |  |
+| freecad-spring-clip | tb3 | Hardware | 2h | **babysitter** | 16.5 | 46 | 29.5 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| sound-change-cascade | tb3 | Science | 4h | **babysitter** | 14.2 | 66.1 | 51.9 | B1 | C4 | library/methodologies/self-assessment.js |  |
+| cancel-async-tasks | tb2.1 | software-engineering | 2h | **babysitter** | 13.6 | 43.1 | 29.5 | B1 | C2 | library/methodologies/tdd.js |  |
+| portfolio-optimization | tb2.1 | optimization | 2h | **babysitter** | 13.6 | 43.1 | 29.5 | B1 | C2 | custom |  |
+| heat-pump-warranty | tb3 | Operations | 4h | **babysitter** | 13.6 | 65.5 | 51.9 | B1 | C4 | custom |  |
+| production-planning | tb3 | Operations | 4h | **babysitter** | 13 | 64.9 | 51.9 | B1 | C4 | custom |  |
+| shadow-relay | tb3 | Security | 3h | **babysitter** | 13 | 64.9 | 51.9 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| install-windows-3.11 | tb2.1 | system-administration | 5h | **babysitter** | 12.6 | 46 | 33.3 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| vba-userform-port | tb3 | Software | 4h | **babysitter** | 11.9 | 63.8 | 51.9 | B1 | C4 | library/specializations/code-migration-modernization/spec-kit-brownfield.js |  |
+| sparql-university | tb2.1 | data-querying | 13.3h | **babysitter** | 11.7 | 48.9 | 37.2 | B3 | C4 | library/methodologies/spec-driven-development.js |  |
+| build-pov-ray | tb2.1 | software-engineering | 1h | **babysitter** | 10.7 | 40.2 | 29.5 | B1 | C2 | custom |  |
+| batched-eval-parity | tb3 | ML | 24h | **babysitter** | 10.4 | 66.1 | 55.7 | B3 | C4 | library/methodologies/spec-kit-brownfield.js |  |
+| roy-polymorph-cn | tb3 | Science | 3h | **babysitter** | 10.2 | 62.1 | 51.9 | B1 | C4 | custom |  |
+| make-doom-for-mips | tb2.1 | software-engineering | 8h | _borderline_ | 8.4 | 60.3 | 51.9 | B1 | C4 | custom |  |
+| glycan-ms2-elucidation | tb3 | Science | 5h | _borderline_ | 8.4 | 60.3 | 51.9 | B1 | C4 | custom |  |
+| mp-checkpoint-consolidation | tb3 | ML | 6h | _borderline_ | 8.4 | 60.3 | 51.9 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| dna-insert | tb2.1 | scientific-computing | 30m | _borderline_ | 7.5 | 51.7 | 44.3 | B1 | C2 | custom |  |
+| make-mips-interpreter | tb2.1 | software-engineering | 8h | _borderline_ | 7.3 | 59.2 | 51.9 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| model-extraction-relu-logits | tb2.1 | mathematics | 8h | _borderline_ | 7.3 | 59.2 | 51.9 | B1 | C4 | custom |  |
+| feal-differential-cryptanalysis | tb2.1 | mathematics | 8h | _borderline_ | 6.9 | 40.2 | 33.3 | B1 | C4 | custom |  |
+| mteb-retrieve | tb2.1 | data-science | 15m | _borderline_ | 6.9 | 51.1 | 44.3 | B1 | C2 | library/specializations/data-engineering-analytics/embedding-based-retrieval.js |  |
+| cumulative-layout-shift | tb3 | Software | 6h | _borderline_ | 6.5 | 77 | 70.5 | B1 | C4 | library/methodologies/iterative-convergence.js |  |
+| video-processing | tb2.1 | video-processing | 6.7h | _borderline_ | 5.6 | 57.5 | 51.9 | B1 | C4 | custom |  |
+| mailman | tb2.1 | system-administration | 1h | _borderline_ | 5.4 | 53.4 | 48.1 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| formal-crypto | tb3 | Security | 3h | _borderline_ | 2.7 | 54.6 | 51.9 | B1 | C4 | custom |  |
+| satb-audio-transcription | tb3 | Media | 8h | _borderline_ | 2.7 | 54.6 | 51.9 | B1 | C4 | custom |  |
+| nextjs-performance | tb3 | Software | 3h | _borderline_ | 1.9 | 72.4 | 70.5 | B1 | C4 | library/methodologies/top-down.js |  |
+| largest-eigenval | tb2.1 | mathematics | 1h | _borderline_ | 0.8 | 48.9 | 48.1 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| freecad-impeller | tb3 | Hardware | 2h | _borderline_ | 0.8 | 48.9 | 48.1 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| cargo-flight-dispatch | tb3 | Operations | 2.5h | _borderline_ | 0.2 | 70.7 | 70.5 | B1 | C4 | library/methodologies/tdd.js |  |
+| embedding-drift-monitor | tb3 | ML | 5h | _borderline_ | 0.2 | 70.7 | 70.5 | B1 | C4 | library/methodologies/spec-kit-brownfield.js |  |
+| interleaved-vigenere | tb3 | Security | 2h | _borderline_ | -0.6 | 66.1 | 66.7 | B1 | C4 | custom |  |
+| layout-config-recreation2 | tb3 | Media | 2h | _borderline_ | -0.6 | 66.1 | 66.7 | B1 | C4 | custom |  |
+| music-harmony | tb3 | Media | 1h | _borderline_ | -0.6 | 66.1 | 66.7 | B1 | C4 | custom |  |
+| financial-document-processor | tb2.1 | data-processing | 30m | _borderline_ | -1.1 | 65.5 | 66.7 | B1 | C4 | custom |  |
+| log-summary-date-ranges | tb2.1 | data-processing | 1.3h | _borderline_ | -1.5 | 46.6 | 48.1 | B1 | C2 | library/methodologies/tdd.js |  |
+| build-pmars | tb2.1 | software-engineering | 1.5h | _borderline_ | -2.1 | 46 | 48.1 | B1 | C2 | custom |  |
+| legacy-utility-triage | tb3 | Operations | 3.5h | _borderline_ | -3.6 | 48.3 | 51.9 | B3 | C4 | custom |  |
+| fix-uautomizer-soundness | tb3 | Software | 3h | _borderline_ | -4.4 | 66.1 | 70.5 | B1 | C4 | library/cradle/bugfix.js |  |
+| kv-live-surgery | tb3 | Software | 4h | _borderline_ | -4.4 | 66.1 | 70.5 | B1 | C4 | custom |  |
+| session-window-debug | tb3 | Software | 8h | _borderline_ | -4.4 | 66.1 | 70.5 | B1 | C4 | library/methodologies/spec-kit-brownfield.js |  |
+| chess-best-move | tb2.1 | games | 45m | _borderline_ | -4.6 | 62.1 | 66.7 | B1 | C4 | library/methodologies/plan-and-execute.js |  |
+| llm-inference-batching-scheduler | tb2.1 | machine-learning | 45m | _borderline_ | -4.6 | 62.1 | 66.7 | B1 | C4 | custom |  |
+| protein-autointerp-disulfide | tb3 | Science | 2h | _borderline_ | -4.6 | 62.1 | 66.7 | B1 | C4 | custom |  |
+| filter-js-from-html | tb2.1 | security | 45m | _borderline_ | -5 | 43.1 | 48.1 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| wal-recovery-ordering | tb3 | Software | 6h | _borderline_ | -5.5 | 64.9 | 70.5 | B1 | C4 | library/methodologies/tdd.js |  |
+| winning-avg-corewars | tb2.1 | software-engineering | 1h | _borderline_ | -7.5 | 59.2 | 66.7 | B1 | C4 | library/methodologies/tdd.js |  |
+| compile-compcert | tb2.1 | system-administration | 1h | _borderline_ | -7.9 | 40.2 | 48.1 | B1 | C2 | library/cradle/project-install.js |  |
+| pypi-server | tb2.1 | software-engineering | 1h | _borderline_ | -7.9 | 40.2 | 48.1 | B1 | C2 | custom |  |
+| html-js-filter | tb3 | Security | 45m | _borderline_ | -7.9 | 40.2 | 48.1 | B5 | C2 | library/methodologies/tdd.js |  |
+| rstan-to-pystan | tb2.1 | data-science | 3h | _borderline_ | -8.8 | 43.1 | 51.9 | B1 | C4 | library/specializations/code-migration-modernization/ |  |
+| path-tracing | tb2.1 | software-engineering | 6h | _borderline_ | -10.1 | 60.3 | 70.5 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| ico-path-patch | tb3 | Security | 8h | _borderline_ | -10.1 | 60.3 | 70.5 | B1 | C4 | library/methodologies/ralph.js |  |
+| dna-assembly | tb2.1 | scientific-computing | 1h | _borderline_ | -10.3 | 56.3 | 66.7 | B1 | C4 | custom |  |
+| qemu-alpine-ssh | tb2.1 | system-administration | 30m | _borderline_ | -10.7 | 37.4 | 48.1 | B1 | C2 | custom |  |
+| qemu-startup | tb2.1 | system-administration | 30m | _borderline_ | -10.7 | 37.4 | 48.1 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| react-lead-form | tb3 | Software | 5h | _borderline_ | -11.3 | 59.2 | 70.5 | B1 | C4 | library/methodologies/state-machine-orchestration.js |  |
+| kv-store-grpc | tb2.1 | software-engineering | 15m | _borderline_ | -12.7 | 31.6 | 44.3 | B1 | C2 | library/methodologies/plan-and-execute.js |  |
+| nginx-request-logging | tb2.1 | system-administration | 20m | _borderline_ | -12.7 | 31.6 | 44.3 | B1 | C2 | custom |  |
+| openssl-selfsigned-cert | tb2.1 | security | 20m | _borderline_ | -12.7 | 31.6 | 44.3 | B1 | C2 | custom |  |
+| foodstuff-beta-activity | tb3 | Science | 1.5h | _borderline_ | -13.2 | 53.4 | 66.7 | B1 | C4 | custom |  |
+| layout-config-recreation | tb3 | Media | 2h | _borderline_ | -13.2 | 53.4 | 66.7 | B1 | C4 | library/methodologies/ralph.js |  |
+| payments-pipeline-fix | tb3 | Software | 2h | _borderline_ | -13.4 | 71.8 | 85.2 | B1 | C4 | custom |  |
+| headless-terminal | tb2.1 | software-engineering | 2h | _borderline_ | -13.6 | 34.5 | 48.1 | B5 | C2 | library/methodologies/spec-driven-development.js |  |
+| regex-log | tb2.1 | data-processing | 45m | _borderline_ | -13.6 | 34.5 | 48.1 | B5 | C2 | custom |  |
+| medical-claims-processing | tb3 | Operations | 2h | _borderline_ | -14 | 71.3 | 85.2 | B1 | C4 | library/methodologies/bmad-method/ |  |
+| cad-model | tb3 | Hardware | 2h | _borderline_ | -14.9 | 51.7 | 66.7 | B1 | C4 | custom |  |
+| freecad-platform-drawing | tb3 | Hardware | 1.5h | _borderline_ | -14.9 | 51.7 | 66.7 | B1 | C4 | custom |  |
+| mvcc-lsm-compaction | tb3 | Software | 4h | _borderline_ | -15.9 | 54.6 | 70.5 | B1 | C4 | library/cradle/bugfix.js |  |
+| risk-scorer-replay | tb3 | ML | 4h | _borderline_ | -15.9 | 54.6 | 70.5 | B1 | C4 | library/methodologies/spec-kit-brownfield.js |  |
+| overfull-hbox | tb2.1 | debugging | 1h | _borderline_ | -17.8 | 48.9 | 66.7 | B1 | C4 | custom |  |
+| photonic-waveguide-routing | tb3 | Software | 45m | _borderline_ | -20.7 | 46 | 66.7 | B1 | C4 | custom |  |
+| hf-model-inference | tb2.1 | data-science | 20m | _borderline_ | -21.3 | 23 | 44.3 | B1 | C2 | library/specializations/data-engineering-analytics/model-serving-api.js |  |
+| pretrain-shard-corruption | tb3 | ML | 2h | _borderline_ | -22 | 63.2 | 85.2 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| distribution-search | tb2.1 | machine-learning | 2h | _borderline_ | -22.2 | 25.9 | 48.1 | B5 | C2 | custom |  |
+| modernize-scientific-stack | tb2.1 | scientific-computing | 2h | _borderline_ | -24.7 | 42 | 66.7 | B1 | C4 | library/specializations/code-migration-modernization/ |  |
+| configure-git-webserver | tb2.1 | system-administration | 15m | vanilla | -25.5 | 37.4 | 62.8 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| sqlite-with-gcov | tb2.1 | system-administration | 30m | vanilla | -25.5 | 37.4 | 62.8 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| count-dataset-tokens | tb2.1 | model-training | 30m | vanilla | -26.4 | 40.2 | 66.7 | B1 | C4 | library/methodologies/plan-and-execute.js |  |
+| git-leak-recovery | tb2.1 | software-engineering | 30m | vanilla | -26.4 | 40.2 | 66.7 | B1 | C4 | library/specializations/security-compliance/credential-leak-remediation.js |  |
+| extract-moves-from-video | tb2.1 | file-operations | 2h | vanilla | -29.3 | 37.4 | 66.7 | B1 | C4 | library/specializations/data-engineering-analytics/ocr-and-text-extraction.js |  |
+| path-tracing-reverse | tb2.1 | software-engineering | 2h | vanilla | -29.3 | 37.4 | 66.7 | B1 | C4 | custom |  |
+| reshard-c4-data | tb2.1 | data-science | 30m | vanilla | -29.5 | 33.3 | 62.8 | B1 | C2 | library/methodologies/spec-driven-development.js |  |
+| large-scale-text-editing | tb2.1 | file-operations | 40m | vanilla | -32.2 | 34.5 | 66.7 | B1 | C4 | custom |  |
+| query-optimize | tb2.1 | data-science | 1h | vanilla | -32.2 | 34.5 | 66.7 | B5 | C4 | library/methodologies/tdd.js |  |
+| pytorch-model-recovery | tb2.1 | model-training | 15m | vanilla | -32.6 | 48.9 | 81.4 | B1 | C2 | custom |  |
+| sanitize-git-repo | tb2.1 | security | 30m | vanilla | -32.8 | 33.9 | 66.7 | B6 | C4 | library/specializations/security-compliance/secret-remediation.js |  |
+| polyglot-rust-c | tb2.1 | software-engineering | 3h | vanilla | -33.1 | 37.4 | 70.5 | B3 | C4 | custom |  |
+| db-wal-recovery | tb2.1 | file-operations | 45m | vanilla | -33.5 | 51.7 | 85.2 | B1 | C4 | custom |  |
+| vllm-deepseek-streaming | tb3 | ML | 2h | vanilla | -33.5 | 51.7 | 85.2 | B1 | C4 | library/cradle/bugfix.js |  |
+| train-fasttext | tb2.1 | model-training | 30m | vanilla | -35.4 | 46 | 81.4 | B1 | C2 | custom |  |
+| sqlite-db-truncate | tb2.1 | debugging | 1h | vanilla | -36.4 | 48.9 | 85.2 | B1 | C4 | custom |  |
+| sglang-qwen-burst | tb3 | ML | 2h | vanilla | -36.4 | 48.9 | 85.2 | B1 | C4 | library/cradle/bugfix.js |  |
+| memcached-backdoor | tb3 | Security | 2h | vanilla | -38.9 | 31.6 | 70.5 | B3 | C4 | custom |  |
+| vpp-loss-divergence | tb3 | ML | 2h | vanilla | -39.3 | 46 | 85.2 | B1 | C4 | custom |  |
+| polyglot-c-py | tb2.1 | software-engineering | 20m | vanilla | -39.9 | 23 | 62.8 | B1 | C2 | custom |  |
+| gcode-to-text | tb2.1 | file-operations | 1h | vanilla | -40.8 | 25.9 | 66.7 | B1 | C4 | custom |  |
+| tune-mjcf | tb2.1 | scientific-computing | 30m | vanilla | -41.2 | 40.2 | 81.4 | B1 | C2 | custom |  |
+| raman-fitting | tb2.1 | scientific-computing | 5m | vanilla | -42.3 | 39.1 | 81.4 | B1 | C2 | custom |  |
+| bun-sourcemap-leak | tb3 | Software | 1.5h | vanilla | -43.3 | 42 | 85.2 | B1 | C4 | library/methodologies/spec-driven-development.js |  |
+| constraints-scheduling | tb2.1 | personal-assistant | 15m | vanilla | -44.1 | 37.4 | 81.4 | B1 | C2 | custom |  |
+| merge-diff-arc-agi-task | tb2.1 | debugging | 20m | vanilla | -44.1 | 37.4 | 81.4 | B1 | C2 | custom |  |
+| build-cython-ext | tb2.1 | debugging | 1h | vanilla | -45 | 40.2 | 85.2 | B1 | C4 | library/methodologies/tdd.js |  |
+| uefi-bootkit | tb3 | Security | 2h | vanilla | -45 | 40.2 | 85.2 | B1 | C4 | custom |  |
+| pytorch-model-cli | tb2.1 | model-training | 30m | vanilla | -45.6 | 17.2 | 62.8 | B1 | C2 | custom |  |
+| fix-code-vulnerability | tb2.1 | security | 2h | vanilla | -47.9 | 37.4 | 85.2 | B1 | C4 | custom |  |
+| password-recovery | tb2.1 | security | 1.7h | vanilla | -47.9 | 37.4 | 85.2 | B1 | C4 | library/specializations/security-compliance/digital-forensics.js |  |
+| mteb-leaderboard | tb2.1 | data-science | 5m | vanilla | -52.7 | 28.7 | 81.4 | B1 | C2 | library/methodologies/plan-and-execute.js |  |
+| cobol-modernization | tb2.1 | software-engineering | 20m | vanilla | -58.4 | 23 | 81.4 | B1 | C2 | library/specializations/code-migration-modernization/ |  |
+| code-from-image | tb2.1 | software-engineering | 30m | vanilla | -58.4 | 23 | 81.4 | B1 | C2 | custom |  |
+| crack-7z-hash | tb2.1 | security | 5m | vanilla | -58.4 | 23 | 81.4 | B1 | C2 | custom |  |
+| extract-elf | tb2.1 | file-operations | 30m | vanilla | -58.4 | 23 | 81.4 | B1 | C2 | custom |  |
+| prove-plus-comm | tb2.1 | software-engineering | 5m | vanilla | -58.4 | 23 | 81.4 | B1 | C2 | custom |  |
+| vulnerable-secret | tb2.1 | security | 20m | vanilla | -58.4 | 23 | 81.4 | B1 | C2 | specializations/security-compliance/reverse-engineering.js |  |
+| break-filter-js-from-html | tb2.1 | security | 20m | vanilla | -65.5 | 34.5 | 100 | B1 | C4 | library/methodologies/tdd.js |  |
+| fix-git | tb2.1 | software-engineering | 5m | vanilla | -71.3 | 28.7 | 100 | B1 | C4 | custom |  |
+| custom-memory-heap-crash | tb2.1 | debugging | 30m | vanilla | -77 | 23 | 100 | B1 | C4 | custom |  |
+
+`net_live` renormalizes the rubric over the 7 dimensions that vary across this corpus; 6 are pinned constant (see `prompts/tb-profile.md`). Panel column shows majority agreement where a 3-judge panel ran.

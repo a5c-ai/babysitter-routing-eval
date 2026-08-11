@@ -2,8 +2,8 @@
   "outDir": "out/models/comparison",
   "manifest": "out/manifest.json",
   "thresholds": {
-    "low": -31,
-    "high": 4
+    "low": -25,
+    "high": 10
   },
   "models": [
     {
@@ -11,7 +11,7 @@
       "label": "GPT-5.6-terra",
       "payload": "out/models/gpt-5.6-terra/payload.json",
       "verdictMode": "stored",
-      "notes": "Stored majority recommendation from three judgments per task under the anchored profile. Originally labelled \"Opus 5\"; the local `claude` CLI routes to gpt-5.6-terra, which its own modelUsage field reports for every judgment."
+      "notes": "Stored majority recommendation from three judgments per task under the anchored profile."
     },
     {
       "id": "gpt-5.6-sol",
