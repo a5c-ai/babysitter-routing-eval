@@ -74,6 +74,16 @@ rubric reliability checkable.
   measured over all 163 tasks rather than the borderline band alone. The aggregate skew
   between benchmarks is solid; an individual verdict near a threshold is not, and the
   report says so up front.
+- **An observable anchor must also be a *valid* anchor.** The rule above is necessary but
+  not sufficient. B6 was re-laddered on a countable feature — "count the deliverables the
+  instruction names" — and disagreement rose from 0.126 to 0.267 while its mean score jumped
+  +0.54. Terminal-Bench instructions name input paths, output paths and helper scripts
+  incidentally, so counting named paths is perfectly observable and simply not what
+  decomposability means. Replacing a vague-but-correct judgement with a precise-but-wrong
+  count is worse than leaving the prose alone. C2 works because `expert_time_estimate` is
+  both observable *and* a true proxy for overhead; B6's path count is only the former.
+  Reverted. Changed dimensions +0.081, CI [+0.011, +0.151]; the five untouched controls
+  stayed flat at +0.006, CI [−0.024, +0.035].
 - **Scoring anchors beat prose, but only when they point at something checkable.** Replacing
   a dimension's prose guidance with an explicit 0/1/2/3 ladder cut inter-judge disagreement
   28% overall — but only for ladders anchored to observable text or metadata. C2, whose
