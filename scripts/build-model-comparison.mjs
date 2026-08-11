@@ -55,11 +55,14 @@ if (
   throw new Error('comparison thresholds must be finite numbers with low < high');
 }
 
-const taskIds = [...models[0].byId.keys()].sort();
-for (const model of models.slice(1)) {
-  const ids = [...model.byId.keys()].sort();
-  if (ids.length !== taskIds.length || ids.some((id, index) => id !== taskIds[index])) {
-    throw new Error(`${model.id} does not contain the same task set as ${models[0].id}`);
+// A model may be missing tasks it declined to score: content-policy boundaries differ by
+// vendor, and that asymmetry is data worth keeping rather than a reason to abort. The union
+// must still cover the manifest exactly; per-model gaps are reported as `refused`.
+const taskIds = [...new Set(models.flatMap((m) => [...m.byId.keys()]))].sort();
+for (const model of models) {
+  const missing = taskIds.filter((id) => !model.byId.has(id));
+  if (missing.length) {
+    console.error(`note: ${model.id} has no judgment for ${missing.length} task(s): ${missing.join(', ')}`);
   }
 }
 if (config.manifest) {
@@ -96,20 +99,26 @@ const rows = taskIds.map((id) => {
   const source = models[0].byId.get(id);
   const recommendations = Object.fromEntries(models.map((model) => {
     const row = model.byId.get(id);
+    if (!row) return [model.id, { verdict: 'refused', netLive: null }];
     return [model.id, {
       verdict: recommendation(model, row),
       netLive: row.scores.netLive,
     }];
   }));
-  const tally = Object.values(recommendations).reduce(
+  const voted = Object.values(recommendations).filter((item) => item.verdict !== 'refused');
+  const tally = voted.reduce(
     (counts, item) => ({ ...counts, [item.verdict]: (counts[item.verdict] ?? 0) + 1 }),
     {},
   );
-  const maxVotes = Math.max(...Object.values(tally));
+  const maxVotes = voted.length ? Math.max(...Object.values(tally)) : 0;
   const winners = Object.entries(tally).filter(([, count]) => count === maxVotes).map(([name]) => name);
-  const consensus = winners.length === 1 && maxVotes > models.length / 2
-    ? winners[0]
-    : models.length < 3 ? 'needs-third-judge' : 'undecided';
+  // Majority is taken over models that actually answered, so a refusal abstains rather
+  // than dragging a task toward `undecided`.
+  const consensus = !voted.length
+    ? 'no-judgment'
+    : winners.length === 1 && maxVotes > voted.length / 2
+      ? winners[0]
+      : voted.length < 3 ? 'needs-third-judge' : 'undecided';
   return {
     id,
     bench: source.bench,

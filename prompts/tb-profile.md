@@ -66,41 +66,58 @@ workday: the median task in this corpus is 120 expert-minutes.
 - 3 → over ~8 hours, or an instruction with distinct phases that each produce an artifact
   the next phase consumes
 
-**B1 (ordering)** — score on whether the instruction imposes a sequence whose violation
-silently corrupts the result, *not* on whether the instruction is long or has many bullet
-points. A list of independent requirements is not an ordering constraint. Judge from
-artifact flow: does any step consume something an earlier step produces?
+**B1 (ordering)** — score the dependency graph, not the file count. **The unit is any step
+the agent must perform, whether it produces a separate file or an intermediate value inside
+one.** Ordering *within* a single deliverable counts: if a computation must run in a set
+sequence to be correct, that is B1 even when there is one output file. Conversely, several
+independent outputs with no dependency between them are B1=0 however many there are. Length
+and bullet count are not evidence.
 
-- 0 → the stated requirements can be satisfied in any order; no step consumes another
-  step's output
+- 0 → no step consumes another step's output; any order produces the same result
 - 1 → a natural reading order (inspect the inputs, then write the output) but nothing
   downstream breaks if you deviate
-- 2 → the instruction names one intermediate artifact that a later step consumes, so
-  producing them out of order gives a wrong result
-- 3 → two or more chained artifact dependencies, or an explicit first-X-then-Y-then-Z
-  whose violation silently yields a plausible-but-wrong answer
+- 2 → one step consumes something an earlier step produced — an intermediate artifact, or a
+  derived value used later in the same file — so the wrong order gives a wrong result
+- 3 → two or more such dependencies chained, or an explicit first-X-then-Y-then-Z whose
+  violation silently yields a plausible-but-wrong answer
 
-**B5 (convergence)** — is there something the agent can *measure* and improve against
-before it is done? Not "is there a test" (B2 is pinned for that) — the question is whether
-the instruction exposes a target with headroom, so repeated measure-and-improve cycles
-have somewhere to go.
 
-- 0 → binary done/not-done; nothing to measure against except the hidden verifier
-- 1 → the instruction names a self-runnable check (an example script, a sanity command)
-  but states no numeric target
-- 2 → a numeric threshold or tolerance is stated that the agent can measure itself
-  against and correct toward
-- 3 → a stated numeric target with headroom plus an implied optimisation loop (speed up
-  by at least N×, minimise an error, beat a baseline)
+**B5 (convergence)** — can the agent measure its own progress and improve before it is
+done? B2 is pinned for "a verifier exists", so the hidden tests are not evidence and the
+`tests/` listing is not evidence. **A stated number is not required.** What matters is
+whether the agent can compute something itself and tell whether it got better: "as
+efficient as possible" and "identical to the reference binary for all inputs" both give a
+real loop. Conversely a figure the agent cannot evaluate until the hidden verifier runs
+does not count.
+
+- 0 → nothing the agent can measure itself; correctness is knowable only from the verifier
+- 1 → the agent can check *whether* it is right — a worked example, a reference to compare
+  against — but the check is pass/fail with no scale
+- 2 → the agent can compute a *quantity* and tell whether it improved, even with no target
+  figure stated (make it faster, match a reference across all inputs, reduce an error)
+- 3 → as 2, plus a stated figure to beat or a baseline to exceed, so there is a defined
+  finish line
+
 
 **B6 (decomposability)** — real independent units that could be worked in parallel. Many
 tasks here are one indivisible artifact with several requirements; that is B6=0 or 1, not
 3. Reserve 3 for genuine fan-out (N files, N cases, N targets, each verifiable alone).
 
-**B8 (drift risk)** — weigh two things: how much latitude the instruction leaves (an
-under-specified goal invites over-building), and how much surface the work touches. A task
-with an exact output schema and one output file constrains the agent tightly — that is low
-drift risk even if the work is hard. Difficulty is not drift risk.
+**B8 (drift risk)** — ask one question: **how much could a confident, plausible-looking
+answer vary while still satisfying everything the instruction states?** Score that gap, not
+the difficulty of closing it. A hard task with an exact output contract is low drift risk;
+an easy task with a vague goal is high. Do not score complexity, technical depth, or the
+number of constraints — **a long list of constraints narrows the gap and lowers the score**.
+
+- 0 → the instruction pins the output exactly — path, format and content all determined —
+  so a wrong answer is visibly wrong
+- 1 → the format is pinned but some content is derived by the agent, so an error would
+  still look well-formed
+- 2 → the deliverable is described in outcome terms; two competent agents would plausibly
+  produce materially different artifacts that both satisfy the instruction
+- 3 → the goal is open-ended and spans many files or systems, so an agent could produce
+  something confidently wrong that reads as complete
+
 
 **C2 (overhead ratio)** — orchestration cost relative to the work. Anchor on
 `expert_time_estimate`; this is the mirror of B3 and should be scored consistently with it.
@@ -110,19 +127,20 @@ drift risk even if the work is hard. Difficulty is not drift risk.
 - 2 → ~30–120 minutes; the ceremony is a noticeable fraction of the task
 - 3 → under ~30 minutes; per-step stops cost more than the work itself
 
-**C4 (shape uncertainty)** — score what the instruction *shows*, not how hard the work
-feels. Terminal-Bench instructions are unusually explicit about deliverables, so most of
-this corpus is low. Unreadable inputs (a schematic, a binary, a video) make the content
-unknown but usually leave the shape knowable — score the shape.
+**C4 (shape uncertainty)** — score the *method*, not the deliverables. **Naming the output
+files says nothing about C4**: a task can specify its artifacts exactly and still require
+investigation before anyone knows how to produce them. Work down this list and stop at the
+first line that matches — earlier lines win, and a later line does not cancel an earlier
+one.
 
-- 0 → the instruction enumerates the steps, or names every output artifact and the
-  transformation between them
-- 1 → the outputs are named but the method is not; the approach is standard for the stated
-  domain and only the tooling choice is open
-- 2 → the approach cannot be chosen until a supplied input has been inspected (a file,
-  dataset, image or log named in the instruction)
-- 3 → the instruction states a symptom or a goal rather than a deliverable, so the first
-  real step is diagnosis
+- 3 → the instruction leads with a symptom or a complaint ("it's broken", "the alerts are
+  wrong") rather than a procedure, so the first real step is diagnosis — this holds even
+  when the instruction also names the files, modules or outputs involved
+- 2 → the procedure cannot be chosen until a supplied input has been inspected (a dataset,
+  image, log or existing codebase named in the instruction)
+- 1 → the method is conventional for the stated domain and only a tooling or library choice
+  is open
+- 0 → the instruction states the procedure itself, step by step
 
 
 ## Scoring math

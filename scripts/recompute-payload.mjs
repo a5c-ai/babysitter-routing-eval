@@ -47,9 +47,17 @@ for (const eff of readdirSync(path.join(runDir, 'tasks')).sort()) {
   if (t.kind !== 'agent') continue;
   const raw = JSON.parse(readFileSync(rj, 'utf8'));
   const v = raw.value ?? raw;
-  if (!v?.taskId || !v.benefit) continue;
+  if (!v?.benefit) continue;
+  // Key on the id the orchestrator dispatched, never the one the judge echoes back.
+  // Models mis-transcribe it (gemini-2.5-pro returned "build-povray" for "build-pov-ray"),
+  // which would silently misattribute a judgment to the wrong task.
+  const dispatchedId = t.inputs?.task?.id ?? (t.title ?? '').replace(/^Judge\s+/, '').split(' ')[0];
+  if (!dispatchedId) continue;
   const idx = (t.labels ?? []).find((l) => /^judge-\d+$/.test(l)) ?? 'judge-0';
-  (judgments[v.taskId] ??= []).push({ judgeIndex: Number(idx.split('-')[1]), effectId: eff, v });
+  (judgments[dispatchedId] ??= []).push({
+    judgeIndex: Number(idx.split('-')[1]), effectId: eff, v,
+    echoedId: v.taskId ?? null, idMismatch: (v.taskId ?? null) !== dispatchedId,
+  });
 }
 
 const dims = (v) => ({
@@ -127,6 +135,7 @@ for (const [id, all] of Object.entries(judgments)) {
     vanillaFailureMode: v.vanilla_failure_mode ?? null,
     counterfactualEmpty: v.counterfactual_empty ?? null,
     rationale: v.rationale ?? null,
+    idEcho: primary.idMismatch ? { echoed: primary.echoedId, dispatched: id } : null,
   });
 }
 
@@ -156,7 +165,9 @@ const payload = {
 writeFileSync(outPath, JSON.stringify(payload, null, 2));
 
 const counts = rows.reduce((m, r) => ({ ...m, [r.verdict]: (m[r.verdict] ?? 0) + 1 }), {});
+const echoBad = rows.filter((r) => r.idEcho).length;
 console.error(`recomputed ${rows.length} rows -> ${outPath}`);
+if (echoBad) console.error(`NOTE: ${echoBad} judgment(s) echoed a taskId differing from the dispatched id; keyed on the dispatched id.`);
 console.error(`verdicts: ${JSON.stringify(counts)}`);
 console.error(`net_live: min ${payload.distribution.min} q1 ${payload.distribution.q1} median ${payload.distribution.median} q3 ${payload.distribution.q3} max ${payload.distribution.max}`);
 if (noPanelInBand) {

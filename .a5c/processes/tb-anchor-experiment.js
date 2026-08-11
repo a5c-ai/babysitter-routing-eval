@@ -31,17 +31,32 @@ export async function process(inputs, ctx) {
 
   ctx.log('info', `anchor experiment: ${taskIds.length} tasks × ${judges} judges`);
 
+  // Cross-vendor judging hits provider-specific content refusals — one vendor declines a
+  // task another scores. A refusal is data, not a run failure: record it and carry on, or a
+  // single refused task blocks the whole corpus.
+  const refusals = [];
   for (let i = 0; i < taskIds.length; i += chunkSize) {
     const chunk = taskIds.slice(i, i + chunkSize);
     await ctx.parallel.all(
       chunk.flatMap((id) =>
-        Array.from({ length: judges }, (_, j) => () =>
-          ctx.task(judgeTask, { task: byId[id], rubric, profile, judgeIndex: j }, { label: `x${j}:${id}` }),
-        ),
+        Array.from({ length: judges }, (_, j) => async () => {
+          try {
+            return await ctx.task(
+              judgeTask,
+              { task: byId[id], rubric, profile, judgeIndex: j },
+              { label: `x${j}:${id}` },
+            );
+          } catch (err) {
+            refusals.push({ id, judgeIndex: j, error: String(err?.message ?? err).slice(0, 300) });
+            ctx.log('warn', `judge ${j} produced no answer for ${id} — recorded as a refusal`);
+            return null;
+          }
+        }),
       ),
     );
     ctx.log('info', `judged ${Math.min(i + chunkSize, taskIds.length)}/${taskIds.length}`);
   }
 
-  return { tasks: taskIds.length, judges };
+  if (refusals.length) ctx.log('info', `${refusals.length} refusal(s): ${refusals.map((r) => r.id).join(', ')}`);
+  return { tasks: taskIds.length, judges, refusals };
 }

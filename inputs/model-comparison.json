@@ -19,6 +19,20 @@
       "payload": "out/models/gpt-5.6-sol/payload.json",
       "verdictMode": "primary-score",
       "notes": "One primary judgment per task, effort high, using the same anchored rubric and Terminal-Bench profile."
+    },
+    {
+      "id": "claude-opus-5",
+      "label": "Claude Opus 5",
+      "payload": "out/models/claude-opus-5/payload.json",
+      "verdictMode": "primary-score",
+      "notes": "One judgment per task, effort high. Cross-vendor (Anthropic). 161/163 scored: declined break-filter-js-from-html and crack-7z-hash on content policy."
+    },
+    {
+      "id": "gemini-2.5-pro",
+      "label": "Gemini 2.5 Pro",
+      "payload": "out/models/gemini-2.5-pro/payload.json",
+      "verdictMode": "primary-score",
+      "notes": "One judgment per task, effort high. Cross-vendor (Google). 163/163 scored, no refusals."
     }
   ]
 }

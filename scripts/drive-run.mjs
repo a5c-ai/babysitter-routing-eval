@@ -16,6 +16,7 @@
  *                                       [--harness claude|codex]
  *                                       [--model <model-id>] [--effort high]
  *                                       [--auto-approve] [--stop-at-breakpoint]
+ *                                       [--continue-on-error]
  */
 
 import { execFile, spawn } from 'node:child_process';
@@ -37,6 +38,10 @@ const CONCURRENCY = Number(flag('concurrency', 8));
 const MAX_ITER = Number(flag('max-iterations', 400));
 const AUTO_APPROVE = has('auto-approve');
 const STOP_AT_BREAKPOINT = has('stop-at-breakpoint');
+// Cross-vendor judging hits provider-specific content refusals: one vendor declines a task
+// another scores. Halting the whole corpus on those loses the 162 good rows and, worse,
+// hides the refusal itself. With this flag the run continues and the refusal is recorded.
+const CONTINUE_ON_ERROR = has('continue-on-error');
 const MODEL = flag('model', null);
 const EFFORT = flag('effort', null);
 const HARNESS = flag('harness', 'claude');
@@ -452,10 +457,14 @@ while (!done && iterations < MAX_ITER) {
       }
     });
     if (agentFailure) {
-      log('stopping with failed agent effects still pending; rerun the driver to retry them');
-      exitStatus = 1;
-      done = true;
-      break;
+      if (CONTINUE_ON_ERROR) {
+        log('agent effect(s) failed; continuing (--continue-on-error). Failures stay recorded in the journal.');
+      } else {
+        log('stopping with failed agent effects still pending; rerun the driver to retry them');
+        exitStatus = 1;
+        done = true;
+        break;
+      }
     }
   }
 

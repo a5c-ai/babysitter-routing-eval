@@ -6,8 +6,8 @@ plain ("vanilla") agent session.
 
 First corpus: every task in **Terminal-Bench 2.1 (89)** and **Terminal-Bench 3 (74)**.
 
-**59 babysitter · 69 borderline · 35 vanilla** — with tb3 routing to babysitter at 54%
-against tb2.1's 21%, which is what you'd expect from a benchmark whose median task is 4×
+**50 babysitter · 82 borderline · 31 vanilla** — with tb3 routing to babysitter at 43%
+against tb2.1's 20%, which is what you'd expect from a benchmark whose median task is 4×
 longer. Open [`out/report.html`](out/report.html) for the interactive version: summary
 charts plus all 163 tasks with the verbatim instruction each was judged from, the evidence
 cited for every dimension, and the panel votes.
@@ -70,10 +70,26 @@ rubric reliability checkable.
 
 ## What we learned about the rubric
 
-- **Panel unanimity is 68%**, with a mean `net_live` spread of 13.3 points across judges,
+- **Panel unanimity is 74%**, with a mean `net_live` spread of 9.4 points across judges,
   measured over all 163 tasks rather than the borderline band alone. The aggregate skew
   between benchmarks is solid; an individual verdict near a threshold is not, and the
   report says so up front.
+- **The judges can diagnose the rubric, but must not repair it.** With three vendors scoring
+  every task, ranking tasks by cross-vendor spread and then reading the *cited evidence*
+  side by side localises defects that score statistics cannot see. Four distinct defect
+  types turned up this way, each invisible in the numbers and obvious in the citations:
+  **overlapping ladder levels** (C4 — two clauses both matched the same task, so the score
+  was arbitrary), **unspecified scope** (B1 — ordering applied within an artifact by one
+  vendor and between artifacts by another), **an exclusion with no positive test** (B8 — the
+  prose said "difficulty is not drift risk" and a judge with nothing else to score scored
+  difficulty anyway), and **an undefined boundary term** (B5 — whether an unquantified but
+  measurable objective counts). Repairing all four cut cross-vendor spread 26%, CI
+  [−0.234, −0.107]. Asking a model to *rewrite* the rubric would optimise for agreement with
+  that model; mining its citations located defects that were genuinely there.
+- **The returns are steeply concentrated.** C4's repair alone gave −0.600 of the −0.171
+  average; B1 gave −0.188, B8 −0.212, B5 −0.087, the last two not individually significant.
+  A second B1 attempt — excluding intrinsic data flow — made it *worse* (+0.150) and was
+  reverted. Cleanly mechanical defects pay; softer ones mostly do not.
 - **An observable anchor must also be a *valid* anchor.** The rule above is necessary but
   not sufficient. B6 was re-laddered on a countable feature — "count the deliverables the
   instruction names" — and disagreement rose from 0.126 to 0.267 while its mean score jumped
