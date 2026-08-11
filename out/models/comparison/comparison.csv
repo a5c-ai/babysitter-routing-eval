@@ -1,4 +1,4 @@
-id,bench,name,opus-5_verdict,opus-5_net_live,gpt-5.6-sol_verdict,gpt-5.6-sol_net_live,consensus,agreement
+id,bench,name,gpt-5.6-terra_verdict,gpt-5.6-terra_net_live,gpt-5.6-sol_verdict,gpt-5.6-sol_net_live,consensus,agreement
 tb2.1__adaptive-rejection-sampler,tb2.1,adaptive-rejection-sampler,babysitter,8.6,babysitter,17.2,babysitter,2/2
 tb2.1__bn-fit-modify,tb2.1,bn-fit-modify,babysitter,-3.1,babysitter,5.6,babysitter,2/2
 tb2.1__break-filter-js-from-html,tb2.1,break-filter-js-from-html,vanilla,-61.3,vanilla,-58.4,vanilla,2/2

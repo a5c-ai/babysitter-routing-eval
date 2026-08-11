@@ -80,22 +80,32 @@ artifact flow: does any step consume something an earlier step produces?
 - 3 → two or more chained artifact dependencies, or an explicit first-X-then-Y-then-Z
   whose violation silently yields a plausible-but-wrong answer
 
-**B5 (convergence)** — is there something the agent can *measure* and improve against
-before it is done? Not "is there a test" (B2 is pinned for that) — the question is whether
-the instruction exposes a target with headroom, so repeated measure-and-improve cycles
-have somewhere to go.
+**B5 (convergence)** — does the instruction hand the agent a number to steer by? B2 is
+pinned for "a verifier exists", so the hidden tests are not evidence here. **The `tests/`
+file listing is not evidence for B5** — the agent cannot read the verifier while working.
+Score only what the instruction text itself states.
 
-- 0 → binary done/not-done; nothing to measure against except the hidden verifier
-- 1 → the instruction names a self-runnable check (an example script, a sanity command)
-  but states no numeric target
-- 2 → a numeric threshold or tolerance is stated that the agent can measure itself
-  against and correct toward
-- 3 → a stated numeric target with headroom plus an implied optimisation loop (speed up
-  by at least N×, minimise an error, beat a baseline)
+- 0 → no number to steer by; the agent cannot tell how close it is until the verifier runs
+- 1 → the instruction names a command, script or worked example the agent can run itself to
+  check its work, but states no number
+- 2 → the instruction states a numeric bound to satisfy — a tolerance, accuracy, timeout or
+  threshold — that the agent can measure itself against
+- 3 → the instruction states a numeric target to beat or minimise, so additional effort
+  keeps paying (at least N× faster, minimise the error, exceed a stated baseline)
 
-**B6 (decomposability)** — real independent units that could be worked in parallel. Many
-tasks here are one indivisible artifact with several requirements; that is B6=0 or 1, not
-3. Reserve 3 for genuine fan-out (N files, N cases, N targets, each verifiable alone).
+
+**B6 (decomposability)** — count the deliverables the instruction *names*, not the
+requirements it lists. Several requirements about one artifact are one unit. The test is
+whether a piece could be handed to a second person and verified without waiting for the
+first.
+
+- 0 → one output artifact
+- 1 → one output artifact whose parts are separable in principle but ship and verify
+  together
+- 2 → two or three separately named outputs, each meaningful on its own
+- 3 → four or more named outputs, or an explicitly enumerated set (per-file, per-case,
+  per-target), each verifiable alone
+
 
 **B8 (drift risk)** — weigh two things: how much latitude the instruction leaves (an
 under-specified goal invites over-building), and how much surface the work touches. A task

@@ -6,7 +6,7 @@ Corpus: 163 tasks · models: 2 · unanimous: 129/163 (79.1%) · awaiting a third
 
 | model | source | verdict mode | notes |
 |---|---|---|---|
-| Opus 5 | `out/models/opus-5/payload.json` | stored | Stored majority recommendation from three Opus 5 judgments per task under the anchored profile. |
+| GPT-5.6-terra | `out/models/gpt-5.6-terra/payload.json` | stored | Stored majority recommendation from three judgments per task under the anchored profile. Originally labelled "Opus 5"; the local `claude` CLI routes to gpt-5.6-terra, which its own modelUsage field reports for every judgment. |
 | GPT-5.6-sol | `out/models/gpt-5.6-sol/payload.json` | primary-score | One primary judgment per task, effort high, using the same anchored rubric and Terminal-Bench profile. |
 
 Recommendations use each model's configured verdict mode and the shared thresholds where `primary-score` is selected. The score in parentheses is the payload's primary `net_live`; a stored verdict may reflect a panel.
@@ -15,19 +15,19 @@ Recommendations use each model's configured verdict mode and the shared threshol
 
 | model | babysitter | borderline | vanilla | mean net_live |
 |---|---:|---:|---:|---:|
-| Opus 5 | 59 | 69 | 35 | -6.5 |
+| GPT-5.6-terra | 59 | 69 | 35 | -6.5 |
 | GPT-5.6-sol | 66 | 75 | 22 | -0.3 |
 
 ## Pairwise verdict agreement
 
-| | Opus 5 | GPT-5.6-sol |
+| | GPT-5.6-terra | GPT-5.6-sol |
 |---|---:|---:|
-| Opus 5 | 163/163 (100%) | 129/163 (79.1%) |
+| GPT-5.6-terra | 163/163 (100%) | 129/163 (79.1%) |
 | GPT-5.6-sol | 129/163 (79.1%) | 163/163 (100%) |
 
 ## Tasks
 
-| task | Opus 5 | GPT-5.6-sol | consensus | agreement |
+| task | GPT-5.6-terra | GPT-5.6-sol | consensus | agreement |
 |---|---|---|---|---:|
 | tb2.1__adaptive-rejection-sampler | babysitter (8.6) | babysitter (17.2) | babysitter | 2/2 |
 | tb2.1__bn-fit-modify | babysitter (-3.1) | babysitter (5.6) | babysitter | 2/2 |

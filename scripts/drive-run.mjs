@@ -14,7 +14,7 @@
  * Usage:
  *   node scripts/drive-run.mjs <runDir> [--concurrency 8] [--max-iterations 400]
  *                                       [--harness claude|codex]
- *                                       [--model opus|gpt-5.6-sol] [--effort high]
+ *                                       [--model <model-id>] [--effort high]
  *                                       [--auto-approve] [--stop-at-breakpoint]
  */
 

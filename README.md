@@ -14,25 +14,32 @@ cited for every dimension, and the panel votes.
 
 ## Multi-model comparison
 
-The current table uses three **Opus 5** judgments per task. The same judge prompt and
+The current table uses three **GPT-5.6-terra** judgments per task. The same judge prompt and
 scoring code have now been run once per task with **GPT-5.6-sol** under the same anchored
 profile. `borderline` is the rubric's undecided band.
 
 | model recommendation | babysitter | borderline | vanilla | mean primary `net_live` |
 |---|---:|---:|---:|---:|
-| Opus 5 majority (3 judgments/task) | 59 | 69 | 35 | -6.5 |
+| GPT-5.6-terra majority (3 judgments/task) | 59 | 69 | 35 | -6.5 |
 | GPT-5.6-sol (1 judgment/task) | 66 | 75 | 22 | -0.3 |
 
 The two model recommendations agree on **129/163 tasks (79.1%)**. The remaining **34**
 are marked `needs-third-judge`, ready for a third model to break the tie. See the complete
 [multi-model table](out/models/comparison/comparison.md), its
-[CSV](out/models/comparison/comparison.csv), the [Opus 5 report](out/models/opus-5/report.html),
+[CSV](out/models/comparison/comparison.csv), the [GPT-5.6-terra report](out/models/gpt-5.6-terra/report.html),
 and the [GPT-5.6-sol report](out/models/gpt-5.6-sol/report.html).
 
-The Opus column uses its stored three-judge majority; the GPT column uses its primary
+The terra column uses its stored three-judge majority; the sol column uses its primary
 `net_live` score and the shared thresholds. The score shown beside each recommendation in
-the detailed table is the primary score, so it can differ from an Opus panel majority. The
-published Opus report at [`out/report.html`](out/report.html) remains unchanged.
+the detailed table is the primary score, so it can differ from a panel majority. The
+published report at [`out/report.html`](out/report.html) remains unchanged.
+
+> **Correction.** These judgments were first published as "Opus 5". The local `claude` CLI
+> routes to `gpt-5.6-terra` — its own `modelUsage` field reports that model on every one of
+> the 489 judgments. Both columns are therefore GPT-family models. The measured difference
+> between them is real, but they are not the independent cross-vendor judges the original
+> labels implied, and same-family models share bias, so true independent-judge disagreement
+> is likely worse than the 79.1% shown.
 
 ## How it works
 
@@ -107,7 +114,7 @@ scripts/
   build-report.mjs              results.md / results.csv / summary.md
   build-html-report.mjs         the interactive report
   build-model-comparison.mjs    N-model recommendation/consensus table
-out/                            original Opus report, per-model reports, and comparison
+out/                            published report, per-model reports, and comparison
 ```
 
 ## Reproducing
@@ -195,5 +202,5 @@ majority, otherwise `undecided`.
 - **B6 and B8 remain prose.** Anchor ladders were written for both and made agreement
   worse, so they were reverted. They are the two dimensions most in need of a better
   observable anchor.
-- The published Opus baseline measures one model's self-consistency. This comparison adds
+- The published baseline measures one model's self-consistency. This comparison adds
   a second model, but still lacks hand labels and the planned third independent model.

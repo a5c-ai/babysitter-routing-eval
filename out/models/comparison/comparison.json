@@ -7,12 +7,12 @@
   },
   "models": [
     {
-      "id": "opus-5",
-      "label": "Opus 5",
-      "payload": "out/models/opus-5/payload.json",
+      "id": "gpt-5.6-terra",
+      "label": "GPT-5.6-terra",
+      "payload": "out/models/gpt-5.6-terra/payload.json",
       "runId": "01KZPDCFWD8KKWRG1Q3BF57BNC",
       "verdictMode": "stored",
-      "notes": "Stored majority recommendation from three Opus 5 judgments per task under the anchored profile."
+      "notes": "Stored majority recommendation from three judgments per task under the anchored profile. Originally labelled \"Opus 5\"; the local `claude` CLI routes to gpt-5.6-terra, which its own modelUsage field reports for every judgment."
     },
     {
       "id": "gpt-5.6-sol",
@@ -27,7 +27,7 @@
     "unanimous": 129,
     "needsThirdJudge": 34,
     "modelSummaries": {
-      "opus-5": {
+      "gpt-5.6-terra": {
         "babysitter": 59,
         "borderline": 69,
         "vanilla": 35,
@@ -41,12 +41,12 @@
       }
     },
     "pairwise": {
-      "opus-5": {
-        "opus-5": 163,
+      "gpt-5.6-terra": {
+        "gpt-5.6-terra": 163,
         "gpt-5.6-sol": 129
       },
       "gpt-5.6-sol": {
-        "opus-5": 129,
+        "gpt-5.6-terra": 129,
         "gpt-5.6-sol": 163
       }
     }
@@ -57,7 +57,7 @@
       "bench": "tb2.1",
       "name": "adaptive-rejection-sampler",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 8.6
         },
@@ -75,7 +75,7 @@
       "bench": "tb2.1",
       "name": "bn-fit-modify",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": -3.1
         },
@@ -93,7 +93,7 @@
       "bench": "tb2.1",
       "name": "break-filter-js-from-html",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -61.3
         },
@@ -111,7 +111,7 @@
       "bench": "tb2.1",
       "name": "build-cython-ext",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -16.1
         },
@@ -129,7 +129,7 @@
       "bench": "tb2.1",
       "name": "build-pmars",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": -2.1
         },
@@ -147,7 +147,7 @@
       "bench": "tb2.1",
       "name": "build-pov-ray",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": -2.1
         },
@@ -165,7 +165,7 @@
       "bench": "tb2.1",
       "name": "caffe-cifar-10",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 22.2
         },
@@ -183,7 +183,7 @@
       "bench": "tb2.1",
       "name": "cancel-async-tasks",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -16.5
         },
@@ -201,7 +201,7 @@
       "bench": "tb2.1",
       "name": "chess-best-move",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -49.4
         },
@@ -219,7 +219,7 @@
       "bench": "tb2.1",
       "name": "circuit-fibsqrt",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 30.3
         },
@@ -237,7 +237,7 @@
       "bench": "tb2.1",
       "name": "cobol-modernization",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -61.3
         },
@@ -255,7 +255,7 @@
       "bench": "tb2.1",
       "name": "code-from-image",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -43.7
         },
@@ -273,7 +273,7 @@
       "bench": "tb2.1",
       "name": "compile-compcert",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -16.5
         },
@@ -291,7 +291,7 @@
       "bench": "tb2.1",
       "name": "configure-git-webserver",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -31.2
         },
@@ -309,7 +309,7 @@
       "bench": "tb2.1",
       "name": "constraints-scheduling",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -58.4
         },
@@ -327,7 +327,7 @@
       "bench": "tb2.1",
       "name": "count-dataset-tokens",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -30.5
         },
@@ -345,7 +345,7 @@
       "bench": "tb2.1",
       "name": "crack-7z-hash",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -54.2
         },
@@ -363,7 +363,7 @@
       "bench": "tb2.1",
       "name": "custom-memory-heap-crash",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -56.5
         },
@@ -381,7 +381,7 @@
       "bench": "tb2.1",
       "name": "db-wal-recovery",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -20.7
         },
@@ -399,7 +399,7 @@
       "bench": "tb2.1",
       "name": "distribution-search",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -19.4
         },
@@ -417,7 +417,7 @@
       "bench": "tb2.1",
       "name": "dna-assembly",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -27.6
         },
@@ -435,7 +435,7 @@
       "bench": "tb2.1",
       "name": "dna-insert",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -32.2
         },
@@ -453,7 +453,7 @@
       "bench": "tb2.1",
       "name": "extract-elf",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -43.7
         },
@@ -471,7 +471,7 @@
       "bench": "tb2.1",
       "name": "extract-moves-from-video",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -30.8
         },
@@ -489,7 +489,7 @@
       "bench": "tb2.1",
       "name": "feal-differential-cryptanalysis",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -8.8
         },
@@ -507,7 +507,7 @@
       "bench": "tb2.1",
       "name": "feal-linear-cryptanalysis",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 11.7
         },
@@ -525,7 +525,7 @@
       "bench": "tb2.1",
       "name": "filter-js-from-html",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -25.1
         },
@@ -543,7 +543,7 @@
       "bench": "tb2.1",
       "name": "financial-document-processor",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 1.3
         },
@@ -561,7 +561,7 @@
       "bench": "tb2.1",
       "name": "fix-code-vulnerability",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -20.7
         },
@@ -579,7 +579,7 @@
       "bench": "tb2.1",
       "name": "fix-git",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -77
         },
@@ -597,7 +597,7 @@
       "bench": "tb2.1",
       "name": "fix-ocaml-gc",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 4.6
         },
@@ -615,7 +615,7 @@
       "bench": "tb2.1",
       "name": "gcode-to-text",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -49.4
         },
@@ -633,7 +633,7 @@
       "bench": "tb2.1",
       "name": "git-leak-recovery",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -10.7
         },
@@ -651,7 +651,7 @@
       "bench": "tb2.1",
       "name": "git-multibranch",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 50.2
         },
@@ -669,7 +669,7 @@
       "bench": "tb2.1",
       "name": "gpt2-codegolf",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 37.6
         },
@@ -687,7 +687,7 @@
       "bench": "tb2.1",
       "name": "headless-terminal",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -25.1
         },
@@ -705,7 +705,7 @@
       "bench": "tb2.1",
       "name": "hf-model-inference",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -21.3
         },
@@ -723,7 +723,7 @@
       "bench": "tb2.1",
       "name": "install-windows-3.11",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 2.9
         },
@@ -741,7 +741,7 @@
       "bench": "tb2.1",
       "name": "kv-store-grpc",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -12.7
         },
@@ -759,7 +759,7 @@
       "bench": "tb2.1",
       "name": "large-scale-text-editing",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -23.6
         },
@@ -777,7 +777,7 @@
       "bench": "tb2.1",
       "name": "largest-eigenval",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -7.9
         },
@@ -795,7 +795,7 @@
       "bench": "tb2.1",
       "name": "llm-inference-batching-scheduler",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -21.8
         },
@@ -813,7 +813,7 @@
       "bench": "tb2.1",
       "name": "log-summary-date-ranges",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -7.7
         },
@@ -831,7 +831,7 @@
       "bench": "tb2.1",
       "name": "mailman",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -19.4
         },
@@ -849,7 +849,7 @@
       "bench": "tb2.1",
       "name": "make-doom-for-mips",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -5.9
         },
@@ -867,7 +867,7 @@
       "bench": "tb2.1",
       "name": "make-mips-interpreter",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -5.9
         },
@@ -885,7 +885,7 @@
       "bench": "tb2.1",
       "name": "mcmc-sampling-stan",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 34.1
         },
@@ -903,7 +903,7 @@
       "bench": "tb2.1",
       "name": "merge-diff-arc-agi-task",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -44.1
         },
@@ -921,7 +921,7 @@
       "bench": "tb2.1",
       "name": "model-extraction-relu-logits",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 6.9
         },
@@ -939,7 +939,7 @@
       "bench": "tb2.1",
       "name": "modernize-scientific-stack",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -1.9
         },
@@ -957,7 +957,7 @@
       "bench": "tb2.1",
       "name": "mteb-leaderboard",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -54.2
         },
@@ -975,7 +975,7 @@
       "bench": "tb2.1",
       "name": "mteb-retrieve",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -18.4
         },
@@ -993,7 +993,7 @@
       "bench": "tb2.1",
       "name": "multi-source-data-merger",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 15.3
         },
@@ -1011,7 +1011,7 @@
       "bench": "tb2.1",
       "name": "nginx-request-logging",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -10.9
         },
@@ -1029,7 +1029,7 @@
       "bench": "tb2.1",
       "name": "openssl-selfsigned-cert",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -8.1
         },
@@ -1047,7 +1047,7 @@
       "bench": "tb2.1",
       "name": "overfull-hbox",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -0.8
         },
@@ -1065,7 +1065,7 @@
       "bench": "tb2.1",
       "name": "password-recovery",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -43.7
         },
@@ -1083,7 +1083,7 @@
       "bench": "tb2.1",
       "name": "path-tracing",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -0.2
         },
@@ -1101,7 +1101,7 @@
       "bench": "tb2.1",
       "name": "path-tracing-reverse",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -32.2
         },
@@ -1119,7 +1119,7 @@
       "bench": "tb2.1",
       "name": "polyglot-c-py",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -38.5
         },
@@ -1137,7 +1137,7 @@
       "bench": "tb2.1",
       "name": "polyglot-rust-c",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -10.3
         },
@@ -1155,7 +1155,7 @@
       "bench": "tb2.1",
       "name": "portfolio-optimization",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 10.7
         },
@@ -1173,7 +1173,7 @@
       "bench": "tb2.1",
       "name": "protein-assembly",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -10.3
         },
@@ -1191,7 +1191,7 @@
       "bench": "tb2.1",
       "name": "prove-plus-comm",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -27
         },
@@ -1209,7 +1209,7 @@
       "bench": "tb2.1",
       "name": "pypi-server",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": -7.9
         },
@@ -1227,7 +1227,7 @@
       "bench": "tb2.1",
       "name": "pytorch-model-cli",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -22.2
         },
@@ -1245,7 +1245,7 @@
       "bench": "tb2.1",
       "name": "pytorch-model-recovery",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -38.3
         },
@@ -1263,7 +1263,7 @@
       "bench": "tb2.1",
       "name": "qemu-alpine-ssh",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -10.7
         },
@@ -1281,7 +1281,7 @@
       "bench": "tb2.1",
       "name": "qemu-startup",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -19.4
         },
@@ -1299,7 +1299,7 @@
       "bench": "tb2.1",
       "name": "query-optimize",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -49.4
         },
@@ -1317,7 +1317,7 @@
       "bench": "tb2.1",
       "name": "raman-fitting",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -53.8
         },
@@ -1335,7 +1335,7 @@
       "bench": "tb2.1",
       "name": "regex-chess",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 49.2
         },
@@ -1353,7 +1353,7 @@
       "bench": "tb2.1",
       "name": "regex-log",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -20.9
         },
@@ -1371,7 +1371,7 @@
       "bench": "tb2.1",
       "name": "reshard-c4-data",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -16.5
         },
@@ -1389,7 +1389,7 @@
       "bench": "tb2.1",
       "name": "rstan-to-pystan",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -17.8
         },
@@ -1407,7 +1407,7 @@
       "bench": "tb2.1",
       "name": "sam-cell-seg",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 34.9
         },
@@ -1425,7 +1425,7 @@
       "bench": "tb2.1",
       "name": "sanitize-git-repo",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -1.9
         },
@@ -1443,7 +1443,7 @@
       "bench": "tb2.1",
       "name": "schemelike-metacircular-eval",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -7.1
         },
@@ -1461,7 +1461,7 @@
       "bench": "tb2.1",
       "name": "sparql-university",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 3.1
         },
@@ -1479,7 +1479,7 @@
       "bench": "tb2.1",
       "name": "sqlite-db-truncate",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -35.1
         },
@@ -1497,7 +1497,7 @@
       "bench": "tb2.1",
       "name": "sqlite-with-gcov",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 2.1
         },
@@ -1515,7 +1515,7 @@
       "bench": "tb2.1",
       "name": "torch-pipeline-parallelism",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 20.1
         },
@@ -1533,7 +1533,7 @@
       "bench": "tb2.1",
       "name": "torch-tensor-parallelism",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 30.1
         },
@@ -1551,7 +1551,7 @@
       "bench": "tb2.1",
       "name": "train-fasttext",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -13.6
         },
@@ -1569,7 +1569,7 @@
       "bench": "tb2.1",
       "name": "tune-mjcf",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -26.4
         },
@@ -1587,7 +1587,7 @@
       "bench": "tb2.1",
       "name": "video-processing",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -20.3
         },
@@ -1605,7 +1605,7 @@
       "bench": "tb2.1",
       "name": "vulnerable-secret",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -58.4
         },
@@ -1623,7 +1623,7 @@
       "bench": "tb2.1",
       "name": "winning-avg-corewars",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -21.8
         },
@@ -1641,7 +1641,7 @@
       "bench": "tb2.1",
       "name": "write-compressor",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 8.8
         },
@@ -1659,7 +1659,7 @@
       "bench": "tb3",
       "name": "atrx-vep-crispr",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 38.7
         },
@@ -1677,7 +1677,7 @@
       "bench": "tb3",
       "name": "batched-eval-parity",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 13.4
         },
@@ -1695,7 +1695,7 @@
       "bench": "tb3",
       "name": "biped-contact-dynamics",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 18.8
         },
@@ -1713,7 +1713,7 @@
       "bench": "tb3",
       "name": "bun-sourcemap-leak",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -6.1
         },
@@ -1731,7 +1731,7 @@
       "bench": "tb3",
       "name": "cad-model",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -35.1
         },
@@ -1749,7 +1749,7 @@
       "bench": "tb3",
       "name": "cargo-flight-dispatch",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -1.3
         },
@@ -1767,7 +1767,7 @@
       "bench": "tb3",
       "name": "cli-2ph-simplex",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 33.7
         },
@@ -1785,7 +1785,7 @@
       "bench": "tb3",
       "name": "coq-block-bound",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 3.1
         },
@@ -1803,7 +1803,7 @@
       "bench": "tb3",
       "name": "ctr-optimization",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 19.9
         },
@@ -1821,7 +1821,7 @@
       "bench": "tb3",
       "name": "cumulative-layout-shift",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 11.9
         },
@@ -1839,7 +1839,7 @@
       "bench": "tb3",
       "name": "data-anonymization",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 27.8
         },
@@ -1857,7 +1857,7 @@
       "bench": "tb3",
       "name": "distributed-dedup",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 56.1
         },
@@ -1875,7 +1875,7 @@
       "bench": "tb3",
       "name": "embedding-drift-monitor",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -33.1
         },
@@ -1893,7 +1893,7 @@
       "bench": "tb3",
       "name": "erp-procurement-planning",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 24.5
         },
@@ -1911,7 +1911,7 @@
       "bench": "tb3",
       "name": "exam-pdf-eval",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 51.3
         },
@@ -1929,7 +1929,7 @@
       "bench": "tb3",
       "name": "fin-saccr-rwa",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 1.5
         },
@@ -1947,7 +1947,7 @@
       "bench": "tb3",
       "name": "fix-uautomizer-soundness",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -15.9
         },
@@ -1965,7 +1965,7 @@
       "bench": "tb3",
       "name": "foodstuff-beta-activity",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -35.1
         },
@@ -1983,7 +1983,7 @@
       "bench": "tb3",
       "name": "formal-crypto",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -8.8
         },
@@ -2001,7 +2001,7 @@
       "bench": "tb3",
       "name": "fp8-rmsnorm-gemm",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 74.7
         },
@@ -2019,7 +2019,7 @@
       "bench": "tb3",
       "name": "freecad-impeller",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -16.5
         },
@@ -2037,7 +2037,7 @@
       "bench": "tb3",
       "name": "freecad-platform-drawing",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -35.1
         },
@@ -2055,7 +2055,7 @@
       "bench": "tb3",
       "name": "freecad-spring-clip",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": -7.9
         },
@@ -2073,7 +2073,7 @@
       "bench": "tb3",
       "name": "freight-dispatch-shift",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 25.9
         },
@@ -2091,7 +2091,7 @@
       "bench": "tb3",
       "name": "glycan-ms2-elucidation",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -8.8
         },
@@ -2109,7 +2109,7 @@
       "bench": "tb3",
       "name": "gpt2-codegolf",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 28.9
         },
@@ -2127,7 +2127,7 @@
       "bench": "tb3",
       "name": "gsea-proteomics",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 43.3
         },
@@ -2145,7 +2145,7 @@
       "bench": "tb3",
       "name": "heat-pump-warranty",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -7.1
         },
@@ -2163,7 +2163,7 @@
       "bench": "tb3",
       "name": "hof-topology-interpenetration",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 6.1
         },
@@ -2181,7 +2181,7 @@
       "bench": "tb3",
       "name": "html-js-filter",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -28
         },
@@ -2199,7 +2199,7 @@
       "bench": "tb3",
       "name": "ico-path-patch",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 18.8
         },
@@ -2217,7 +2217,7 @@
       "bench": "tb3",
       "name": "interleaved-vigenere",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -29.3
         },
@@ -2235,7 +2235,7 @@
       "bench": "tb3",
       "name": "intrastat-meldung",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 7.3
         },
@@ -2253,7 +2253,7 @@
       "bench": "tb3",
       "name": "jax-speedrun-gpu",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 39.3
         },
@@ -2271,7 +2271,7 @@
       "bench": "tb3",
       "name": "ks-solver-cpp",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 21.7
         },
@@ -2289,7 +2289,7 @@
       "bench": "tb3",
       "name": "kv-live-surgery",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -10.1
         },
@@ -2307,7 +2307,7 @@
       "bench": "tb3",
       "name": "lake-temp-glm",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 5.6
         },
@@ -2325,7 +2325,7 @@
       "bench": "tb3",
       "name": "layout-config-recreation",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -13.2
         },
@@ -2343,7 +2343,7 @@
       "bench": "tb3",
       "name": "layout-config-recreation2",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 5.4
         },
@@ -2361,7 +2361,7 @@
       "bench": "tb3",
       "name": "lean-midpoint-proof",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 8.8
         },
@@ -2379,7 +2379,7 @@
       "bench": "tb3",
       "name": "legacy-utility-triage",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 2.9
         },
@@ -2397,7 +2397,7 @@
       "bench": "tb3",
       "name": "live-database-cutover",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 19.9
         },
@@ -2415,7 +2415,7 @@
       "bench": "tb3",
       "name": "math-eval-grader",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 16.5
         },
@@ -2433,7 +2433,7 @@
       "bench": "tb3",
       "name": "medical-claims-processing",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 8.6
         },
@@ -2451,7 +2451,7 @@
       "bench": "tb3",
       "name": "memcached-backdoor",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -35.1
         },
@@ -2469,7 +2469,7 @@
       "bench": "tb3",
       "name": "mp-checkpoint-consolidation",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 7.3
         },
@@ -2487,7 +2487,7 @@
       "bench": "tb3",
       "name": "music-harmony",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -35.1
         },
@@ -2505,7 +2505,7 @@
       "bench": "tb3",
       "name": "mvcc-lsm-compaction",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 8.4
         },
@@ -2523,7 +2523,7 @@
       "bench": "tb3",
       "name": "nextjs-performance",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -23.9
         },
@@ -2541,7 +2541,7 @@
       "bench": "tb3",
       "name": "ontology-kg-querying",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 16.3
         },
@@ -2559,7 +2559,7 @@
       "bench": "tb3",
       "name": "payments-pipeline-fix",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -45
         },
@@ -2577,7 +2577,7 @@
       "bench": "tb3",
       "name": "photonic-waveguide-routing",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -29.3
         },
@@ -2595,7 +2595,7 @@
       "bench": "tb3",
       "name": "pretrain-shard-corruption",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -19.2
         },
@@ -2613,7 +2613,7 @@
       "bench": "tb3",
       "name": "production-planning",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 18.8
         },
@@ -2631,7 +2631,7 @@
       "bench": "tb3",
       "name": "protein-autointerp-disulfide",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -30.5
         },
@@ -2649,7 +2649,7 @@
       "bench": "tb3",
       "name": "react-lead-form",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 38.7
         },
@@ -2667,7 +2667,7 @@
       "bench": "tb3",
       "name": "retro-console-soc",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 49.2
         },
@@ -2685,7 +2685,7 @@
       "bench": "tb3",
       "name": "risk-scorer-replay",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 13
         },
@@ -2703,7 +2703,7 @@
       "bench": "tb3",
       "name": "roy-polymorph-cn",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 7.3
         },
@@ -2721,7 +2721,7 @@
       "bench": "tb3",
       "name": "rs-archive-clone",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 53.8
         },
@@ -2739,7 +2739,7 @@
       "bench": "tb3",
       "name": "satb-audio-transcription",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 1.5
         },
@@ -2757,7 +2757,7 @@
       "bench": "tb3",
       "name": "session-window-debug",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -33.1
         },
@@ -2775,7 +2775,7 @@
       "bench": "tb3",
       "name": "sglang-qwen-burst",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -53.6
         },
@@ -2793,7 +2793,7 @@
       "bench": "tb3",
       "name": "shadow-relay",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": -7.1
         },
@@ -2811,7 +2811,7 @@
       "bench": "tb3",
       "name": "sound-change-cascade",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 8.4
         },
@@ -2829,7 +2829,7 @@
       "bench": "tb3",
       "name": "takens-embedding-lean",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "borderline",
           "netLive": 3.1
         },
@@ -2847,7 +2847,7 @@
       "bench": "tb3",
       "name": "telecom-entity-resolution",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 35.3
         },
@@ -2865,7 +2865,7 @@
       "bench": "tb3",
       "name": "uefi-bootkit",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -33.5
         },
@@ -2883,7 +2883,7 @@
       "bench": "tb3",
       "name": "vba-userform-port",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 23.4
         },
@@ -2901,7 +2901,7 @@
       "bench": "tb3",
       "name": "vf2-speedup-networkx",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 34.5
         },
@@ -2919,7 +2919,7 @@
       "bench": "tb3",
       "name": "vllm-deepseek-streaming",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -47.9
         },
@@ -2937,7 +2937,7 @@
       "bench": "tb3",
       "name": "vpp-loss-divergence",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "vanilla",
           "netLive": -23.6
         },
@@ -2955,7 +2955,7 @@
       "bench": "tb3",
       "name": "wal-recovery-ordering",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 44.4
         },
@@ -2973,7 +2973,7 @@
       "bench": "tb3",
       "name": "wdm-design",
       "recommendations": {
-        "opus-5": {
+        "gpt-5.6-terra": {
           "verdict": "babysitter",
           "netLive": 32.8
         },
