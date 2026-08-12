@@ -1,0 +1,69 @@
+name: Claude PR auto-review
+
+# Reviews every non-draft pull request when it is opened and again after each
+# push, so the review verdict always reflects the latest revision. The final
+# approve/merge stays with a human — this workflow only gets the PR ready.
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, synchronize]
+
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Review the pull request
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review pull request #${{ github.event.pull_request.number }} in
+            ${{ github.repository }} for merge readiness. The repository owner
+            performs the final approval and merge; your job is to get the PR
+            clean and state clearly whether it is ready.
+
+            Steps:
+            1. Read the PR description and full diff (`gh pr view`, `gh pr diff`).
+               The PR branch is checked out in the working directory.
+            2. Run `npm ci` and `npm test`. Report any failure verbatim.
+            3. Review the diff for correctness bugs, security problems (this
+               repo's workflows handle API credentials — watch for secret
+               leakage, shell injection via workflow expression interpolation,
+               and unsafe URL/input handling), and consistency with the existing
+               code and conventions.
+            4. If this run was triggered by a new push to an already-reviewed
+               PR, read the existing review comments first and check whether
+               they were addressed instead of repeating them.
+            5. Post genuine defects as inline review comments anchored to the
+               relevant lines (one review submission, event COMMENT). Skip
+               style nitpicks.
+            6. Finish with a single summary comment whose first line is the
+               verdict: "✅ Ready for final approval" when nothing blocking
+               remains, or "🛑 Needs changes" followed by the blocking list.
+               Include what you verified (test results, checks performed).
+
+            Rules: never approve, request changes formally, or merge — the
+            human owner decides. Never push commits from this workflow.
+          claude_args: |
+            --allowedTools "Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh api:*),Bash(npm ci),Bash(npm test),Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
