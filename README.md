@@ -171,6 +171,91 @@ agent-core, which needs API credentials separate from the harness. The process k
 authority either way — it dispatches every task, enforces phase order, opens the
 breakpoints and journals everything; the driver only executes what it's handed.
 
+## Running routing judges through API providers
+
+The manual **Provider routing judges** GitHub Actions workflow runs one independent model
+vote across the corpus for every selected model. It runs only the routing judge: the model
+sees each Terminal-Bench instruction and metadata, but no Terminal-Bench task is executed.
+Each model gets a separate Babysitter journal, payload, Markdown/CSV report and HTML report.
+
+Provider and model selection live in a JSON file; credentials never do. Start from
+[`inputs/provider-models.example.json`](inputs/provider-models.example.json), add the real
+model IDs, and either set `enabled` to `true` or supply their IDs when dispatching the
+workflow.
+
+| adapter | request API | intended use |
+|---|---|---|
+| `openai-chat` | `POST …/v1/chat/completions` | [LiteLLM](https://docs.litellm.ai/docs/completion/json_mode) and any OpenAI-compatible gateway |
+| `openrouter` | OpenAI chat format plus OpenRouter's `provider` routing object | [OpenRouter](https://openrouter.ai/docs/guides/features/structured-outputs) |
+| `anthropic-messages` | Anthropic Messages with `output_config.format` | [Native Anthropic API](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) |
+| `gemini-interactions` | Gemini Interactions with `response_format` | [Native Gemini API](https://ai.google.dev/gemini-api/docs/structured-output) |
+
+The model's exact API name belongs in `models[].model`; provider-specific generation and
+routing fields belong in `models[].request`. For example, OpenRouter's endpoint selection
+can be expressed without changing code:
+
+```json
+{
+  "id": "third-judge",
+  "provider": "openrouter",
+  "model": "provider/model-name",
+  "structuredOutput": "json-schema",
+  "request": {
+    "provider": {
+      "order": ["Together"],
+      "require_parameters": true,
+      "allow_fallbacks": true
+    }
+  }
+}
+```
+
+Set `providers[].endpoint` when a compatible gateway exposes chat completions at a custom
+relative path. Base URLs ending in `/v1` are handled without adding a second `/v1`.
+
+`json-schema` is the default structured-output mode. A model or proxy without that feature
+can use `json-object` (OpenAI-compatible APIs) or `prompt-only`; every response is still
+parsed and locally validated against the judge schema before it enters the journal.
+If an OpenAI-compatible gateway returns HTTP 400 because strict JSON Schema does not
+support score-bound keywords such as `minimum` or `maximum`, set that model's
+`structuredOutput` to `json-object` or `prompt-only`; local validation still enforces the
+same score bounds.
+
+### Credentials
+
+Provider entries refer to environment-variable names using `apiKeyEnv`, `baseUrlEnv` and
+`headersFromEnv`. Literal API keys and authentication headers in the JSON config are
+rejected. The workflow maps these common GitHub secrets and variables:
+
+- Secrets: `LITELLM_API_KEY`, `OPENROUTER_API_KEY`, `ANTHROPIC_API_KEY`,
+  `GEMINI_API_KEY`, `OPENAI_API_KEY`, `JUDGE_API_KEY`
+- Variables: `LITELLM_BASE_URL`, `JUDGE_BASE_URL`
+
+For another provider, `JUDGE_PROVIDER_ENV_JSON` may hold a secret JSON object such as
+`{"MISTRAL_API_KEY":"…","MISTRAL_BASE_URL":"https://…"}`. The provider config can then
+reference `MISTRAL_API_KEY` and `MISTRAL_BASE_URL` by name. The JSON secret is expanded only
+in memory and is never written to the run journal or reports.
+
+### Dispatch and local use
+
+From GitHub Actions, choose **Provider routing judges**, enter the config path and an
+optional comma-separated model-ID list. The matrix uses `fail-fast: false`, so one provider
+failure does not discard other model votes. Artifacts are retained for 30 days.
+
+The same one-model flow can be run locally:
+
+```bash
+export OPENROUTER_API_KEY=…
+node scripts/provider-config.mjs inputs/provider-models.json \
+  --models third-judge --check-env
+node scripts/run-provider-judge.mjs inputs/provider-models.json third-judge \
+  --concurrency 4
+```
+
+The full run retries transient provider errors, honors `Retry-After`, records non-secret
+provider/model/usage metadata per judgment, uses the anchored `-31` / `+4` thresholds by
+default, and fails if the final payload does not contain every manifest task.
+
 ### Changing the rubric without re-judging
 
 Every judgment, including all panel judges, is journaled per-dimension with its own

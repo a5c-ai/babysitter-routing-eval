@@ -1,0 +1,79 @@
+{
+  "thresholds": { "low": -31, "high": 4 },
+  "timeoutMs": 300000,
+  "maxRetries": 4,
+  "providers": {
+    "litellm": {
+      "adapter": "openai-chat",
+      "baseUrlEnv": "LITELLM_BASE_URL",
+      "apiKeyEnv": "LITELLM_API_KEY"
+    },
+    "openrouter": {
+      "adapter": "openrouter",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "headers": {
+        "HTTP-Referer": "https://github.com/a5c-ai/babysitter-routing-eval",
+        "X-Title": "Babysitter routing evaluation"
+      }
+    },
+    "anthropic": {
+      "adapter": "anthropic-messages",
+      "apiKeyEnv": "ANTHROPIC_API_KEY"
+    },
+    "gemini": {
+      "adapter": "gemini-interactions",
+      "apiKeyEnv": "GEMINI_API_KEY"
+    },
+    "custom-openai-compatible": {
+      "adapter": "openai-chat",
+      "baseUrlEnv": "JUDGE_BASE_URL",
+      "apiKeyEnv": "JUDGE_API_KEY"
+    }
+  },
+  "models": [
+    {
+      "id": "litellm-example",
+      "enabled": false,
+      "provider": "litellm",
+      "model": "your-litellm-model-alias",
+      "concurrency": 4,
+      "structuredOutput": "json-schema",
+      "request": {}
+    },
+    {
+      "id": "openrouter-example",
+      "enabled": false,
+      "provider": "openrouter",
+      "model": "provider/model-name",
+      "concurrency": 4,
+      "structuredOutput": "json-schema",
+      "request": {
+        "provider": {
+          "require_parameters": true,
+          "allow_fallbacks": true
+        }
+      }
+    },
+    {
+      "id": "anthropic-example",
+      "enabled": false,
+      "provider": "anthropic",
+      "model": "claude-model-name",
+      "concurrency": 3,
+      "structuredOutput": "json-schema",
+      "request": {
+        "max_tokens": 4096,
+        "output_config": { "effort": "high" }
+      }
+    },
+    {
+      "id": "gemini-example",
+      "enabled": false,
+      "provider": "gemini",
+      "model": "gemini-model-name",
+      "concurrency": 4,
+      "structuredOutput": "json-schema",
+      "request": {}
+    }
+  ]
+}

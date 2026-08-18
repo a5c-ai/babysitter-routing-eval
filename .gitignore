@@ -1,7 +1,11 @@
 node_modules/
+.env
+.env.*
+!.env.example
 
 # Driver logs — operational noise, regenerated on every run.
 out/*.log
+out/provider-judges/
 
 .DS_Store
 *.tmp

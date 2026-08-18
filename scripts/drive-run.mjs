@@ -15,6 +15,7 @@
  *   node scripts/drive-run.mjs <runDir> [--concurrency 8] [--max-iterations 400]
  *                                       [--harness claude|codex]
  *                                       [--model <model-id>] [--effort high]
+ *                                       [--provider-config <file> --model-id <id>]
  *                                       [--auto-approve] [--stop-at-breakpoint]
  *                                       [--continue-on-error]
  */
@@ -23,6 +24,12 @@ import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import {
+  loadProviderConfig,
+  requestProvider,
+  selectModels,
+  strictOutputSchema,
+} from './provider-client.mjs';
 
 const execFileP = promisify(execFile);
 
@@ -45,8 +52,16 @@ const CONTINUE_ON_ERROR = has('continue-on-error');
 const MODEL = flag('model', null);
 const EFFORT = flag('effort', null);
 const HARNESS = flag('harness', 'claude');
+const PROVIDER_CONFIG_PATH = flag('provider-config', null);
+const MODEL_ID = flag('model-id', null);
 const BABYSITTER = 'npx';
 const BABY_ARGS = ['babysitter'];
+
+if (Boolean(PROVIDER_CONFIG_PATH) !== Boolean(MODEL_ID)) {
+  throw new Error('--provider-config and --model-id must be supplied together');
+}
+const providerConfig = PROVIDER_CONFIG_PATH ? await loadProviderConfig(PROVIDER_CONFIG_PATH) : null;
+const providerModel = providerConfig ? selectModels(providerConfig, [MODEL_ID])[0] : null;
 
 const log = (...m) => console.error(`[drive ${new Date().toISOString().slice(11, 19)}]`, ...m);
 
@@ -208,23 +223,6 @@ function validate(value, schema, pathStr = '$') {
   return errs;
 }
 
-function strictOutputSchema(schema) {
-  if (!schema || typeof schema !== 'object') return schema;
-  if (schema.type === 'object') {
-    const properties = Object.fromEntries(
-      Object.entries(schema.properties ?? {}).map(([key, value]) => [key, strictOutputSchema(value)]),
-    );
-    return {
-      ...schema,
-      properties,
-      required: Object.keys(properties),
-      additionalProperties: false,
-    };
-  }
-  if (schema.type === 'array') return { ...schema, items: strictOutputSchema(schema.items) };
-  return schema;
-}
-
 async function runAgent(action, attempt = 0) {
   const def = action.taskDef;
   const prompt = renderPrompt(def);
@@ -232,6 +230,36 @@ async function runAgent(action, attempt = 0) {
   const effort = def.execution?.effort ?? EFFORT;
 
   try {
+    if (providerModel) {
+      const result = await requestProvider({
+        config: providerConfig,
+        model: providerModel,
+        prompt,
+        schema: def.agent?.outputSchema,
+      });
+      const value = extractJson(result.text);
+      const schema = def.agent?.outputSchema;
+      if (schema) {
+        const errs = validate(value, schema);
+        if (errs.length) {
+          if (attempt < 2) {
+            log(`  schema errors on ${action.effectId}, retry ${attempt + 1}: ${errs.slice(0, 3).join('; ')}`);
+            return runAgent(action, attempt + 1);
+          }
+          return { __error: `schema validation failed: ${errs.slice(0, 5).join('; ')}` };
+        }
+      }
+      log(`  model ${action.effectId}: ${providerModel.model} via ${providerModel.provider}`);
+      return {
+        __value: value,
+        __metadata: {
+          harness: 'provider-api',
+          modelId: providerModel.id,
+          ...result.metadata,
+        },
+      };
+    }
+
     if (HARNESS === 'codex') {
       const schemaPath = path.join('/tmp', `schema-${action.effectId}.json`);
       const outputPath = path.join('/tmp', `output-${action.effectId}.json`);
@@ -327,7 +355,7 @@ async function runAgent(action, attempt = 0) {
   } catch (e) {
     if (attempt < 2) {
       log(`  agent error on ${action.effectId}, retry ${attempt + 1}: ${String(e.message).slice(0, 160)}`);
-      const retryDelay = HARNESS === 'codex' ? 10000 : 2000;
+      const retryDelay = !providerModel && HARNESS === 'codex' ? 10000 : 2000;
       await new Promise((r) => setTimeout(r, retryDelay * (attempt + 1)));
       return runAgent(action, attempt + 1);
     }

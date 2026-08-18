@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compare:models": "node scripts/build-model-comparison.mjs inputs/model-comparison.json",
-    "test": "node --check scripts/*.mjs && node --check .a5c/processes/*.js && npm run compare:models"
+    "test": "node --check scripts/*.mjs && node --check .a5c/processes/*.js && node --test tests/*.test.mjs && npm run compare:models"
   },
   "keywords": [],
   "author": "",
