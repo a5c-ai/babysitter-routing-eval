@@ -216,6 +216,10 @@ relative path. Base URLs ending in `/v1` are handled without adding a second `/v
 `json-schema` is the default structured-output mode. A model or proxy without that feature
 can use `json-object` (OpenAI-compatible APIs) or `prompt-only`; every response is still
 parsed and locally validated against the judge schema before it enters the journal.
+If an OpenAI-compatible gateway returns HTTP 400 because strict JSON Schema does not
+support score-bound keywords such as `minimum` or `maximum`, set that model's
+`structuredOutput` to `json-object` or `prompt-only`; local validation still enforces the
+same score bounds.
 
 ### Credentials
 

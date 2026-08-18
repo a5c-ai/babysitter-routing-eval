@@ -64,8 +64,7 @@ export function resolveProviderEnvironment(env = process.env) {
   return { ...extra, ...env };
 }
 
-export async function loadProviderConfig(filePath, { env = process.env, checkEnv = false } = {}) {
-  env = resolveProviderEnvironment(env);
+export async function loadProviderConfig(filePath) {
   const resolvedPath = path.resolve(filePath);
   const parsed = JSON.parse(await readFile(resolvedPath, 'utf8'));
   assert(isObject(parsed.providers), 'config.providers must be an object');
@@ -87,13 +86,6 @@ export async function loadProviderConfig(filePath, { env = process.env, checkEnv
     assert(isObject(provider.headersFromEnv ?? {}), `provider ${providerId}.headersFromEnv must be an object`);
     for (const [header, envName] of Object.entries(provider.headersFromEnv ?? {})) {
       assertEnvName(envName, `provider ${providerId}.headersFromEnv.${header}`);
-    }
-    if (checkEnv) {
-      if (provider.apiKeyEnv) assert(env[provider.apiKeyEnv], `provider ${providerId}: missing ${provider.apiKeyEnv}`);
-      if (provider.baseUrlEnv && !provider.baseUrl) assert(env[provider.baseUrlEnv], `provider ${providerId}: missing ${provider.baseUrlEnv}`);
-      for (const envName of Object.values(provider.headersFromEnv ?? {})) {
-        assert(env[envName], `provider ${providerId}: missing ${envName}`);
-      }
     }
   }
 
@@ -167,15 +159,15 @@ function endpointFor(adapter, baseUrl, explicitEndpoint) {
   return defaultEndpoint(adapter);
 }
 
-function strictSchema(schema) {
+export function strictOutputSchema(schema) {
   if (!isObject(schema)) return schema;
   if (schema.type === 'object') {
     const properties = Object.fromEntries(
-      Object.entries(schema.properties ?? {}).map(([key, value]) => [key, strictSchema(value)]),
+      Object.entries(schema.properties ?? {}).map(([key, value]) => [key, strictOutputSchema(value)]),
     );
     return { ...schema, properties, required: Object.keys(properties), additionalProperties: false };
   }
-  if (schema.type === 'array') return { ...schema, items: strictSchema(schema.items) };
+  if (schema.type === 'array') return { ...schema, items: strictOutputSchema(schema.items) };
   return schema;
 }
 
@@ -202,7 +194,7 @@ export function buildProviderRequest({ config, model, prompt, schema, env = proc
   }
   const outputMode = model.structuredOutput ?? provider.structuredOutput ?? 'json-schema';
   if (outputMode === 'json-schema') assert(isObject(schema), `model ${model.id}: json-schema mode requires an output schema`);
-  const outputSchema = strictSchema(schema);
+  const outputSchema = strictOutputSchema(schema);
   const request = model.request ?? {};
   let body;
 

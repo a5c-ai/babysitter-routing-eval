@@ -24,7 +24,12 @@ import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { loadProviderConfig, requestProvider, selectModels } from './provider-client.mjs';
+import {
+  loadProviderConfig,
+  requestProvider,
+  selectModels,
+  strictOutputSchema,
+} from './provider-client.mjs';
 
 const execFileP = promisify(execFile);
 
@@ -216,23 +221,6 @@ function validate(value, schema, pathStr = '$') {
     if (typeof value !== 'boolean') errs.push(`${pathStr}: expected boolean`);
   }
   return errs;
-}
-
-function strictOutputSchema(schema) {
-  if (!schema || typeof schema !== 'object') return schema;
-  if (schema.type === 'object') {
-    const properties = Object.fromEntries(
-      Object.entries(schema.properties ?? {}).map(([key, value]) => [key, strictOutputSchema(value)]),
-    );
-    return {
-      ...schema,
-      properties,
-      required: Object.keys(properties),
-      additionalProperties: false,
-    };
-  }
-  if (schema.type === 'array') return { ...schema, items: strictOutputSchema(schema.items) };
-  return schema;
 }
 
 async function runAgent(action, attempt = 0) {

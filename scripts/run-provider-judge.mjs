@@ -43,7 +43,13 @@ buildProviderRequest({
 
 await writeFile(
   inputsPath,
-  JSON.stringify({ workspaceDir, manifestPath, chunkSize: concurrency, modelId: model.id }, null, 2),
+  JSON.stringify({
+    workspaceDir,
+    manifestPath,
+    chunkSize: concurrency,
+    model: model.model,
+    modelId: model.id,
+  }, null, 2),
 );
 
 function parseJsonOutput(stdout) {

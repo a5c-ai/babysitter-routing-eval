@@ -83,7 +83,8 @@ test('provider driver journals one judge-only task through an HTTP adapter', { t
       models: [{ id: 'mock-judge', provider: 'mock', model: 'mock-model', concurrency: 1 }],
     }));
     await writeFile(inputsPath, JSON.stringify({
-      workspaceDir, manifestPath, modelId: 'mock-judge', taskIds: [taskId], chunkSize: 1,
+      workspaceDir, manifestPath, model: 'mock-model', modelId: 'mock-judge',
+      taskIds: [taskId], chunkSize: 1,
     }));
 
     const createdResult = await execFileP('npx', [
@@ -131,6 +132,7 @@ test('provider driver journals one judge-only task through an HTTP adapter', { t
     )).join('\n');
     assert.equal(journalText.includes('integration-secret'), false);
     assert.match(journalText, /"provider"\s*:\s*"mock"/);
+    assert.match(journalText, /"execution"\s*:\s*\{[^}]*"model"\s*:\s*"mock-model"/s);
   } finally {
     await new Promise((resolve) => server.close(resolve));
     await rm(tempDir, { recursive: true });
